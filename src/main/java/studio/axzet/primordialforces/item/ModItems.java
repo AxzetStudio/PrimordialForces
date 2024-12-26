@@ -1,2 +1,4 @@
-package studio.axzet.primordialforces.item;public class ModItems {
+package studio.axzet.primordialforces.item;
+
+public class ModItems {
 }

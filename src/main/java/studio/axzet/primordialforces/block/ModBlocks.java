@@ -1,2 +1,4 @@
-package studio.axzet.primordialforces.block;public class ModBlocks {
+package studio.axzet.primordialforces.block;
+
+public class ModBlocks {
 }
