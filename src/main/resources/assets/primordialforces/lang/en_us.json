@@ -1,5 +1,7 @@
 {
-  "itemGroup.examplemod": "Example Mod Tab",
-  "block.examplemod.example_block": "Example Block",
-  "item.examplemod.example_item": "Example Item"
+  "item.primordialforces.black_opal": "Black Opal",
+  "item.primordialforces.raw_black_opal": "Raw Black Opal",
+  "item.primordialforces.arcadium": "Arcadium",
+  "item.primordialforces.raw_arcadium": "Raw Arcadium",
+  "item.primordialforces.void_shard": "Void Shard"
 }
