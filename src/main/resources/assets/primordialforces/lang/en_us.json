@@ -5,5 +5,7 @@
   "item.primordialforces.raw_arcadium": "Raw Arcadium",
   "item.primordialforces.void_shard": "Void Shard",
 
-  "block.primordialforces.black_opal_block": "Block of Black Opal"
+  "block.primordialforces.black_opal_block": "Block of Black Opal",
+  "block.primordialforces.black_opal_ore": "Black Opal Ore",
+  "block.primordialforces.arcadium_deepslate_ore": "Arcadium Deepslate Ore"
 }

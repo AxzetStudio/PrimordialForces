@@ -15,7 +15,19 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PrimordialForces.MOD_ID);
 
+    public static final DeferredBlock<Block> BLACK_OPAL_ORE = registerBlock("black_opal_ore",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
+            );
+
     public static final DeferredBlock<Block> BLACK_OPAL_BLOCK = registerBlock("black_opal_block",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
+            );
+
+    public static final DeferredBlock<Block> ARCADIUM_DEEPSLATE_ORE = registerBlock("arcadium_deepslate_ore",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
+            );
+
+    public static final DeferredBlock<Block> ARCADIUM_BLOCK = registerBlock("arcadium_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
             );
 
