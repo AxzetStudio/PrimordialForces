@@ -15,7 +15,6 @@ public class ModItems {
     public static final DeferredItem<Item> RAW_ARCADIUM = ITEMS.registerSimpleItem("raw_arcadium");
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
 
-
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

@@ -17,6 +17,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import studio.axzet.primordialforces.block.ModBlocks;
 import studio.axzet.primordialforces.item.ModCreativeModeTabs;
 import studio.axzet.primordialforces.item.ModItems;
 
@@ -44,7 +45,7 @@ public class PrimordialForces
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
-
+        ModBlocks.register(modEventBus);
 
 
         // Register the item to a creative tab
@@ -65,6 +66,9 @@ public class PrimordialForces
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.BLACK_OPAL);
             event.accept(ModItems.RAW_BLACK_OPAL);
+            event.accept(ModItems.ARCADIUM);
+            event.accept(ModItems.RAW_ARCADIUM);
+            event.accept(ModItems.VOID_SHARD);
         }
     }
 
