@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_arcadium": {
+      "conditions": {
+        "items": [
+          {
+            "items": "primordialforces:raw_arcadium"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "primordialforces:arcadium_from_blasting_raw_arcadium"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_arcadium"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "primordialforces:arcadium_from_blasting_raw_arcadium"
+    ]
+  }
+}

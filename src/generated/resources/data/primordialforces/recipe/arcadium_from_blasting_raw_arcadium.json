@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "category": "misc",
   "cookingtime": 100,
-  "experience": 0.25,
+  "experience": 0.35,
   "group": "arcadium",
   "ingredient": {
     "item": "primordialforces:raw_arcadium"

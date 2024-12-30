@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "O": {
+    "B": {
       "item": "primordialforces:black_opal"
     }
   },
   "pattern": [
-    "OOO",
-    "OOO",
-    "OOO"
+    "BBB",
+    "BBB",
+    "BBB"
   ],
   "result": {
     "count": 1,

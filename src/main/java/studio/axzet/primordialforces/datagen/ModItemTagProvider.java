@@ -1,2 +1,5 @@
-package studio.axzet.primordialforces.datagen;public class ModItemTagProvider {
+package studio.axzet.primordialforces.datagen;
+
+public class ModItemTagProvider {
+
 }

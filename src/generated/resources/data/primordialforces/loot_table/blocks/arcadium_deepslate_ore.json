@@ -26,20 +26,11 @@
                   }
                 }
               ],
-              "name": "primordialforces:black_opal_ore"
+              "name": "primordialforces:arcadium_deepslate_ore"
             },
             {
               "type": "minecraft:item",
               "functions": [
-                {
-                  "add": false,
-                  "count": {
-                    "type": "minecraft:uniform",
-                    "max": 5.0,
-                    "min": 2.0
-                  },
-                  "function": "minecraft:set_count"
-                },
                 {
                   "enchantment": "minecraft:fortune",
                   "formula": "minecraft:ore_drops",
@@ -49,7 +40,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "primordialforces:raw_black_opal"
+              "name": "primordialforces:raw_arcadium"
             }
           ]
         }
@@ -57,5 +48,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "primordialforces:blocks/black_opal_ore"
+  "random_sequence": "primordialforces:blocks/arcadium_deepslate_ore"
 }

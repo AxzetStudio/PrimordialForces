@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_black_opal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "primordialforces:black_opal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "primordialforces:black_opal"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_black_opal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "primordialforces:black_opal"
+    ]
+  }
+}
