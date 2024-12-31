@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "primordialforces:black_opal"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "B B",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "primordialforces:black_opal_helmet"
+  }
+}

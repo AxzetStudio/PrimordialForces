@@ -18,6 +18,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import studio.axzet.primordialforces.block.ModBlocks;
+import studio.axzet.primordialforces.item.ModArmorMaterials;
 import studio.axzet.primordialforces.item.ModCreativeModeTabs;
 import studio.axzet.primordialforces.item.ModItems;
 
@@ -47,6 +48,7 @@ public class PrimordialForces
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModArmorMaterials.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

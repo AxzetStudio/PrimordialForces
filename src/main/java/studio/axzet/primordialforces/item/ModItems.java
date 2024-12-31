@@ -1,5 +1,6 @@
 package studio.axzet.primordialforces.item;
 
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -14,6 +15,23 @@ public class ModItems {
     public static final DeferredItem<Item> ARCADIUM = ITEMS.registerSimpleItem("arcadium");
     public static final DeferredItem<Item> RAW_ARCADIUM = ITEMS.registerSimpleItem("raw_arcadium");
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
+
+    // BLACK OPAL ARMOR
+    public static final DeferredItem<Item> BLACK_OPAL_HELMET = ITEMS.register("black_opal_helmet",
+            () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
+            );
+
+    public static final DeferredItem<Item> BLACK_OPAL_CHESTPLATE = ITEMS.register("black_opal_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(16)))
+    );
+
+    public static final DeferredItem<Item> BLACK_OPAL_LEGGINGS = ITEMS.register("black_opal_leggings",
+            () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(16)))
+    );
+
+    public static final DeferredItem<Item> BLACK_OPAL_BOOTS = ITEMS.register("black_opal_boots",
+            () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
+    );
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

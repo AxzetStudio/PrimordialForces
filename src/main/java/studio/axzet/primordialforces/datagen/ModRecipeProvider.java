@@ -41,6 +41,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreSmelting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 200, "black_opal");
         oreBlasting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 100, "black_opal");
         oreBlasting(recipeOutput, ARCADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ARCADIUM.get(), 0.35f, 100, "arcadium");
+
+        // Black Opal Armor
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BLACK_OPAL_HELMET)
+                .pattern("BBB")
+                .pattern("B B")
+                .pattern("   ")
+                .define('B', ModItems.BLACK_OPAL.get())
+                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
     }
 
     protected static void oreSmelting(RecipeOutput pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
