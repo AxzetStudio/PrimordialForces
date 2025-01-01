@@ -20,6 +20,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BLACK_OPAL.get());
         basicItem(ModItems.VOID_SHARD.get());
 
+        basicItem(ModItems.VOIDMANCER_HELMET.get());
+        basicItem(ModItems.VOIDMANCER_CHESTPLATE.get());
+        basicItem(ModItems.VOIDMANCER_LEGGINGS.get());
+        basicItem(ModItems.VOIDMANCER_BOOTS.get());
+
         //Black Opal Armor
         basicItem(ModItems.BLACK_OPAL_HELMET.get());
         basicItem(ModItems.BLACK_OPAL_CHESTPLATE.get());

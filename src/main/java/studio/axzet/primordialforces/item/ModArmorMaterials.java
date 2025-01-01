@@ -4,7 +4,6 @@ import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -32,6 +31,19 @@ public class ModArmorMaterials {
                     }), 20, SoundEvents.ARMOR_EQUIP_GOLD, () -> Ingredient.of(ModItems.BLACK_OPAL.get()),
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "black_opal"))),
                     0,0
+            ));
+
+    public static final Holder<ArmorMaterial> VOID_ARCADIUM =
+            ARMOR_MATERIALS.register("void_arcadium", () -> new ArmorMaterial(
+                    Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 11);
+                    }), 20, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(ModItems.VOID_SHARD.get()),
+                    List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "void_arcadium"))),
+                    2, 4
             ));
 
     public static void register(IEventBus eventBus) {

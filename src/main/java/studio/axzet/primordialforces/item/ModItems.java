@@ -6,6 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
+import studio.axzet.primordialforces.item.custom.VoidmancerArmorItem;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PrimordialForces.MOD_ID);
@@ -15,6 +16,23 @@ public class ModItems {
     public static final DeferredItem<Item> ARCADIUM = ITEMS.registerSimpleItem("arcadium");
     public static final DeferredItem<Item> RAW_ARCADIUM = ITEMS.registerSimpleItem("raw_arcadium");
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
+
+    // VOIDMANCER ARMOR
+    public static final DeferredItem<Item> VOIDMANCER_HELMET = ITEMS.register("voidmancer_helmet",
+            () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
+            );
+
+    public static final DeferredItem<Item> VOIDMANCER_CHESTPLATE = ITEMS.register("voidmancer_chestplate",
+            () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(16)))
+    );
+
+    public static final DeferredItem<Item> VOIDMANCER_LEGGINGS = ITEMS.register("voidmancer_leggings",
+            () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(16)))
+    );
+
+    public static final DeferredItem<Item> VOIDMANCER_BOOTS = ITEMS.register("voidmancer_boots",
+            () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
+    );
 
     // BLACK OPAL ARMOR
     public static final DeferredItem<Item> BLACK_OPAL_HELMET = ITEMS.register("black_opal_helmet",
