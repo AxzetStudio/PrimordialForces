@@ -42,6 +42,35 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreBlasting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 100, "black_opal");
         oreBlasting(recipeOutput, ARCADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ARCADIUM.get(), 0.35f, 100, "arcadium");
 
+        // Voidmancer Armor
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_HELMET)
+                .pattern("VVV")
+                .pattern("V V")
+                .pattern("   ")
+                .define('V', ModItems.VOID_SHARD.get())
+                .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_CHESTPLATE)
+                .pattern("V V")
+                .pattern("VVV")
+                .pattern("VVV")
+                .define('V', ModItems.VOID_SHARD.get())
+                .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_LEGGINGS)
+                .pattern("VVV")
+                .pattern("V V")
+                .pattern("V V")
+                .define('V', ModItems.VOID_SHARD.get())
+                .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_BOOTS)
+                .pattern("   ")
+                .pattern("V V")
+                .pattern("V V")
+                .define('V', ModItems.VOID_SHARD.get())
+                .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
+
         // Black Opal Armor
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BLACK_OPAL_HELMET)
                 .pattern("BBB")
