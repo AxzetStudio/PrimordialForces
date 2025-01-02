@@ -20,6 +20,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLACK_OPAL_ORE);
         blockWithItem(ModBlocks.ARCADIUM_BLOCK);
         blockWithItem(ModBlocks.ARCADIUM_DEEPSLATE_ORE);
+        blockWithItem(ModBlocks.PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE);
     }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock) {

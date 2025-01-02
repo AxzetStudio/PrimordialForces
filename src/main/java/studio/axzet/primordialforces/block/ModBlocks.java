@@ -31,6 +31,11 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
             );
 
+    // PRIMORDIAL CRYSTAL
+    public static final DeferredBlock<Block> PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE = registerBlock("primordial_crystal_deepslate_ore",
+            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
+            );
+
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

@@ -30,6 +30,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get(),
                 block -> createOreDrop(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get(), ModItems.RAW_ARCADIUM.get())
                 );
+
+        this.add(ModBlocks.PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE.get(),
+                block -> createOreDrop(ModBlocks.PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE.get(), ModItems.PRIMORDIAL_CRYSTAL.get())
+                );
     }
 
     @Override

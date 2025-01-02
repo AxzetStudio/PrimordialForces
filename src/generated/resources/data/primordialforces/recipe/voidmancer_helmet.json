@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "V": {
+      "item": "primordialforces:void_shard"
+    }
+  },
+  "pattern": [
+    "VVV",
+    "V V",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "primordialforces:voidmancer_helmet"
+  }
+}

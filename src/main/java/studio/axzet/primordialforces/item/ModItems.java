@@ -6,6 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
+import studio.axzet.primordialforces.item.custom.FuelItem;
 import studio.axzet.primordialforces.item.custom.VoidmancerArmorItem;
 
 public class ModItems {
@@ -16,6 +17,9 @@ public class ModItems {
     public static final DeferredItem<Item> ARCADIUM = ITEMS.registerSimpleItem("arcadium");
     public static final DeferredItem<Item> RAW_ARCADIUM = ITEMS.registerSimpleItem("raw_arcadium");
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
+
+    // Fuel
+    public static final DeferredItem<Item> PRIMORDIAL_CRYSTAL = ITEMS.registerItem("primordial_crystal", properties -> new FuelItem(properties, 2400), new Item.Properties());
 
     // VOIDMANCER ARMOR
     public static final DeferredItem<Item> VOIDMANCER_HELMET = ITEMS.register("voidmancer_helmet",
