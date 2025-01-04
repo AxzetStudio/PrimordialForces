@@ -8,6 +8,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
+import studio.axzet.primordialforces.block.custom.ArcadiumInfuserBlock;
 import studio.axzet.primordialforces.item.ModItems;
 
 import java.util.function.Supplier;
@@ -29,6 +30,11 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ARCADIUM_BLOCK = registerBlock("arcadium_block",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
+            );
+
+    // Infuser
+    public static final DeferredBlock<Block> ARCADIUM_INFUSER = registerBlock("arcadium_infuser",
+            () -> new ArcadiumInfuserBlock(BlockBehaviour.Properties.of().noOcclusion())
             );
 
     // PRIMORDIAL CRYSTAL

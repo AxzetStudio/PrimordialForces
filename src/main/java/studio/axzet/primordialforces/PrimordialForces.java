@@ -1,6 +1,9 @@
 package studio.axzet.primordialforces;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -18,9 +21,12 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import studio.axzet.primordialforces.block.ModBlocks;
+import studio.axzet.primordialforces.block.entity.ModBlockEntities;
 import studio.axzet.primordialforces.item.ModArmorMaterials;
 import studio.axzet.primordialforces.item.ModCreativeModeTabs;
 import studio.axzet.primordialforces.item.ModItems;
+import studio.axzet.primordialforces.screen.ModMenuTypes;
+import studio.axzet.primordialforces.screen.custom.ArcadiumInfuserScreen;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(PrimordialForces.MOD_ID)
@@ -47,6 +53,9 @@ public class PrimordialForces
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         ModArmorMaterials.register(modEventBus);
 
@@ -89,6 +98,11 @@ public class PrimordialForces
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.ARCADIUM_INFUSER_MENU.get(), ArcadiumInfuserScreen::new);
         }
     }
 }

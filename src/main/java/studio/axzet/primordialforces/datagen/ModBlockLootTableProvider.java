@@ -22,6 +22,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(ModBlocks.BLACK_OPAL_BLOCK.get());
         dropSelf(ModBlocks.ARCADIUM_BLOCK.get());
+        dropSelf(ModBlocks.ARCADIUM_INFUSER.get());
 
         this.add(ModBlocks.BLACK_OPAL_ORE.get(),
             block -> createOreDrop(ModBlocks.BLACK_OPAL_ORE.get(), ModItems.RAW_BLACK_OPAL.get())

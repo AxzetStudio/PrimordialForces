@@ -3,8 +3,8 @@
 	"parent": "arcadium_infuser",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "arcadium_infuser",
-		"particle": "arcadium_infuser"
+		"0": "primordialforces:block/arcadium_infuser",
+		"particle": "primordialforces:block/arcadium_infuser"
 	},
 	"elements": [
 		{
