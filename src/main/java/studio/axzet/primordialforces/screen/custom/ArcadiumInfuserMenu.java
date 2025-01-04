@@ -31,10 +31,10 @@ public class ArcadiumInfuserMenu extends AbstractContainerMenu {
         addPlayerInventory(inventory);
         addPlayerHotbar(inventory);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 0, 8, 62));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 0, 77, 8));
         this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 1, 54, 34));
         this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 2, 104, 34));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 3, 152, 62));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 3, 77, 60));
 
         addDataSlots(data);
     }
