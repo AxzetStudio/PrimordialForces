@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "primordialforces:arcadium"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "GAG",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "primordialforces:arcadium_conduit"
+  }
+}

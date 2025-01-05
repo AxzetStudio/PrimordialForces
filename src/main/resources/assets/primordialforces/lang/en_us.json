@@ -1,8 +1,11 @@
 {
   "item.primordialforces.black_opal": "Black Opal",
   "item.primordialforces.raw_black_opal": "Raw Black Opal",
+
   "item.primordialforces.arcadium": "Arcadium",
   "item.primordialforces.raw_arcadium": "Raw Arcadium",
+  "item.primordialforces.arcadium_conduit": "Arcadium Conduit",
+
   "item.primordialforces.void_shard": "Void Shard",
 
   "item.primordialforces.primordial_crystal": "Primordial Crystal",

@@ -14,15 +14,21 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(ModItems.RAW_ARCADIUM.get());
+        // Black Opal
         basicItem(ModItems.RAW_BLACK_OPAL.get());
-        basicItem(ModItems.ARCADIUM.get());
         basicItem(ModItems.BLACK_OPAL.get());
+
+        // Arcadium
+        basicItem(ModItems.RAW_ARCADIUM.get());
+        basicItem(ModItems.ARCADIUM.get());
+        basicItem(ModItems.ARCADIUM_CONDUIT.get());
+
         basicItem(ModItems.VOID_SHARD.get());
 
         // Fuel
         basicItem(ModItems.PRIMORDIAL_CRYSTAL.get());
 
+        // Void Armor
         basicItem(ModItems.VOIDMANCER_HELMET.get());
         basicItem(ModItems.VOIDMANCER_CHESTPLATE.get());
         basicItem(ModItems.VOIDMANCER_LEGGINGS.get());

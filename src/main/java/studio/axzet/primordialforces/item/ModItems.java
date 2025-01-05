@@ -12,16 +12,23 @@ import studio.axzet.primordialforces.item.custom.VoidmancerArmorItem;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PrimordialForces.MOD_ID);
 
+    //region BLACK OPAL
     public static final DeferredItem<Item> BLACK_OPAL = ITEMS.registerSimpleItem("black_opal");
     public static final DeferredItem<Item> RAW_BLACK_OPAL = ITEMS.registerItem("raw_black_opal", Item::new, new Item.Properties());
+    //endregion
+    //region ARCADIUM
     public static final DeferredItem<Item> ARCADIUM = ITEMS.registerSimpleItem("arcadium");
     public static final DeferredItem<Item> RAW_ARCADIUM = ITEMS.registerSimpleItem("raw_arcadium");
+    public static final DeferredItem<Item> ARCADIUM_CONDUIT = ITEMS.registerSimpleItem("arcadium_conduit");
+    //public static final DeferredItem<Item> ARCADIUM_CORE = ITEMS.registerSimpleItem("arcadium_core");
+    //endregion
+
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
 
     // Fuel
     public static final DeferredItem<Item> PRIMORDIAL_CRYSTAL = ITEMS.registerItem("primordial_crystal", properties -> new FuelItem(properties, 2400), new Item.Properties());
 
-    // VOIDMANCER ARMOR
+    //region VOID ARMOR
     public static final DeferredItem<Item> VOIDMANCER_HELMET = ITEMS.register("voidmancer_helmet",
             () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
             );
@@ -37,8 +44,9 @@ public class ModItems {
     public static final DeferredItem<Item> VOIDMANCER_BOOTS = ITEMS.register("voidmancer_boots",
             () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
     );
+    //endregion
 
-    // BLACK OPAL ARMOR
+    //region BLACK OPAL ARMOR
     public static final DeferredItem<Item> BLACK_OPAL_HELMET = ITEMS.register("black_opal_helmet",
             () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
             );
@@ -58,4 +66,5 @@ public class ModItems {
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
+    //endregion
 }
