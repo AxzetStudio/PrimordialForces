@@ -14,7 +14,9 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -145,6 +147,8 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
         ItemStack output = recipe.get().value().output();
 
         itemStackHandler.extractItem(INPUT_SLOT, 1, false);
+        itemStackHandler.extractItem(CORE_SLOT, 1, false);
+        itemStackHandler.extractItem(CRYSTAL_SLOT, 1, false);
         itemStackHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(), itemStackHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
     }
 
@@ -164,13 +168,20 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     private boolean hasRecipe() {
         Optional<RecipeHolder<ArcadiumInfuserRecipe>> recipe = getCurrentRecipe();
 
-        if (recipe.isEmpty()) {
+        if (recipe.isEmpty() || needsInfusingRequirements()) {
             return false;
         }
 
         ItemStack output = recipe.get().value().getResultItem(null);
 
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+    }
+
+    private boolean needsInfusingRequirements() {
+        boolean hasCore = itemStackHandler.getStackInSlot(CORE_SLOT).getItem() == Items.DIAMOND;
+        boolean hasCrystal = itemStackHandler.getStackInSlot(CRYSTAL_SLOT).getItem() == Items.GLASS;
+
+        return !(hasCore && hasCrystal);
     }
 
     private Optional<RecipeHolder<ArcadiumInfuserRecipe>> getCurrentRecipe() {
