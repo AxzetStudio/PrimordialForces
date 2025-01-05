@@ -178,8 +178,8 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     }
 
     private boolean needsInfusingRequirements() {
-        boolean hasCore = itemStackHandler.getStackInSlot(CORE_SLOT).getItem() == Items.DIAMOND;
-        boolean hasCrystal = itemStackHandler.getStackInSlot(CRYSTAL_SLOT).getItem() == Items.GLASS;
+        boolean hasCore = itemStackHandler.getStackInSlot(CORE_SLOT).getItem() == ModItems.ARCADIUM_CORE.get();
+        boolean hasCrystal = itemStackHandler.getStackInSlot(CRYSTAL_SLOT).getItem() == ModItems.PRIMORDIAL_CRYSTAL.get();
 
         return !(hasCore && hasCrystal);
     }
