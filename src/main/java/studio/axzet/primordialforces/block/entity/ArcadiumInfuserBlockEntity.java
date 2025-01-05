@@ -15,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,7 +24,12 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import studio.axzet.primordialforces.item.ModItems;
+import studio.axzet.primordialforces.recipe.ArcadiumInfuserRecipe;
+import studio.axzet.primordialforces.recipe.ArcadiumInfuserRecipeInput;
+import studio.axzet.primordialforces.recipe.ModRecipes;
 import studio.axzet.primordialforces.screen.custom.ArcadiumInfuserMenu;
+
+import java.util.Optional;
 
 public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -135,7 +141,8 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     }
 
     private void craftItem() {
-        ItemStack output = new ItemStack(ModItems.ARCADIUM.get());
+        Optional<RecipeHolder<ArcadiumInfuserRecipe>> recipe = getCurrentRecipe();
+        ItemStack output = recipe.get().value().output();
 
         itemStackHandler.extractItem(INPUT_SLOT, 1, false);
         itemStackHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(), itemStackHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
@@ -155,11 +162,19 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     }
 
     private boolean hasRecipe() {
-        ItemStack input = new ItemStack(ModItems.RAW_ARCADIUM.get());
-        ItemStack output = new ItemStack(ModItems.ARCADIUM.get());
+        Optional<RecipeHolder<ArcadiumInfuserRecipe>> recipe = getCurrentRecipe();
 
-        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) &&
-                this.itemStackHandler.getStackInSlot(INPUT_SLOT).getItem() == input.getItem();
+        if (recipe.isEmpty()) {
+            return false;
+        }
+
+        ItemStack output = recipe.get().value().getResultItem(null);
+
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+    }
+
+    private Optional<RecipeHolder<ArcadiumInfuserRecipe>> getCurrentRecipe() {
+        return this.level.getRecipeManager().getRecipeFor(ModRecipes.ARCADIUM_INFUSER_TYPE.get(), new ArcadiumInfuserRecipeInput(itemStackHandler.getStackInSlot(INPUT_SLOT)), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

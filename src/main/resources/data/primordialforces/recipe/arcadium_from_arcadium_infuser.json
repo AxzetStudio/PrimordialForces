@@ -1,0 +1,9 @@
+{
+  "type": "primordialforces:arcadium_infusing",
+  "ingredient": {
+    "item": "primordialforces:raw_arcadium"
+  },
+  "result": {
+    "id": "primordialforces:arcadium"
+  }
+}

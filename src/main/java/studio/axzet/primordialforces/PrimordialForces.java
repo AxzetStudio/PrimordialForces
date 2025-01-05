@@ -25,6 +25,7 @@ import studio.axzet.primordialforces.block.entity.ModBlockEntities;
 import studio.axzet.primordialforces.item.ModArmorMaterials;
 import studio.axzet.primordialforces.item.ModCreativeModeTabs;
 import studio.axzet.primordialforces.item.ModItems;
+import studio.axzet.primordialforces.recipe.ModRecipes;
 import studio.axzet.primordialforces.screen.ModMenuTypes;
 import studio.axzet.primordialforces.screen.custom.ArcadiumInfuserScreen;
 
@@ -56,6 +57,8 @@ public class PrimordialForces
 
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         ModArmorMaterials.register(modEventBus);
 
