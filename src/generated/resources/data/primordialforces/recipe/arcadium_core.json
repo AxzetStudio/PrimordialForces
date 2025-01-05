@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "primordialforces:arcadium"
+    },
+    "C": {
+      "item": "primordialforces:arcadium_conduit"
+    },
+    "P": {
+      "item": "primordialforces:primordial_crystal"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "CPC",
+    "ACA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "primordialforces:arcadium_core"
+  }
+}

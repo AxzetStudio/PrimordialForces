@@ -1,6 +1,7 @@
 package studio.axzet.primordialforces.datagen;
 
 import net.minecraft.data.PackOutput;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import studio.axzet.primordialforces.PrimordialForces;
@@ -22,6 +23,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.RAW_ARCADIUM.get());
         basicItem(ModItems.ARCADIUM.get());
         basicItem(ModItems.ARCADIUM_CONDUIT.get());
+        basicItem(ModItems.ARCADIUM_CORE.get());
 
         basicItem(ModItems.VOID_SHARD.get());
 
