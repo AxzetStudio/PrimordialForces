@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-05T02:46:03.004294	Item Models: primordialforces
+// 1.21.1	2025-01-05T02:59:50.8323575	Item Models: primordialforces
 e081ac05acd7fea044627a3f3ecfae11689fdb78 assets/primordialforces/models/item/arcadium.json
 cecb020507230873a2c9bb65c74dfead4b61973a assets/primordialforces/models/item/arcadium_conduit.json
 0c4f3c5a475d79e04536a2360bdb732c9dbcb1cb assets/primordialforces/models/item/arcadium_core.json
@@ -14,4 +14,5 @@ fb7edfd5eeedb501fe3e003d5c9de8307dad93f0 assets/primordialforces/models/item/pri
 5b012d606d59ba17dd85a41a93ad6daae2181766 assets/primordialforces/models/item/voidmancer_chestplate.json
 547ed9017a283a28d0258def66421974c11b33ea assets/primordialforces/models/item/voidmancer_helmet.json
 3a32ec72d3bb3b4503cdeabc60611f810e0c4afc assets/primordialforces/models/item/voidmancer_leggings.json
+89dd14cd0a3ea252c55172a7ae08ba432cb8a466 assets/primordialforces/models/item/void_essence.json
 a2dd1a8699b5e61c7fceb0a72e4019d3d8bbff03 assets/primordialforces/models/item/void_shard.json

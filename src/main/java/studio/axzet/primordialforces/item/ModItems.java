@@ -22,6 +22,9 @@ public class ModItems {
     public static final DeferredItem<Item> ARCADIUM_CONDUIT = ITEMS.registerSimpleItem("arcadium_conduit");
     public static final DeferredItem<Item> ARCADIUM_CORE = ITEMS.registerSimpleItem("arcadium_core");
     //endregion
+    //region ESSENCES
+    public static final DeferredItem<Item> VOID_ESSENCE = ITEMS.registerSimpleItem("void_essence");
+    //endregion
 
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
 

@@ -25,6 +25,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.ARCADIUM_CONDUIT.get());
         basicItem(ModItems.ARCADIUM_CORE.get());
 
+        // ESSENCES
+        basicItem(ModItems.VOID_ESSENCE.get());
+
         basicItem(ModItems.VOID_SHARD.get());
 
         // Fuel
