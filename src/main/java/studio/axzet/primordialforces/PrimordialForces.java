@@ -1,5 +1,7 @@
 package studio.axzet.primordialforces;
 
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
@@ -98,7 +100,14 @@ public class PrimordialForces
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            CustomPortalBuilder.beginPortal()
+                    .frameBlock(ModBlocks.ARCADIUM_BLOCK.get())
+                    .lightWithItem(ModItems.VOID_SHARD.get())
+                    .forcedSize(4, 5)
+                    .onlyLightInOverworld()
+                    .destDimID(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "thevoid"))
+                    .registerPortal()
+            ;
         }
 
         @SubscribeEvent
