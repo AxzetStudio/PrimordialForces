@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "primordialforces:arcadium"
+    },
+    "B": {
+      "item": "primordialforces:arcadium_block"
+    },
+    "C": {
+      "item": "primordialforces:arcadium_conduit"
+    }
+  },
+  "pattern": [
+    "CAC",
+    "ABA",
+    "CAC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "primordialforces:arcadium_portal_frame"
+  }
+}

@@ -1,7 +1,8 @@
-// 1.21.1	2025-01-03T15:58:52.5877145	Loot Tables
+// 1.21.1	2025-01-06T16:48:04.7962331	Loot Tables
 01da2d0398a94ad20b19a97b4315091314b17687 data/primordialforces/loot_table/blocks/arcadium_block.json
 4f351096f67c881861e7f1cb94165a1449f9661e data/primordialforces/loot_table/blocks/arcadium_deepslate_ore.json
 e6fd017c550c07aadc49613e54558ca01efed9ee data/primordialforces/loot_table/blocks/arcadium_infuser.json
+e3b9903a11181ca09f8430fedbfbdac94ad578ac data/primordialforces/loot_table/blocks/arcadium_portal_frame.json
 9c3e4a7a7d8d646151cb6ff86e884b08d387ad70 data/primordialforces/loot_table/blocks/black_opal_block.json
 160a6c92f2cdb7b5b1238a79da60d8375d533ccc data/primordialforces/loot_table/blocks/black_opal_ore.json
 9774b3d049099e0da59c6139db3fea7e6405124a data/primordialforces/loot_table/blocks/primordial_crystal_deepslate_ore.json

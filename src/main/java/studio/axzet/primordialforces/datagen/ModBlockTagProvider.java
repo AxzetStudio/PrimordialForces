@@ -25,6 +25,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_OPAL_BLOCK.get())
                 .add(ModBlocks.BLACK_OPAL_ORE.get())
                 .add(ModBlocks.PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE.get())
+                .add(ModBlocks.ARCADIUM_PORTAL_FRAME.get())
         ;
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
@@ -37,6 +38,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ARCADIUM_BLOCK.get())
                 .add(ModBlocks.BLACK_OPAL_BLOCK.get())
                 .add(ModBlocks.PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE.get())
+                .add(ModBlocks.ARCADIUM_PORTAL_FRAME.get())
         ;
     }
 }

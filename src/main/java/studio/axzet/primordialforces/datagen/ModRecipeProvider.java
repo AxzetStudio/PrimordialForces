@@ -64,6 +64,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('P', ModItems.PRIMORDIAL_CRYSTAL)
                 .unlockedBy("has_arcadium_conduit", has(ModItems.ARCADIUM_CONDUIT.get())).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ARCADIUM_PORTAL_FRAME.get())
+                .pattern("CAC")
+                .pattern("ABA")
+                .pattern("CAC")
+                .define('C', ModItems.ARCADIUM_CONDUIT.get())
+                .define('A', ModItems.ARCADIUM.get())
+                .define('B', ModBlocks.ARCADIUM_BLOCK)
+                .unlockedBy("has_arcadium_conduit", has(ModItems.ARCADIUM_CONDUIT.get())).save(recipeOutput);
+
         oreBlasting(recipeOutput, ARCADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ARCADIUM.get(), 0.35f, 100, "arcadium");
         //endregion
 

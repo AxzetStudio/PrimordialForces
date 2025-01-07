@@ -25,6 +25,7 @@ import studio.axzet.primordialforces.block.entity.ModBlockEntities;
 import studio.axzet.primordialforces.item.ModArmorMaterials;
 import studio.axzet.primordialforces.item.ModCreativeModeTabs;
 import studio.axzet.primordialforces.item.ModItems;
+import studio.axzet.primordialforces.portal.ModPortals;
 import studio.axzet.primordialforces.recipe.ModRecipes;
 import studio.axzet.primordialforces.screen.ModMenuTypes;
 import studio.axzet.primordialforces.screen.custom.ArcadiumInfuserScreen;
@@ -100,14 +101,7 @@ public class PrimordialForces
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            CustomPortalBuilder.beginPortal()
-                    .frameBlock(ModBlocks.ARCADIUM_BLOCK.get())
-                    .lightWithItem(ModItems.VOID_SHARD.get())
-                    .forcedSize(4, 5)
-                    .onlyLightInOverworld()
-                    .destDimID(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "thevoid"))
-                    .registerPortal()
-            ;
+            ModPortals.createPortals();
         }
 
         @SubscribeEvent

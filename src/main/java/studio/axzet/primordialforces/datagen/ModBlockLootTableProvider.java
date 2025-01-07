@@ -20,21 +20,26 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+
+        //region BLACK OPAL
         dropSelf(ModBlocks.BLACK_OPAL_BLOCK.get());
+        this.add(ModBlocks.BLACK_OPAL_ORE.get(),
+                block -> createOreDrop(ModBlocks.BLACK_OPAL_ORE.get(), ModItems.RAW_BLACK_OPAL.get())
+        );
+        //endregion
+        //region ARCADIUM BLOCKS
         dropSelf(ModBlocks.ARCADIUM_BLOCK.get());
         dropSelf(ModBlocks.ARCADIUM_INFUSER.get());
-
-        this.add(ModBlocks.BLACK_OPAL_ORE.get(),
-            block -> createOreDrop(ModBlocks.BLACK_OPAL_ORE.get(), ModItems.RAW_BLACK_OPAL.get())
-        );
+        dropSelf(ModBlocks.ARCADIUM_PORTAL_FRAME.get());
 
         this.add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get(),
                 block -> createOreDrop(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get(), ModItems.RAW_ARCADIUM.get())
-                );
+        );
 
         this.add(ModBlocks.PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE.get(),
                 block -> createOreDrop(ModBlocks.PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE.get(), ModItems.PRIMORDIAL_CRYSTAL.get())
-                );
+        );
+        //endregion
     }
 
     @Override
