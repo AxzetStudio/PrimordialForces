@@ -1,5 +1,6 @@
 package studio.axzet.primordialforces.event;
 
+import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +22,12 @@ public class ModEvents {
                 addVoidDrop(event);
             }
         }
+
+        if (isEarthEligibleEntity(event.getEntity())) {
+            if (event.getEntity().level().random.nextFloat() < DROP_CHANCE) {
+                addEarthDrop(event);
+            }
+        }
     }
 
     private static boolean isVoidEligibleEntity(Object entity) {
@@ -30,6 +37,20 @@ public class ModEvents {
                 || entity instanceof Stray
                 || entity instanceof Zoglin
                 ;
+    }
+
+    private static boolean isEarthEligibleEntity(Object entity) {
+        return entity instanceof Spider
+                || entity instanceof IronGolem
+                || entity instanceof Husk
+                || entity instanceof Bogged
+                ;
+    }
+
+    private static void addEarthDrop(LivingDropsEvent event) {
+        ItemStack earthEssence = new ItemStack(ModItems.EARTH_ESSENCE.get());
+        ItemEntity drop = new ItemEntity(event.getEntity().level(), event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), earthEssence);
+        event.getDrops().add(drop);
     }
 
     private static void addVoidDrop(LivingDropsEvent event) {

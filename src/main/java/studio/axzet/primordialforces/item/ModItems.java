@@ -24,9 +24,11 @@ public class ModItems {
     //endregion
     //region ESSENCES
     public static final DeferredItem<Item> VOID_ESSENCE = ITEMS.registerSimpleItem("void_essence");
+    public static final DeferredItem<Item> EARTH_ESSENCE = ITEMS.registerSimpleItem("earth_essence");
     //endregion
-
+    //region SHARDS
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
+    //endregion
 
     // Fuel
     public static final DeferredItem<Item> PRIMORDIAL_CRYSTAL = ITEMS.registerItem("primordial_crystal", properties -> new FuelItem(properties, 2400), new Item.Properties());

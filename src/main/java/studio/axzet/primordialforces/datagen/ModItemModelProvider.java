@@ -27,7 +27,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         // ESSENCES
         basicItem(ModItems.VOID_ESSENCE.get());
+        basicItem(ModItems.EARTH_ESSENCE.get());
 
+        // SHARDS
         basicItem(ModItems.VOID_SHARD.get());
 
         // Fuel
