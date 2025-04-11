@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-10T17:51:06.2341663	Item Models: primordialforces
+// 1.21.1	2025-04-10T18:26:04.5505371	Item Models: primordialforces
 e081ac05acd7fea044627a3f3ecfae11689fdb78 assets/primordialforces/models/item/arcadium.json
 cecb020507230873a2c9bb65c74dfead4b61973a assets/primordialforces/models/item/arcadium_conduit.json
 0c4f3c5a475d79e04536a2360bdb732c9dbcb1cb assets/primordialforces/models/item/arcadium_core.json
@@ -8,6 +8,7 @@ da9af4387254c4888f377a278b19a9cbe61077ad assets/primordialforces/models/item/bla
 84ac39dc0ee79b7eecae82eaa592f812ec57d35b assets/primordialforces/models/item/black_opal_helmet.json
 a37f16371ef70191fe755512eff392361de0e42f assets/primordialforces/models/item/black_opal_leggings.json
 04c47d1c5e8d2e28b25c6bd92b5bcbc939b24a94 assets/primordialforces/models/item/earth_essence.json
+2dc0d29b035db0952150fddc9142f972a3f22b26 assets/primordialforces/models/item/fire_essence.json
 fb7edfd5eeedb501fe3e003d5c9de8307dad93f0 assets/primordialforces/models/item/primordial_crystal.json
 76c23b0ec647720ec2f6e6a235cbff54751f8a36 assets/primordialforces/models/item/raw_arcadium.json
 6986093157bf0cee2a08fd5b07780ac77010b68c assets/primordialforces/models/item/raw_black_opal.json

@@ -25,6 +25,7 @@ public class ModItems {
     //region ESSENCES
     public static final DeferredItem<Item> VOID_ESSENCE = ITEMS.registerSimpleItem("void_essence");
     public static final DeferredItem<Item> EARTH_ESSENCE = ITEMS.registerSimpleItem("earth_essence");
+    public static final DeferredItem<Item> FIRE_ESSENCE = ITEMS.registerSimpleItem("fire_essence");
     //endregion
     //region SHARDS
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");

@@ -1,5 +1,7 @@
 package studio.axzet.primordialforces.event;
 
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.*;
@@ -9,25 +11,34 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.item.ModItems;
+import studio.axzet.primordialforces.utils.ElementalEssenceType;
+
+import java.util.Map;
+import java.util.function.Predicate;
 
 @EventBusSubscriber(modid = PrimordialForces.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class ModEvents {
 
     private static float DROP_CHANCE = 0.3f;
 
+    private static final Map<Predicate<LivingEntity>, ElementalEssenceType> ELIGIBLE_ENTITIES = Map.of(
+            ModEvents::isEarthEligibleEntity, ElementalEssenceType.EARTH,
+            ModEvents::isFireEligibleEntity, ElementalEssenceType.FIRE,
+            ModEvents::isVoidEligibleEntity, ElementalEssenceType.VOID
+    );
+
     @SubscribeEvent
     public static void onLivingDrops(LivingDropsEvent event) {
-        if (isVoidEligibleEntity(event.getEntity())) {
-            if (event.getEntity().level().random.nextFloat() < DROP_CHANCE) {
-                addVoidDrop(event);
-            }
-        }
+        LivingEntity entity = event.getEntity();
+        RandomSource random = entity.level().random;
 
-        if (isEarthEligibleEntity(event.getEntity())) {
-            if (event.getEntity().level().random.nextFloat() < DROP_CHANCE) {
-                addEarthDrop(event);
+        if (random.nextFloat() >= DROP_CHANCE) return;
+
+        ELIGIBLE_ENTITIES.forEach((predicate, essenceType) -> {
+            if (predicate.test(entity)) {
+                addElementalEssenceDrop(event, essenceType);
             }
-        }
+        });
     }
 
     private static boolean isVoidEligibleEntity(Object entity) {
@@ -47,15 +58,21 @@ public class ModEvents {
                 ;
     }
 
-    private static void addEarthDrop(LivingDropsEvent event) {
-        ItemStack earthEssence = new ItemStack(ModItems.EARTH_ESSENCE.get());
-        ItemEntity drop = new ItemEntity(event.getEntity().level(), event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), earthEssence);
-        event.getDrops().add(drop);
+    private static boolean isFireEligibleEntity(Object entity) {
+        return entity instanceof Blaze
+                || entity instanceof Strider
+                || entity instanceof MagmaCube
+                ;
     }
 
-    private static void addVoidDrop(LivingDropsEvent event) {
-        ItemStack voidEssence = new ItemStack(ModItems.VOID_ESSENCE.get());
-        ItemEntity drop = new ItemEntity(event.getEntity().level(), event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), voidEssence);
+    private static void addElementalEssenceDrop(LivingDropsEvent event, ElementalEssenceType element) {
+        ItemEntity drop = new ItemEntity(
+                event.getEntity().level(),
+                event.getEntity().getX(),
+                event.getEntity().getY(),
+                event.getEntity().getZ(),
+                element.createEssence()
+        );
         event.getDrops().add(drop);
     }
 }
