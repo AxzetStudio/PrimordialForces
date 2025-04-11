@@ -5,6 +5,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.breeze.Breeze;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -19,11 +20,13 @@ import java.util.function.Predicate;
 @EventBusSubscriber(modid = PrimordialForces.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class ModEvents {
 
-    private static float DROP_CHANCE = 0.3f;
+    private static final float DROP_CHANCE = 0.3f;
 
     private static final Map<Predicate<LivingEntity>, ElementalEssenceType> ELIGIBLE_ENTITIES = Map.of(
             ModEvents::isEarthEligibleEntity, ElementalEssenceType.EARTH,
             ModEvents::isFireEligibleEntity, ElementalEssenceType.FIRE,
+            ModEvents::isWaterEligibleEntity, ElementalEssenceType.WATER,
+            ModEvents::isAirEligibleEntity, ElementalEssenceType.AIR,
             ModEvents::isVoidEligibleEntity, ElementalEssenceType.VOID
     );
 
@@ -62,6 +65,19 @@ public class ModEvents {
         return entity instanceof Blaze
                 || entity instanceof Strider
                 || entity instanceof MagmaCube
+                ;
+    }
+
+    private static boolean isWaterEligibleEntity(Object entity) {
+        return entity instanceof Guardian
+                || entity instanceof Drowned
+                ;
+    }
+
+    private static boolean isAirEligibleEntity(Object entity) {
+        return entity instanceof Ghast
+                || entity instanceof Phantom
+                || entity instanceof Breeze
                 ;
     }
 
