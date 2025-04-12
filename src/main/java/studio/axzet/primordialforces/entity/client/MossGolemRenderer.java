@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
@@ -12,7 +12,7 @@ import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
 public class MossGolemRenderer extends GeoEntityRenderer<MossGolemEntity> {
 
     public MossGolemRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new MossGolemModel<>());
+        super(renderManager, new DefaultedEntityGeoModel<>(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "moss_golem")));
     }
 
     @Override

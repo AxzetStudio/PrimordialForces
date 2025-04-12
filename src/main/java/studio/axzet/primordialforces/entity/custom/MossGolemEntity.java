@@ -39,15 +39,13 @@ public class MossGolemEntity extends Monster implements GeoEntity {
                 .add(Attributes.ATTACK_DAMAGE, 6.0f)
                 .add(Attributes.ATTACK_SPEED, 0.5f)
                 .add(Attributes.ARMOR, 2.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.12f);
+                .add(Attributes.MOVEMENT_SPEED, 0.1f);
     }
 
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
-        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1));
-
-        this.goalSelector.addGoal(8, new MeleeAttackGoal(this, 1.2, false) {
+        this.goalSelector.addGoal(8, new MeleeAttackGoal(this, 1, false) {
             @Override
             protected void checkAndPerformAttack(LivingEntity target) {
                 if (this.canPerformAttack(target)) {
@@ -71,9 +69,9 @@ public class MossGolemEntity extends Monster implements GeoEntity {
 
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Player.class, true));
 
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
     }
 
     @Override
