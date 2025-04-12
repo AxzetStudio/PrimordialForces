@@ -1,10 +1,14 @@
 package studio.axzet.primordialforces.entity.custom;
 
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
@@ -17,7 +21,12 @@ import software.bernie.geckolib.animation.*;
 
 public class MossGolemEntity extends Monster implements GeoEntity {
 
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+
+    // Definición de animaciones
+    private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("walk");
+    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
+    private static final RawAnimation ATTACK_ANIMATION = RawAnimation.begin().thenPlay("attack1");
 
     public MossGolemEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
@@ -25,16 +34,43 @@ public class MossGolemEntity extends Monster implements GeoEntity {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 200)
-                .add(Attributes.ATTACK_DAMAGE, 5.0f)
-                .add(Attributes.ATTACK_SPEED, 1.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.5f);
+                .add(Attributes.FOLLOW_RANGE, 20.0)
+                .add(Attributes.MAX_HEALTH, 50)
+                .add(Attributes.ATTACK_DAMAGE, 6.0f)
+                .add(Attributes.ATTACK_SPEED, 0.5f)
+                .add(Attributes.ARMOR, 2.0)
+                .add(Attributes.MOVEMENT_SPEED, 0.12f);
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, false));
-        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1));
+
+        this.goalSelector.addGoal(8, new MeleeAttackGoal(this, 1.2, false) {
+            @Override
+            protected void checkAndPerformAttack(LivingEntity target) {
+                if (this.canPerformAttack(target)) {
+                    triggerAnim("attack_controller", "attack1");
+                    this.mob.swing(InteractionHand.MAIN_HAND);
+                    this.mob.doHurtTarget(target);
+                    this.resetAttackCooldown();
+                }
+            }
+
+            @Override
+            protected boolean isTimeToAttack() {
+                return this.getTicksUntilNextAttack() <= 0;
+            }
+
+            @Override
+            protected int getAttackInterval() {
+                return 20;
+            }
+        });
+
+        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
@@ -42,21 +78,38 @@ public class MossGolemEntity extends Monster implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller", 0, this::predicate));
+        controllers.add(new AnimationController<>(this, "move_controller", 5, this::movePredicate));
+        controllers.add(new AnimationController<>(this, "attack_controller", 0, this::attackPredicate).triggerableAnim("attack1", ATTACK_ANIMATION));
     }
 
-    private PlayState predicate(AnimationState<MossGolemEntity> mossGolemEntityAnimationState) {
+    private PlayState attackPredicate(AnimationState<MossGolemEntity> mossGolemEntityAnimationState) {
+        return PlayState.STOP;
+    }
+
+    private PlayState movePredicate(AnimationState<MossGolemEntity> mossGolemEntityAnimationState) {
         if (mossGolemEntityAnimationState.isMoving()) {
-            mossGolemEntityAnimationState.getController().setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
+            return mossGolemEntityAnimationState.setAndContinue(WALK_ANIMATION);
         }
 
-        mossGolemEntityAnimationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
-        return PlayState.CONTINUE;
+        return mossGolemEntityAnimationState.setAndContinue(IDLE_ANIMATION);
     }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+
+    @Override
+    public int getCurrentSwingDuration() {
+        return 20;
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+
+        if (this.swinging && this.swingTime == this.getCurrentSwingDuration() -1) {
+            this.swingTime = 0;
+        }
     }
 }
