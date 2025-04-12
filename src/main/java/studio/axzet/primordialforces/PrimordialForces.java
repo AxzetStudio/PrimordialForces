@@ -1,8 +1,10 @@
 package studio.axzet.primordialforces;
 
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
 
@@ -22,6 +24,9 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import studio.axzet.primordialforces.block.ModBlocks;
 import studio.axzet.primordialforces.block.entity.ModBlockEntities;
+import studio.axzet.primordialforces.entity.ModEntities;
+import studio.axzet.primordialforces.entity.client.MossGolemRenderer;
+import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
 import studio.axzet.primordialforces.item.ModArmorMaterials;
 import studio.axzet.primordialforces.item.ModCreativeModeTabs;
 import studio.axzet.primordialforces.item.ModItems;
@@ -63,6 +68,8 @@ public class PrimordialForces
 
         ModArmorMaterials.register(modEventBus);
 
+        ModEntities.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -98,9 +105,12 @@ public class PrimordialForces
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
+
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntities.MOSS_GOLEM.get(), MossGolemRenderer::new);
             ModPortals.createPortals();
         }
 

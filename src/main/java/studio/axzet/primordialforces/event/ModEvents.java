@@ -20,7 +20,7 @@ import java.util.function.Predicate;
 @EventBusSubscriber(modid = PrimordialForces.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class ModEvents {
 
-    private static final float DROP_CHANCE = 0.3f;
+    private static final float ESSENCE_DROP_CHANCE = 0.3f;
 
     private static final Map<Predicate<LivingEntity>, ElementalEssenceType> ELIGIBLE_ENTITIES = Map.of(
             ModEvents::isEarthEligibleEntity, ElementalEssenceType.EARTH,
@@ -35,7 +35,7 @@ public class ModEvents {
         LivingEntity entity = event.getEntity();
         RandomSource random = entity.level().random;
 
-        if (random.nextFloat() >= DROP_CHANCE) return;
+        if (random.nextFloat() >= ESSENCE_DROP_CHANCE) return;
 
         ELIGIBLE_ENTITIES.forEach((predicate, essenceType) -> {
             if (predicate.test(entity)) {
