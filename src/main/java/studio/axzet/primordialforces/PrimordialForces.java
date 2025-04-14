@@ -25,6 +25,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import studio.axzet.primordialforces.block.ModBlocks;
 import studio.axzet.primordialforces.block.entity.ModBlockEntities;
 import studio.axzet.primordialforces.entity.ModEntities;
+import studio.axzet.primordialforces.entity.client.EntWarriorRenderer;
 import studio.axzet.primordialforces.entity.client.EntlingRenderer;
 import studio.axzet.primordialforces.entity.client.MossGolemRenderer;
 import studio.axzet.primordialforces.item.ModArmorMaterials;
@@ -110,6 +111,7 @@ public class PrimordialForces
         {
             EntityRenderers.register(ModEntities.MOSS_GOLEM.get(), MossGolemRenderer::new);
             EntityRenderers.register(ModEntities.ENTLING.get(), EntlingRenderer::new);
+            EntityRenderers.register(ModEntities.ENT_WARRIOR.get(), EntWarriorRenderer::new);
             ModPortals.createPortals();
         }
 

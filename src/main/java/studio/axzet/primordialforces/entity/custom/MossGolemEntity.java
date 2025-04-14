@@ -1,7 +1,6 @@
 package studio.axzet.primordialforces.entity.custom;
 
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -35,7 +34,7 @@ public class MossGolemEntity extends Monster implements GeoEntity {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.FOLLOW_RANGE, 10.0)
-                .add(Attributes.MAX_HEALTH, 50)
+                .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.ATTACK_DAMAGE, 6.0f)
                 .add(Attributes.ATTACK_SPEED, 0.5f)
                 .add(Attributes.ARMOR, 2.0)
