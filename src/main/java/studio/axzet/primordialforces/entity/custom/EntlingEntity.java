@@ -38,7 +38,7 @@ public class EntlingEntity extends Monster implements GeoEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(8, new RandomStrollGoal(this, 1.1, 4));
+        this.goalSelector.addGoal(8, new RandomStrollGoal(this, 1.1, 8));
     }
 
     @Override

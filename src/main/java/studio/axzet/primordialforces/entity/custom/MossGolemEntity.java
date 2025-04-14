@@ -9,6 +9,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
@@ -27,26 +28,23 @@ public class MossGolemEntity extends Monster implements GeoEntity {
     private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("walk");
     private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
     private static final RawAnimation ATTACK_ANIMATION = RawAnimation.begin().thenPlay("attack1");
-    private static final RawAnimation DEATH_ANIMATION = RawAnimation.begin().thenPlay("death");
-
     public MossGolemEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.FOLLOW_RANGE, 20.0)
+                .add(Attributes.FOLLOW_RANGE, 10.0)
                 .add(Attributes.MAX_HEALTH, 50)
                 .add(Attributes.ATTACK_DAMAGE, 6.0f)
                 .add(Attributes.ATTACK_SPEED, 0.5f)
                 .add(Attributes.ARMOR, 2.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.1f);
+                .add(Attributes.MOVEMENT_SPEED, 0.2f);
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
-        this.goalSelector.addGoal(8, new MeleeAttackGoal(this, 1, false) {
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false) {
             @Override
             protected void checkAndPerformAttack(LivingEntity target) {
                 if (this.canPerformAttack(target)) {
@@ -68,7 +66,9 @@ public class MossGolemEntity extends Monster implements GeoEntity {
             }
         });
 
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 4.0f));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(8, new RandomStrollGoal(this, 1, 8));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Player.class, true));
@@ -80,7 +80,6 @@ public class MossGolemEntity extends Monster implements GeoEntity {
         controllers.add(new AnimationController<>(this, "move_controller", 5, this::movePredicate));
         controllers.add(new AnimationController<>(this, "attack_controller", 0, this::attackPredicate)
                 .triggerableAnim("attack1", ATTACK_ANIMATION)
-                .triggerableAnim("death", DEATH_ANIMATION)
         );
     }
 
@@ -113,13 +112,5 @@ public class MossGolemEntity extends Monster implements GeoEntity {
         if (this.swinging && this.swingTime == this.getCurrentSwingDuration() -1) {
             this.swingTime = 0;
         }
-    }
-
-    @Override
-    public void die(DamageSource damageSource) {
-        if (!this.isDeadOrDying()) {
-            triggerAnim("attack_controller", "death");
-        }
-        super.die(damageSource);
     }
 }
