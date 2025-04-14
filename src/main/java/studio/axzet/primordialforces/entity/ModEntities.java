@@ -16,7 +16,7 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, PrimordialForces.MOD_ID);
 
     public static final Supplier<EntityType<MossGolemEntity>> MOSS_GOLEM = ENTITY_TYPES.register("moss_golem",
-            () -> EntityType.Builder.of(MossGolemEntity::new, MobCategory.MONSTER).sized(1.5f, 1.5f).build("moss_golem")
+            () -> EntityType.Builder.of(MossGolemEntity::new, MobCategory.MONSTER).sized(0.7f, 1.5f).build("moss_golem")
     );
 
     public static final Supplier<EntityType<EntlingEntity>> ENTLING = ENTITY_TYPES.register("entling",
