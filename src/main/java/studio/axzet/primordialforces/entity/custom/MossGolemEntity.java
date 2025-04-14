@@ -36,7 +36,7 @@ public class MossGolemEntity extends Monster implements GeoEntity {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.FOLLOW_RANGE, 20.0)
-                .add(Attributes.MAX_HEALTH, 1)
+                .add(Attributes.MAX_HEALTH, 50)
                 .add(Attributes.ATTACK_DAMAGE, 6.0f)
                 .add(Attributes.ATTACK_SPEED, 0.5f)
                 .add(Attributes.ARMOR, 2.0)

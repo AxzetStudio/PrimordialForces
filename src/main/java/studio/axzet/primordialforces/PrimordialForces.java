@@ -25,8 +25,8 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import studio.axzet.primordialforces.block.ModBlocks;
 import studio.axzet.primordialforces.block.entity.ModBlockEntities;
 import studio.axzet.primordialforces.entity.ModEntities;
+import studio.axzet.primordialforces.entity.client.EntlingRenderer;
 import studio.axzet.primordialforces.entity.client.MossGolemRenderer;
-import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
 import studio.axzet.primordialforces.item.ModArmorMaterials;
 import studio.axzet.primordialforces.item.ModCreativeModeTabs;
 import studio.axzet.primordialforces.item.ModItems;
@@ -105,12 +105,11 @@ public class PrimordialForces
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
-
-
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             EntityRenderers.register(ModEntities.MOSS_GOLEM.get(), MossGolemRenderer::new);
+            EntityRenderers.register(ModEntities.ENTLING.get(), EntlingRenderer::new);
             ModPortals.createPortals();
         }
 
