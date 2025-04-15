@@ -31,6 +31,7 @@ public class ModItems {
     //endregion
     //region SHARDS
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
+    public static final DeferredItem<Item> EARTH_SHARD = ITEMS.registerSimpleItem("earth_shard");
     //endregion
 
     // Fuel

@@ -34,6 +34,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         // SHARDS
         basicItem(ModItems.VOID_SHARD.get());
+        basicItem(ModItems.EARTH_SHARD.get());
 
         // Fuel
         basicItem(ModItems.PRIMORDIAL_CRYSTAL.get());
