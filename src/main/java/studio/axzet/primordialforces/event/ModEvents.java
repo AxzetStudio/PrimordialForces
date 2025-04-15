@@ -11,6 +11,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import studio.axzet.primordialforces.PrimordialForces;
+import studio.axzet.primordialforces.entity.custom.EntWarriorEntity;
+import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
 import studio.axzet.primordialforces.item.ModItems;
 import studio.axzet.primordialforces.utils.ElementalEssenceType;
 
@@ -45,39 +47,33 @@ public class ModEvents {
     }
 
     private static boolean isVoidEligibleEntity(Object entity) {
-        return entity instanceof Zombie
-                || entity instanceof Skeleton
-                || entity instanceof Witch
+        return entity instanceof Witch
                 || entity instanceof Stray
                 || entity instanceof Zoglin
                 ;
     }
 
     private static boolean isEarthEligibleEntity(Object entity) {
-        return entity instanceof Spider
-                || entity instanceof IronGolem
-                || entity instanceof Husk
+        return entity instanceof Husk
                 || entity instanceof Bogged
+                || entity instanceof MossGolemEntity
+                || entity instanceof EntWarriorEntity
                 ;
     }
 
     private static boolean isFireEligibleEntity(Object entity) {
         return entity instanceof Blaze
-                || entity instanceof Strider
                 || entity instanceof MagmaCube
                 ;
     }
 
     private static boolean isWaterEligibleEntity(Object entity) {
         return entity instanceof Guardian
-                || entity instanceof Drowned
                 ;
     }
 
     private static boolean isAirEligibleEntity(Object entity) {
-        return entity instanceof Ghast
-                || entity instanceof Phantom
-                || entity instanceof Breeze
+        return entity instanceof Breeze
                 ;
     }
 
