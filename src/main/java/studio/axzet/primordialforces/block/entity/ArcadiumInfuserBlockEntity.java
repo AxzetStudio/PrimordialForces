@@ -14,14 +14,13 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,8 +36,7 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ArcadiumInfuserBlockEntity.class);
 
-
-    public final ItemStackHandler itemStackHandler = new ItemStackHandler(4) {
+    public final ItemStackHandler itemStackHandler = new ItemStackHandler(8) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -49,9 +47,14 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     };
 
     private static final int CORE_SLOT = 0;
-    private static final int INPUT_SLOT = 1;
-    private static final int OUTPUT_SLOT = 2;
-    private static final int CRYSTAL_SLOT = 3;
+    private static final int ESSENCE_SLOT1 = 1;
+    private static final int ESSENCE_SLOT2 = 2;
+    private static final int ESSENCE_SLOT3 = 3;
+    private static final int ESSENCE_SLOT4 = 4;
+    private static final int ESSENCE_SLOT5 = 5;
+    private static final int ESSENCE_SLOT6 = 6;
+    private static final int OUTPUT_SLOT = 7;
+
 
     private final ContainerData data;
     private int progress = 0;
@@ -86,7 +89,7 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     }
 
     @Override
-    public Component getDisplayName() {
+    public @NotNull Component getDisplayName() {
         return Component.translatable("blockentity.primordialforces.arcadium_infuser");
     }
 
@@ -146,9 +149,13 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
         Optional<RecipeHolder<ArcadiumInfuserRecipe>> recipe = getCurrentRecipe();
         ItemStack output = recipe.get().value().output();
 
-        itemStackHandler.extractItem(INPUT_SLOT, 1, false);
         itemStackHandler.extractItem(CORE_SLOT, 1, false);
-        itemStackHandler.extractItem(CRYSTAL_SLOT, 1, false);
+        itemStackHandler.extractItem(ESSENCE_SLOT1, 1, false);
+        itemStackHandler.extractItem(ESSENCE_SLOT2, 1, false);
+        itemStackHandler.extractItem(ESSENCE_SLOT3, 1, false);
+        itemStackHandler.extractItem(ESSENCE_SLOT4, 1, false);
+        itemStackHandler.extractItem(ESSENCE_SLOT5, 1, false);
+        itemStackHandler.extractItem(ESSENCE_SLOT6, 1, false);
         itemStackHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(), itemStackHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
     }
 
@@ -179,13 +186,18 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
 
     private boolean needsInfusingRequirements() {
         boolean hasCore = itemStackHandler.getStackInSlot(CORE_SLOT).getItem() == ModItems.ARCADIUM_CORE.get();
-        boolean hasCrystal = itemStackHandler.getStackInSlot(CRYSTAL_SLOT).getItem() == ModItems.PRIMORDIAL_CRYSTAL.get();
+        boolean hasAllEssences = itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT2).getItem()
+               && itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT3).getItem()
+               && itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT4).getItem()
+               && itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT5).getItem()
+               && itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT6).getItem()
+                ;
 
-        return !(hasCore && hasCrystal);
+        return !(hasCore && hasAllEssences);
     }
 
     private Optional<RecipeHolder<ArcadiumInfuserRecipe>> getCurrentRecipe() {
-        return this.level.getRecipeManager().getRecipeFor(ModRecipes.ARCADIUM_INFUSER_TYPE.get(), new ArcadiumInfuserRecipeInput(itemStackHandler.getStackInSlot(INPUT_SLOT)), level);
+        return this.level.getRecipeManager().getRecipeFor(ModRecipes.ARCADIUM_INFUSER_TYPE.get(), new ArcadiumInfuserRecipeInput(itemStackHandler.getStackInSlot(ESSENCE_SLOT1)), level);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

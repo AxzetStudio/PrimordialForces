@@ -12,18 +12,19 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public record ArcadiumInfuserRecipe(Ingredient inputItem, ItemStack output) implements Recipe<ArcadiumInfuserRecipeInput> {
 
     @Override
-    public NonNullList<Ingredient> getIngredients() {
+    public @NotNull NonNullList<Ingredient> getIngredients() {
         NonNullList<Ingredient> list = NonNullList.create();
         list.add(inputItem);
         return list;
     }
 
     @Override
-    public boolean matches(ArcadiumInfuserRecipeInput arcadiumInfuserRecipeInput, Level level) {
+    public boolean matches(@NotNull ArcadiumInfuserRecipeInput arcadiumInfuserRecipeInput, Level level) {
         if (level.isClientSide) {
             return false;
         }
@@ -32,7 +33,7 @@ public record ArcadiumInfuserRecipe(Ingredient inputItem, ItemStack output) impl
     }
 
     @Override
-    public ItemStack assemble(ArcadiumInfuserRecipeInput arcadiumInfuserRecipeInput, HolderLookup.Provider provider) {
+    public @NotNull ItemStack assemble(@NotNull ArcadiumInfuserRecipeInput arcadiumInfuserRecipeInput, @NotNull HolderLookup.Provider provider) {
         return output.copy();
     }
 
@@ -42,17 +43,17 @@ public record ArcadiumInfuserRecipe(Ingredient inputItem, ItemStack output) impl
     }
 
     @Override
-    public ItemStack getResultItem(HolderLookup.Provider provider) {
+    public @NotNull ItemStack getResultItem(HolderLookup.Provider provider) {
         return output;
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return ModRecipes.ARCADIUM_INFUSER_SERIALIZER.get();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public @NotNull RecipeType<?> getType() {
         return ModRecipes.ARCADIUM_INFUSER_TYPE.get();
     }
 
@@ -70,12 +71,12 @@ public record ArcadiumInfuserRecipe(Ingredient inputItem, ItemStack output) impl
                         ArcadiumInfuserRecipe::new);
 
         @Override
-        public MapCodec<ArcadiumInfuserRecipe> codec() {
+        public @NotNull MapCodec<ArcadiumInfuserRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, ArcadiumInfuserRecipe> streamCodec() {
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, ArcadiumInfuserRecipe> streamCodec() {
             return STREAM_CODEC;
         }
     }

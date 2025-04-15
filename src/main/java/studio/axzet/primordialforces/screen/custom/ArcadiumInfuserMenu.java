@@ -31,10 +31,14 @@ public class ArcadiumInfuserMenu extends AbstractContainerMenu {
         addPlayerInventory(inventory);
         addPlayerHotbar(inventory);
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 0, 77, 8));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 1, 54, 34));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 2, 104, 34));
-        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 3, 77, 60));
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 0, 9, 33)); // Input
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 1, 43, 6)); // Essence 1
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 2, 44, 63)); // Essence 2
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 3, 79, 6)); // Essence 3
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 4, 80, 63)); // Essence 4
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 5, 115, 6)); // Essence 5
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 6, 116, 63)); // Essence 6
+        this.addSlot(new SlotItemHandler(this.blockEntity.itemStackHandler, 7, 151, 33)); // Output
 
         addDataSlots(data);
     }
@@ -64,8 +68,7 @@ public class ArcadiumInfuserMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots
+    private static final int TE_INVENTORY_SLOT_COUNT = 8;  // must be the number of slots
 
     @Override
     public ItemStack quickMoveStack(Player player, int i) {

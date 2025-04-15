@@ -2,10 +2,11 @@ package studio.axzet.primordialforces.recipe;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;
+import org.jetbrains.annotations.NotNull;
 
 public record ArcadiumInfuserRecipeInput(ItemStack input) implements RecipeInput {
     @Override
-    public ItemStack getItem(int i) {
+    public @NotNull ItemStack getItem(int i) {
         return input;
     }
 
