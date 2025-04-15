@@ -30,7 +30,9 @@ import studio.axzet.primordialforces.recipe.ArcadiumInfuserRecipeInput;
 import studio.axzet.primordialforces.recipe.ModRecipes;
 import studio.axzet.primordialforces.screen.custom.ArcadiumInfuserMenu;
 
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.IntStream;
 
 public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -150,13 +152,15 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
         ItemStack output = recipe.get().value().output();
 
         itemStackHandler.extractItem(CORE_SLOT, 1, false);
-        itemStackHandler.extractItem(ESSENCE_SLOT1, 1, false);
-        itemStackHandler.extractItem(ESSENCE_SLOT2, 1, false);
-        itemStackHandler.extractItem(ESSENCE_SLOT3, 1, false);
-        itemStackHandler.extractItem(ESSENCE_SLOT4, 1, false);
-        itemStackHandler.extractItem(ESSENCE_SLOT5, 1, false);
-        itemStackHandler.extractItem(ESSENCE_SLOT6, 1, false);
-        itemStackHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(output.getItem(), itemStackHandler.getStackInSlot(OUTPUT_SLOT).getCount() + output.getCount()));
+        IntStream.of(ESSENCE_SLOT1, ESSENCE_SLOT2, ESSENCE_SLOT3, ESSENCE_SLOT4, ESSENCE_SLOT5, ESSENCE_SLOT6)
+                .forEach(slot -> itemStackHandler.extractItem(slot, 1, false));
+
+        ItemStack currentOutput = itemStackHandler.getStackInSlot(OUTPUT_SLOT);
+        if (currentOutput.isEmpty()) {
+            itemStackHandler.setStackInSlot(OUTPUT_SLOT, output.copy());
+        } else {
+            currentOutput.grow(output.getCount());
+        }
     }
 
     private boolean hasCraftingFinished() {
@@ -185,19 +189,44 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     }
 
     private boolean needsInfusingRequirements() {
-        boolean hasCore = itemStackHandler.getStackInSlot(CORE_SLOT).getItem() == ModItems.ARCADIUM_CORE.get();
-        boolean hasAllEssences = itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT2).getItem()
-               && itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT3).getItem()
-               && itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT4).getItem()
-               && itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT5).getItem()
-               && itemStackHandler.getStackInSlot(ESSENCE_SLOT1).getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT6).getItem()
-                ;
+        Optional<RecipeHolder<ArcadiumInfuserRecipe>> recipe = getCurrentRecipe();
+        if (recipe.isEmpty()) return true;
 
-        return !(hasCore && hasAllEssences);
+        ItemStack core = itemStackHandler.getStackInSlot(CORE_SLOT);
+        ItemStack firstEssence = itemStackHandler.getStackInSlot(ESSENCE_SLOT1);
+
+        boolean matchesRecipe = recipe.get().value().core().test(core) &&
+                recipe.get().value().essence().test(firstEssence);
+
+        boolean essencesMatch = areAllEssenceSlotsEqual();
+
+        System.out.println("Essence match: " + essencesMatch);
+        System.out.println("Recipe match: " + matchesRecipe);
+
+        return !matchesRecipe || !essencesMatch;
+    }
+
+    private boolean areAllEssenceSlotsEqual() {
+        ItemStack firstEssence = itemStackHandler.getStackInSlot(ESSENCE_SLOT1);
+        if (firstEssence.isEmpty()) return false;
+
+        return firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT2).getItem()
+                && firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT3).getItem()
+                && firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT4).getItem()
+                && firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT5).getItem()
+                && firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT6).getItem()
+                ;
     }
 
     private Optional<RecipeHolder<ArcadiumInfuserRecipe>> getCurrentRecipe() {
-        return this.level.getRecipeManager().getRecipeFor(ModRecipes.ARCADIUM_INFUSER_TYPE.get(), new ArcadiumInfuserRecipeInput(itemStackHandler.getStackInSlot(ESSENCE_SLOT1)), level);
+        return this.level.getRecipeManager().getRecipeFor(
+                ModRecipes.ARCADIUM_INFUSER_TYPE.get(),
+                new ArcadiumInfuserRecipeInput(
+                        itemStackHandler.getStackInSlot(CORE_SLOT),
+                        itemStackHandler.getStackInSlot(ESSENCE_SLOT1)
+                ),
+                level
+        );
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
