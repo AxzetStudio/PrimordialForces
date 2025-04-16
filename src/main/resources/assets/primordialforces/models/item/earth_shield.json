@@ -197,10 +197,10 @@
 			"translation": [3.5, -4.75, 2.25]
 		},
 		"firstperson_righthand": {
-			"translation": [7.25, -7.5, -4]
+			"translation": [0, -5, -4]
 		},
 		"firstperson_lefthand": {
-			"translation": [7.25, -7.5, -4]
+			"translation": [0, -5, -4]
 		},
 		"ground": {
 			"rotation": [32, 0, 0],
@@ -224,6 +224,5 @@
 			"color": 0,
 			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 		}
-	],
-	"mcmodels": "6505ff8247c5fd7a4f913d1b5650add6"
+	]
 }
