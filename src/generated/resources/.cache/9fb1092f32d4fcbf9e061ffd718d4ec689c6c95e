@@ -1,4 +1,6 @@
-// 1.21.1	2025-01-06T16:48:04.7972346	Recipes
+// 1.21.1	2025-04-16T00:20:00.1827682	Recipes
+1610a928631d64e0b8400a8506b986fb83453f0c data/primordialforces/advancement/recipes/combat/earth_shield.json
+9f273b6bcf3145b4292c66598f29a625a9cadd26 data/primordialforces/advancement/recipes/combat/earth_sword.json
 d0e0135bc228d2c797bc686909047188dea1d73b data/primordialforces/advancement/recipes/misc/arcadium_conduit.json
 1eed8bc23e408c7fc01a4388e7aa6bf8fb93588b data/primordialforces/advancement/recipes/misc/arcadium_core.json
 c47e567136f32685e6e70a6f3e73785bbdc15dd7 data/primordialforces/advancement/recipes/misc/arcadium_from_blasting_raw_arcadium.json
@@ -21,6 +23,8 @@ abfe36a4981c757f09012d5639ccad3bb2e65b5e data/primordialforces/recipe/black_opal
 8779c185eaa58625e40fb162222ff7179705ed91 data/primordialforces/recipe/black_opal_from_blasting_raw_black_opal.json
 5fc47d83543d5ea8a515a52088b3810065455534 data/primordialforces/recipe/black_opal_from_smelting_raw_black_opal.json
 042b6c308f7b43c0c8689d0d72714cae2813ccfc data/primordialforces/recipe/black_opal_helmet.json
+3623e347702c6692e8a4a59f8a7f675c76f3ed9b data/primordialforces/recipe/earth_shield.json
+745b3b91eaf6fccc1ece4fcae1cd913dbd054069 data/primordialforces/recipe/earth_sword.json
 ee1d81c52c979263d67e7d5abbe0aac11ebc5b5b data/primordialforces/recipe/voidmancer_boots.json
 cf299a9177318d9a4e3caba9a3b469d73b8f7972 data/primordialforces/recipe/voidmancer_chestplate.json
 01dd78417eec678feee32c6f02adb25ae6392f9c data/primordialforces/recipe/voidmancer_helmet.json

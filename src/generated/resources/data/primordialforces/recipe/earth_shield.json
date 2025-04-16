@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "primordialforces:arcadium_conduit"
+    },
+    "E": {
+      "item": "primordialforces:earth_rune"
+    }
+  },
+  "pattern": [
+    "ECE",
+    "EEE",
+    " E "
+  ],
+  "result": {
+    "count": 1,
+    "id": "primordialforces:earth_shield"
+  }
+}

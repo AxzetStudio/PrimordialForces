@@ -76,7 +76,29 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreBlasting(recipeOutput, ARCADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ARCADIUM.get(), 0.35f, 100, "arcadium");
         //endregion
 
-        // Void Armor
+        //region EARTH WEAPONS
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.EARTH_SWORD)
+                .pattern(" E ")
+                .pattern(" E ")
+                .pattern(" C ")
+                .define('E', ModItems.EARTH_RUNE.get())
+                .define('C', ModItems.ARCADIUM_CONDUIT.get())
+                .unlockedBy("has_earth_rune", has(ModItems.EARTH_RUNE.get()))
+                .save(recipeOutput);
+                ;
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.EARTH_SHIELD)
+                .pattern("ECE")
+                .pattern("EEE")
+                .pattern(" E ")
+                .define('E', ModItems.EARTH_RUNE.get())
+                .define('C', ModItems.ARCADIUM_CONDUIT.get())
+                .unlockedBy("has_earth_rune", has(ModItems.EARTH_RUNE.get()))
+                .save(recipeOutput);
+        ;
+        //endregion
+
+        //region VOID ARMOR
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_HELMET)
                 .pattern("VVV")
                 .pattern("V V")
@@ -104,8 +126,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("V V")
                 .define('V', ModItems.VOID_SHARD.get())
                 .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
+        //endregion
 
-        // Black Opal Armor
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BLACK_OPAL_HELMET)
                 .pattern("BBB")
                 .pattern("B B")
@@ -113,7 +135,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', ModItems.BLACK_OPAL.get())
                 .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
     }
-
     protected static void oreSmelting(RecipeOutput pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
                                       float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pRecipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
