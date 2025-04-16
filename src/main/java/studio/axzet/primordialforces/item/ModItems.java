@@ -2,6 +2,7 @@ package studio.axzet.primordialforces.item;
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -39,7 +40,11 @@ public class ModItems {
 
     // Fuel
     public static final DeferredItem<Item> PRIMORDIAL_CRYSTAL = ITEMS.registerItem("primordial_crystal", properties -> new FuelItem(properties, 2400), new Item.Properties());
-
+    //region WEAPONS
+    public static final DeferredItem<Item> EARTH_SWORD = ITEMS.register("earth_sword",
+            () -> new SwordItem(ModToolTiers.PRIMORDIAL_TIER, new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.PRIMORDIAL_TIER, 3, -2.4f)).stacksTo(1))
+            );
+    //endregion
     //region VOID ARMOR
     public static final DeferredItem<Item> VOIDMANCER_HELMET = ITEMS.register("voidmancer_helmet",
             () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
