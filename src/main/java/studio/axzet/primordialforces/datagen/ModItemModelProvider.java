@@ -1,7 +1,6 @@
 package studio.axzet.primordialforces.datagen;
 
 import net.minecraft.data.PackOutput;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import studio.axzet.primordialforces.PrimordialForces;
@@ -35,6 +34,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         // SHARDS
         basicItem(ModItems.VOID_SHARD.get());
         basicItem(ModItems.EARTH_SHARD.get());
+
+        // RUNES
+        basicItem(ModItems.EARTH_RUNE.get());
 
         // Fuel
         basicItem(ModItems.PRIMORDIAL_CRYSTAL.get());

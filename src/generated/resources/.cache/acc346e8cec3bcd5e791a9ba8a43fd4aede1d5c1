@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-15T14:15:48.8033803	Item Models: primordialforces
+// 1.21.1	2025-04-15T19:03:22.7052279	Item Models: primordialforces
 2bd58258a70bfacd4c6ad89b6c05f060b7498765 assets/primordialforces/models/item/air_essence.json
 e081ac05acd7fea044627a3f3ecfae11689fdb78 assets/primordialforces/models/item/arcadium.json
 cecb020507230873a2c9bb65c74dfead4b61973a assets/primordialforces/models/item/arcadium_conduit.json
@@ -9,6 +9,7 @@ da9af4387254c4888f377a278b19a9cbe61077ad assets/primordialforces/models/item/bla
 84ac39dc0ee79b7eecae82eaa592f812ec57d35b assets/primordialforces/models/item/black_opal_helmet.json
 a37f16371ef70191fe755512eff392361de0e42f assets/primordialforces/models/item/black_opal_leggings.json
 04c47d1c5e8d2e28b25c6bd92b5bcbc939b24a94 assets/primordialforces/models/item/earth_essence.json
+00e237a17d62b1d29f603069e2da4f91863c4eba assets/primordialforces/models/item/earth_rune.json
 565dd09487d8f0213089afef2158e37cbe6df290 assets/primordialforces/models/item/earth_shard.json
 2dc0d29b035db0952150fddc9142f972a3f22b26 assets/primordialforces/models/item/fire_essence.json
 fb7edfd5eeedb501fe3e003d5c9de8307dad93f0 assets/primordialforces/models/item/primordial_crystal.json

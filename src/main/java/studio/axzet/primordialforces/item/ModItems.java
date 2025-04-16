@@ -33,6 +33,9 @@ public class ModItems {
     public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
     public static final DeferredItem<Item> EARTH_SHARD = ITEMS.registerSimpleItem("earth_shard");
     //endregion
+    //region RUNES
+    public static final DeferredItem<Item> EARTH_RUNE = ITEMS.registerSimpleItem("earth_rune");
+    //endregion
 
     // Fuel
     public static final DeferredItem<Item> PRIMORDIAL_CRYSTAL = ITEMS.registerItem("primordial_crystal", properties -> new FuelItem(properties, 2400), new Item.Properties());
