@@ -1,10 +1,10 @@
 {
   "type": "primordialforces:arcadium_infusing",
   "core": {
-    "item": "primordialforces:arcadium_core"
+    "item": "primordialforces:earth_essence"
   },
   "essence": {
-    "item": "primordialforces:earth_essence"
+    "item": "minecraft:dirt"
   },
   "result": {
     "id": "primordialforces:earth_shard"

@@ -200,9 +200,6 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
 
         boolean essencesMatch = areAllEssenceSlotsEqual();
 
-        System.out.println("Essence match: " + essencesMatch);
-        System.out.println("Recipe match: " + matchesRecipe);
-
         return !matchesRecipe || !essencesMatch;
     }
 
