@@ -2,6 +2,7 @@ package studio.axzet.primordialforces.item;
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.SwordItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -43,6 +44,10 @@ public class ModItems {
     //region WEAPONS
     public static final DeferredItem<Item> EARTH_SWORD = ITEMS.register("earth_sword",
             () -> new SwordItem(ModToolTiers.PRIMORDIAL_TIER, new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.PRIMORDIAL_TIER, 3, -2.4f)).stacksTo(1))
+            );
+
+    public static final DeferredItem<Item> EARTH_SHIELD = ITEMS.register("earth_shield",
+            () -> new ShieldItem(new Item.Properties().durability(500))
             );
     //endregion
     //region VOID ARMOR
