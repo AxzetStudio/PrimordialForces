@@ -14,13 +14,13 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public record ArcadiumInfuserRecipe(Ingredient core, Ingredient essence, ItemStack output) implements Recipe<ArcadiumInfuserRecipeInput> {
+public record ArcadiumInfuserRecipe(Ingredient core, Ingredient infuser, ItemStack output) implements Recipe<ArcadiumInfuserRecipeInput> {
 
     @Override
     public @NotNull NonNullList<Ingredient> getIngredients() {
         NonNullList<Ingredient> list = NonNullList.create();
         list.add(core);
-        list.add(essence);
+        list.add(infuser);
         return list;
     }
 
@@ -30,7 +30,7 @@ public record ArcadiumInfuserRecipe(Ingredient core, Ingredient essence, ItemSta
             return false;
         }
 
-        return core.test(arcadiumInfuserRecipeInput.getItem(0)) && essence.test(arcadiumInfuserRecipeInput.getItem(1));
+        return core.test(arcadiumInfuserRecipeInput.getItem(0)) && infuser.test(arcadiumInfuserRecipeInput.getItem(1));
     }
 
     @Override
@@ -62,14 +62,14 @@ public record ArcadiumInfuserRecipe(Ingredient core, Ingredient essence, ItemSta
 
         public static final MapCodec<ArcadiumInfuserRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.CODEC_NONEMPTY.fieldOf("core").forGetter(ArcadiumInfuserRecipe::core),
-                Ingredient.CODEC_NONEMPTY.fieldOf("essence").forGetter(ArcadiumInfuserRecipe::essence),
+                Ingredient.CODEC_NONEMPTY.fieldOf("infuser").forGetter(ArcadiumInfuserRecipe::infuser),
                 ItemStack.CODEC.fieldOf("result").forGetter(ArcadiumInfuserRecipe::output)
         ).apply(inst, ArcadiumInfuserRecipe::new));
 
         public static final StreamCodec<RegistryFriendlyByteBuf, ArcadiumInfuserRecipe> STREAM_CODEC =
                 StreamCodec.composite(
                         Ingredient.CONTENTS_STREAM_CODEC, ArcadiumInfuserRecipe::core,
-                        Ingredient.CONTENTS_STREAM_CODEC, ArcadiumInfuserRecipe::essence,
+                        Ingredient.CONTENTS_STREAM_CODEC, ArcadiumInfuserRecipe::infuser,
                         ItemStack.STREAM_CODEC, ArcadiumInfuserRecipe::output,
                         ArcadiumInfuserRecipe::new
                 );

@@ -3,7 +3,7 @@
   "core": {
     "item": "primordialforces:arcadium_core"
   },
-  "essence": {
+  "infuser": {
     "item": "primordialforces:earth_shard"
   },
   "result": {

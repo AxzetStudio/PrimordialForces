@@ -3,7 +3,7 @@
   "core": {
     "item": "primordialforces:earth_essence"
   },
-  "essence": {
+  "infuser": {
     "item": "minecraft:dirt"
   },
   "result": {

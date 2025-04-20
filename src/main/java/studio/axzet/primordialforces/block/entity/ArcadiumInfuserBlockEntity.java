@@ -49,12 +49,12 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     };
 
     private static final int CORE_SLOT = 0;
-    private static final int ESSENCE_SLOT1 = 1;
-    private static final int ESSENCE_SLOT2 = 2;
-    private static final int ESSENCE_SLOT3 = 3;
-    private static final int ESSENCE_SLOT4 = 4;
-    private static final int ESSENCE_SLOT5 = 5;
-    private static final int ESSENCE_SLOT6 = 6;
+    private static final int INFUSE_SLOT1 = 1;
+    private static final int INFUSE_SLOT2 = 2;
+    private static final int INFUSE_SLOT3 = 3;
+    private static final int INFUSE_SLOT4 = 4;
+    private static final int INFUSE_SLOT5 = 5;
+    private static final int INFUSE_SLOT6 = 6;
     private static final int OUTPUT_SLOT = 7;
 
 
@@ -152,7 +152,7 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
         ItemStack output = recipe.get().value().output();
 
         itemStackHandler.extractItem(CORE_SLOT, 1, false);
-        IntStream.of(ESSENCE_SLOT1, ESSENCE_SLOT2, ESSENCE_SLOT3, ESSENCE_SLOT4, ESSENCE_SLOT5, ESSENCE_SLOT6)
+        IntStream.of(INFUSE_SLOT1, INFUSE_SLOT2, INFUSE_SLOT3, INFUSE_SLOT4, INFUSE_SLOT5, INFUSE_SLOT6)
                 .forEach(slot -> itemStackHandler.extractItem(slot, 1, false));
 
         ItemStack currentOutput = itemStackHandler.getStackInSlot(OUTPUT_SLOT);
@@ -193,25 +193,25 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
         if (recipe.isEmpty()) return true;
 
         ItemStack core = itemStackHandler.getStackInSlot(CORE_SLOT);
-        ItemStack firstEssence = itemStackHandler.getStackInSlot(ESSENCE_SLOT1);
+        ItemStack firstInfuser = itemStackHandler.getStackInSlot(INFUSE_SLOT1);
 
         boolean matchesRecipe = recipe.get().value().core().test(core) &&
-                recipe.get().value().essence().test(firstEssence);
+                recipe.get().value().infuser().test(firstInfuser);
 
-        boolean essencesMatch = areAllEssenceSlotsEqual();
+        boolean infusersMatch = areAllInfuserSlotsEqual();
 
-        return !matchesRecipe || !essencesMatch;
+        return !matchesRecipe || !infusersMatch;
     }
 
-    private boolean areAllEssenceSlotsEqual() {
-        ItemStack firstEssence = itemStackHandler.getStackInSlot(ESSENCE_SLOT1);
-        if (firstEssence.isEmpty()) return false;
+    private boolean areAllInfuserSlotsEqual() {
+        ItemStack firstInfuser = itemStackHandler.getStackInSlot(INFUSE_SLOT1);
+        if (firstInfuser.isEmpty()) return false;
 
-        return firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT2).getItem()
-                && firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT3).getItem()
-                && firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT4).getItem()
-                && firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT5).getItem()
-                && firstEssence.getItem() == itemStackHandler.getStackInSlot(ESSENCE_SLOT6).getItem()
+        return firstInfuser.getItem() == itemStackHandler.getStackInSlot(INFUSE_SLOT2).getItem()
+                && firstInfuser.getItem() == itemStackHandler.getStackInSlot(INFUSE_SLOT3).getItem()
+                && firstInfuser.getItem() == itemStackHandler.getStackInSlot(INFUSE_SLOT4).getItem()
+                && firstInfuser.getItem() == itemStackHandler.getStackInSlot(INFUSE_SLOT5).getItem()
+                && firstInfuser.getItem() == itemStackHandler.getStackInSlot(INFUSE_SLOT6).getItem()
                 ;
     }
 
@@ -220,7 +220,7 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
                 ModRecipes.ARCADIUM_INFUSER_TYPE.get(),
                 new ArcadiumInfuserRecipeInput(
                         itemStackHandler.getStackInSlot(CORE_SLOT),
-                        itemStackHandler.getStackInSlot(ESSENCE_SLOT1)
+                        itemStackHandler.getStackInSlot(INFUSE_SLOT1)
                 ),
                 level
         );
