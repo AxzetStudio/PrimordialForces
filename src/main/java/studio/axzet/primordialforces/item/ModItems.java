@@ -8,6 +8,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
+import studio.axzet.primordialforces.item.custom.EarthArmorItem;
 import studio.axzet.primordialforces.item.custom.FuelItem;
 import studio.axzet.primordialforces.item.custom.VoidmancerArmorItem;
 
@@ -67,7 +68,23 @@ public class ModItems {
             () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
     );
     //endregion
+    //region EARTH ARMOR
+    public static final DeferredItem<Item> EARTH_HELMET = ITEMS.register("earth_helmet",
+            () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
+    );
 
+    public static final DeferredItem<Item> EARTH_CHESTPLATE = ITEMS.register("earth_chestplate",
+            () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(16)))
+    );
+
+    public static final DeferredItem<Item> EARTH_LEGGINGS = ITEMS.register("earth_leggings",
+            () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(16)))
+    );
+
+    public static final DeferredItem<Item> EARTH_BOOTS = ITEMS.register("earth_boots",
+            () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
+    );
+    //endregion
     //region BLACK OPAL ARMOR
     public static final DeferredItem<Item> BLACK_OPAL_HELMET = ITEMS.register("black_opal_helmet",
             () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))

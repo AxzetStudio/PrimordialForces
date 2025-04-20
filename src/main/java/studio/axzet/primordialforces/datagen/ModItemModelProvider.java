@@ -47,6 +47,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.VOIDMANCER_LEGGINGS.get());
         basicItem(ModItems.VOIDMANCER_BOOTS.get());
 
+        // Earth Armor
+        basicItem(ModItems.EARTH_HELMET.get());
+        basicItem(ModItems.EARTH_CHESTPLATE.get());
+        basicItem(ModItems.EARTH_LEGGINGS.get());
+        basicItem(ModItems.EARTH_BOOTS.get());
+
         //Black Opal Armor
         basicItem(ModItems.BLACK_OPAL_HELMET.get());
         basicItem(ModItems.BLACK_OPAL_CHESTPLATE.get());
