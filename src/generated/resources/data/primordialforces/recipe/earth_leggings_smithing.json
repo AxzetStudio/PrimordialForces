@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "primordialforces:arcadium_core"
+  },
+  "base": {
+    "item": "minecraft:diamond_leggings"
+  },
+  "result": {
+    "count": 1,
+    "id": "primordialforces:earth_leggings"
+  },
+  "template": {
+    "item": "primordialforces:earth_rune"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "primordialforces:arcadium_core"
+  },
+  "base": {
+    "item": "minecraft:diamond_chestplate"
+  },
+  "result": {
+    "count": 1,
+    "id": "primordialforces:earth_chestplate"
+  },
+  "template": {
+    "item": "primordialforces:earth_rune"
+  }
+}

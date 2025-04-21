@@ -16,6 +16,11 @@ import java.util.List;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PrimordialForces.MOD_ID);
 
+    private static final ResourceLocation EMPTY_SLOT_HELMET = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_helmet");
+    private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_chestplate");
+    private static final ResourceLocation EMPTY_SLOT_LEGGINGS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_leggings");
+    private static final ResourceLocation EMPTY_SLOT_BOOTS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_boots");
+
     //region BLACK OPAL
     public static final DeferredItem<Item> BLACK_OPAL = ITEMS.registerSimpleItem("black_opal");
     public static final DeferredItem<Item> RAW_BLACK_OPAL = ITEMS.registerItem("raw_black_opal", Item::new, new Item.Properties());
@@ -46,7 +51,7 @@ public class ModItems {
                     Component.translatable("item.primordialforces.earth_rune.upgrade"),
                     Component.translatable("item.primordialforces.earth_rune.base_slot"),
                     Component.translatable("item.primordialforces.earth_rune.additional_slot"),
-                    List.of(ResourceLocation.withDefaultNamespace("item/empty_armor_slot_helmet")),
+                    List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS),
                     List.of(ResourceLocation.withDefaultNamespace("item/empty_slot_ingot"))
             )
     );
@@ -113,9 +118,11 @@ public class ModItems {
     public static final DeferredItem<Item> BLACK_OPAL_BOOTS = ITEMS.register("black_opal_boots",
             () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
     );
+    //endregion
+
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
-    //endregion
 }

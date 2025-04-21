@@ -100,14 +100,56 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ;
         //endregion
 
+        //region EARTH ARMOR
         smithing(
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
                 Ingredient.of(Items.DIAMOND_HELMET),
                 Ingredient.of(ModItems.ARCADIUM_CORE.get()),
                 RecipeCategory.COMBAT,
-                ModItems.EARTH_HELMET.get()
+                ModItems.EARTH_HELMET.get(),
+                "has_earth_rune",
+                ModItems.EARTH_RUNE.get(),
+                "earth_helmet_smithing"
         );
+
+        smithing(
+                recipeOutput,
+                Ingredient.of(ModItems.EARTH_RUNE.get()),
+                Ingredient.of(Items.DIAMOND_CHESTPLATE),
+                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
+                RecipeCategory.COMBAT,
+                ModItems.EARTH_CHESTPLATE.get(),
+                "has_earth_rune",
+                ModItems.EARTH_RUNE.get(),
+                "earth_chestplate_smithing"
+        );
+
+        smithing(
+                recipeOutput,
+                Ingredient.of(ModItems.EARTH_RUNE.get()),
+                Ingredient.of(Items.DIAMOND_LEGGINGS),
+                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
+                RecipeCategory.COMBAT,
+                ModItems.EARTH_LEGGINGS.get(),
+                "has_earth_rune",
+                ModItems.EARTH_RUNE.get(),
+                "earth_leggings_smithing"
+        );
+
+        smithing(
+                recipeOutput,
+                Ingredient.of(ModItems.EARTH_RUNE.get()),
+                Ingredient.of(Items.DIAMOND_BOOTS),
+                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
+                RecipeCategory.COMBAT,
+                ModItems.EARTH_BOOTS.get(),
+                "has_earth_rune",
+                ModItems.EARTH_RUNE.get(),
+                "earth_boots_smithing"
+        );
+
+        //endregion
 
         //region VOID ARMOR
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_HELMET)
@@ -147,7 +189,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
     }
 
-    protected  static void smithing(RecipeOutput pRecipeOutput, Ingredient template, Ingredient base, Ingredient addition, RecipeCategory pCategory, Item result) {
+    protected  static void smithing(RecipeOutput pRecipeOutput, Ingredient template, Ingredient base, Ingredient addition, RecipeCategory pCategory, Item result, String unlocks, ItemLike unlocksItem, String recipeName) {
         SmithingTransformRecipeBuilder.smithing(
                 template,
                 base,
@@ -155,8 +197,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 pCategory,
                 result
         )
-                .unlocks("has_earth_rune", has(ModItems.EARTH_RUNE.get()))
-                .save(pRecipeOutput, ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "earth_helmet_smithing"));
+                .unlocks(unlocks, has(unlocksItem))
+                .save(pRecipeOutput, ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, recipeName));
     }
 
     protected static void oreSmelting(RecipeOutput pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
