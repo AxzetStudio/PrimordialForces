@@ -20,6 +20,7 @@ public class ModItems {
     private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_chestplate");
     private static final ResourceLocation EMPTY_SLOT_LEGGINGS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_leggings");
     private static final ResourceLocation EMPTY_SLOT_BOOTS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_boots");
+    private static final ResourceLocation EMPTY_ARCADIUM_CORE_SLOT = ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "item/empty_slot_arcadium_core");
 
     //region BLACK OPAL
     public static final DeferredItem<Item> BLACK_OPAL = ITEMS.registerSimpleItem("black_opal");
@@ -46,13 +47,13 @@ public class ModItems {
     public static final DeferredItem<SmithingTemplateItem> EARTH_RUNE = ITEMS.register(
             "earth_rune",
             () -> new SmithingTemplateItem(
-                    Component.translatable("item.primordialforces.earth_rune.applies_to"),
-                    Component.translatable("item.primordialforces.earth_rune.ingredients"),
+                    Component.translatable("item.primordialforces.rune.applies_to"),
+                    Component.translatable("item.primordialforces.rune.ingredients"),
                     Component.translatable("item.primordialforces.earth_rune.upgrade"),
-                    Component.translatable("item.primordialforces.earth_rune.base_slot"),
-                    Component.translatable("item.primordialforces.earth_rune.additional_slot"),
+                    Component.translatable("item.primordialforces.rune.base_slot"),
+                    Component.translatable("item.primordialforces.rune.additional_slot"),
                     List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS),
-                    List.of(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID,"item/empty_slot_arcadium_core"))
+                    List.of(EMPTY_ARCADIUM_CORE_SLOT)
             )
     );
     //endregion
