@@ -4,7 +4,7 @@
     "item": "primordialforces:earth_essence"
   },
   "infuser": {
-    "item": "minecraft:dirt"
+    "item": "minecraft:grass_block"
   },
   "result": {
     "id": "primordialforces:earth_shard"
