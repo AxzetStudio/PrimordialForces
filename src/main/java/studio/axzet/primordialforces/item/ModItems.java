@@ -1,9 +1,8 @@
 package studio.axzet.primordialforces.item;
 
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ShieldItem;
-import net.minecraft.world.item.SwordItem;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -11,6 +10,8 @@ import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.item.custom.EarthArmorItem;
 import studio.axzet.primordialforces.item.custom.FuelItem;
 import studio.axzet.primordialforces.item.custom.VoidmancerArmorItem;
+
+import java.util.List;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PrimordialForces.MOD_ID);
@@ -37,7 +38,18 @@ public class ModItems {
     public static final DeferredItem<Item> EARTH_SHARD = ITEMS.registerSimpleItem("earth_shard");
     //endregion
     //region RUNES
-    public static final DeferredItem<Item> EARTH_RUNE = ITEMS.registerSimpleItem("earth_rune");
+    public static final DeferredItem<SmithingTemplateItem> EARTH_RUNE = ITEMS.register(
+            "earth_rune",
+            () -> new SmithingTemplateItem(
+                    Component.translatable("item.primordialforces.earth_rune.applies_to"),
+                    Component.translatable("item.primordialforces.earth_rune.ingredients"),
+                    Component.translatable("item.primordialforces.earth_rune.upgrade"),
+                    Component.translatable("item.primordialforces.earth_rune.base_slot"),
+                    Component.translatable("item.primordialforces.earth_rune.additional_slot"),
+                    List.of(ResourceLocation.withDefaultNamespace("item/empty_armor_slot_helmet")),
+                    List.of(ResourceLocation.withDefaultNamespace("item/empty_slot_ingot"))
+            )
+    );
     //endregion
 
     // Fuel

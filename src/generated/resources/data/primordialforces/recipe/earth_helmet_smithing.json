@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "primordialforces:earth_helmet"
+  },
+  "template": {
+    "item": "primordialforces:earth_rune"
+  }
+}

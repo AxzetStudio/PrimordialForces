@@ -4,6 +4,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
@@ -98,6 +100,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ;
         //endregion
 
+        smithing(
+                recipeOutput,
+                Ingredient.of(ModItems.EARTH_RUNE.get()),
+                Ingredient.of(Items.DIAMOND_HELMET),
+                Ingredient.of(Items.GOLD_INGOT),
+                RecipeCategory.COMBAT,
+                ModItems.EARTH_HELMET.get()
+        );
+
         //region VOID ARMOR
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_HELMET)
                 .pattern("VVV")
@@ -135,6 +146,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B', ModItems.BLACK_OPAL.get())
                 .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
     }
+
+    protected  static void smithing(RecipeOutput pRecipeOutput, Ingredient template, Ingredient base, Ingredient addition, RecipeCategory pCategory, Item result) {
+        SmithingTransformRecipeBuilder.smithing(
+                template,
+                base,
+                addition,
+                pCategory,
+                result
+        )
+                .unlocks("has_earth_rune", has(ModItems.EARTH_RUNE.get()))
+                .save(pRecipeOutput, ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "earth_helmet_smithing"));
+    }
+
     protected static void oreSmelting(RecipeOutput pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
                                       float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pRecipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
