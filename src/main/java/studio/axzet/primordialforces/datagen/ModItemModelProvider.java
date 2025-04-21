@@ -39,9 +39,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         // RUNES
         basicItem(ModItems.EARTH_RUNE.get());
 
-        // Fuel
-        basicItem(ModItems.PRIMORDIAL_CRYSTAL.get());
-
         // Void Armor
         basicItem(ModItems.VOIDMANCER_HELMET.get());
         basicItem(ModItems.VOIDMANCER_CHESTPLATE.get());

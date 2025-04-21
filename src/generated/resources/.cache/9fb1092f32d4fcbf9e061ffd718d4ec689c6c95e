@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-21T11:29:04.8735692	Recipes
+// 1.21.1	2025-04-21T16:46:43.1190501	Recipes
 36f0da053e47160e9039aaea861505a322158e20 data/primordialforces/advancement/recipes/combat/earth_boots_smithing.json
 82984004b9b416c45e7df8ae0bcc03b5b8139e80 data/primordialforces/advancement/recipes/combat/earth_chestplate_smithing.json
 c4467c35eaccc32ce9ed9da6c430e96146efe045 data/primordialforces/advancement/recipes/combat/earth_helmet_smithing.json
@@ -19,7 +19,7 @@ afd8329947a038f5173d8344c97cb647385c185f data/primordialforces/advancement/recip
 c8dcceca551ec6563458288144890f1c1523f641 data/primordialforces/advancement/recipes/misc/voidmancer_helmet.json
 0ca67976c64da7e98beafbdebde0b05be788f976 data/primordialforces/advancement/recipes/misc/voidmancer_leggings.json
 607bc0a4ba8ca365732667a1bda838d34eb2049b data/primordialforces/recipe/arcadium_conduit.json
-68b8576c7e955e179f504f94a8f36f6c6ced0c61 data/primordialforces/recipe/arcadium_core.json
+320f24eca99b2ad0d3057441300c3a123c64c496 data/primordialforces/recipe/arcadium_core.json
 9a67b5c0dc5ac973f3dd365669b136f45bba2523 data/primordialforces/recipe/arcadium_from_blasting_raw_arcadium.json
 82fe2536e7ac6016932b5ec290ab2ef5270473b8 data/primordialforces/recipe/arcadium_portal_frame.json
 52f5592be8406c0973cdf43cfd23c1d843b34800 data/primordialforces/recipe/black_opal.json
