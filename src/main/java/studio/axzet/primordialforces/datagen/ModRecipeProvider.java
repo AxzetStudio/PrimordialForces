@@ -104,7 +104,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
                 Ingredient.of(Items.DIAMOND_HELMET),
-                Ingredient.of(Items.GOLD_INGOT),
+                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
                 RecipeCategory.COMBAT,
                 ModItems.EARTH_HELMET.get()
         );

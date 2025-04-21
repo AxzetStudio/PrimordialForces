@@ -20,5 +20,11 @@
   "item.primordialforces.black_opal_helmet": "Black Opal Helmet",
   "item.primordialforces.black_opal_chestplate": "Black Opal Chestplate",
   "item.primordialforces.black_opal_leggings": "Black Opal Leggings",
-  "item.primordialforces.black_opal_boots": "Black Opal Boots"
+  "item.primordialforces.black_opal_boots": "Black Opal Boots",
+
+  "item.primordialforces.earth_rune.applies_to" : "Diamond Equipment",
+  "item.primordialforces.earth_rune.ingredients": "Arcadium Core",
+  "item.primordialforces.earth_rune.upgrade":  "Earth Arcadium Upgrade",
+  "item.primordialforces.earth_rune.base_slot": "Diamond Helmet",
+  "item.primordialforces.earth_rune.additional_slot": "Arcadium Core"
 }

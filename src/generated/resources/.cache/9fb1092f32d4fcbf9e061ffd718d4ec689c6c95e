@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-21T01:09:08.419906	Recipes
+// 1.21.1	2025-04-21T01:13:34.9999381	Recipes
 c4467c35eaccc32ce9ed9da6c430e96146efe045 data/primordialforces/advancement/recipes/combat/earth_helmet_smithing.json
 1610a928631d64e0b8400a8506b986fb83453f0c data/primordialforces/advancement/recipes/combat/earth_shield.json
 9f273b6bcf3145b4292c66598f29a625a9cadd26 data/primordialforces/advancement/recipes/combat/earth_sword.json
@@ -24,7 +24,7 @@ abfe36a4981c757f09012d5639ccad3bb2e65b5e data/primordialforces/recipe/black_opal
 8779c185eaa58625e40fb162222ff7179705ed91 data/primordialforces/recipe/black_opal_from_blasting_raw_black_opal.json
 5fc47d83543d5ea8a515a52088b3810065455534 data/primordialforces/recipe/black_opal_from_smelting_raw_black_opal.json
 042b6c308f7b43c0c8689d0d72714cae2813ccfc data/primordialforces/recipe/black_opal_helmet.json
-3f8952fc0ddb41dfd275a3484ad98ceac1a84dbd data/primordialforces/recipe/earth_helmet_smithing.json
+e36ead2a0913e7f18358f63f592c9cafe797f606 data/primordialforces/recipe/earth_helmet_smithing.json
 3623e347702c6692e8a4a59f8a7f675c76f3ed9b data/primordialforces/recipe/earth_shield.json
 745b3b91eaf6fccc1ece4fcae1cd913dbd054069 data/primordialforces/recipe/earth_sword.json
 ee1d81c52c979263d67e7d5abbe0aac11ebc5b5b data/primordialforces/recipe/voidmancer_boots.json
