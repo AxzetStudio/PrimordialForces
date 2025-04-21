@@ -58,8 +58,6 @@ public class ModItems {
     );
     //endregion
 
-    // Fuel
-    public static final DeferredItem<Item> PRIMORDIAL_CRYSTAL = ITEMS.registerItem("primordial_crystal", properties -> new FuelItem(properties, 2400), new Item.Properties());
     //region WEAPONS
     public static final DeferredItem<Item> EARTH_SWORD = ITEMS.register("earth_sword",
             () -> new SwordItem(ModToolTiers.PRIMORDIAL_TIER, new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.PRIMORDIAL_TIER, 3, -2.4f)).stacksTo(1))

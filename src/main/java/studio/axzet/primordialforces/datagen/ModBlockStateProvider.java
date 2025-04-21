@@ -25,7 +25,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.ARCADIUM_DEEPSLATE_ORE);
         blockWithItem(ModBlocks.ARCADIUM_PORTAL_FRAME);
         //endregion
-        blockWithItem(ModBlocks.PRIMORDIAL_CRYSTAL_DEEPSLATE_ORE);
     }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock) {

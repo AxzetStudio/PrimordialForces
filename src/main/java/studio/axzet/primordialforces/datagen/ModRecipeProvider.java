@@ -63,7 +63,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("ACA")
                 .define('A', ModItems.ARCADIUM.get())
                 .define('C', ModItems.ARCADIUM_CONDUIT.get())
-                .define('P', ModItems.PRIMORDIAL_CRYSTAL)
+                .define('P', Items.AMETHYST_SHARD)
                 .unlockedBy("has_arcadium_conduit", has(ModItems.ARCADIUM_CONDUIT.get())).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ARCADIUM_PORTAL_FRAME.get())
