@@ -52,7 +52,7 @@ public class ModItems {
                     Component.translatable("item.primordialforces.earth_rune.base_slot"),
                     Component.translatable("item.primordialforces.earth_rune.additional_slot"),
                     List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS),
-                    List.of(ResourceLocation.withDefaultNamespace("item/empty_slot_ingot"))
+                    List.of(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID,"item/empty_slot_arcadium_core"))
             )
     );
     //endregion
