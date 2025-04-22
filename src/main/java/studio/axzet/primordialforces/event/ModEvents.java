@@ -2,18 +2,15 @@ package studio.axzet.primordialforces.event;
 
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.monster.breeze.Breeze;
-import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.entity.custom.EntWarriorEntity;
 import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
-import studio.axzet.primordialforces.item.ModItems;
 import studio.axzet.primordialforces.utils.ElementalEssenceType;
 
 import java.util.Map;

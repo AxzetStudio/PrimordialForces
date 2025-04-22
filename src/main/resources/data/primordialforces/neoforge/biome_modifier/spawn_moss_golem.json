@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "minecraft:plains",
+  "spawners": {
+    "type": "primordialforces:moss_golem",
+    "maxCount": 6,
+    "minCount": 1,
+    "weight": 50
+  }
+}
