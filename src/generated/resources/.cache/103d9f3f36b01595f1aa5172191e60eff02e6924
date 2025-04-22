@@ -1,1 +1,4 @@
-// 1.21.1	2025-01-02T17:41:25.343623	Registries
+// 1.21.1	2025-04-21T21:53:00.3283808	Registries
+35caef2ceb8aea6bb12fc3bd4a1422670e8e47db data/primordialforces/neoforge/biome_modifier/add_arcadium_ore.json
+c97b9d72af61e71de7c932501a5cb53d70d94980 data/primordialforces/worldgen/configured_feature/overworld_arcadium_ore.json
+8571d685f158803359684c58db70ce7cfd9cc631 data/primordialforces/worldgen/placed_feature/arcadium_ore_placed.json
