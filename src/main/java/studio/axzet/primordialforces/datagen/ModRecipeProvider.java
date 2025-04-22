@@ -87,29 +87,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreBlasting(recipeOutput, ARCADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ARCADIUM.get(), 0.35f, 100, "arcadium");
         //endregion
 
-        //region EARTH WEAPONS
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.EARTH_SWORD)
-                .pattern(" E ")
-                .pattern(" E ")
-                .pattern(" C ")
-                .define('E', ModItems.EARTH_RUNE.get())
-                .define('C', ModItems.ARCADIUM_CONDUIT.get())
-                .unlockedBy("has_earth_rune", has(ModItems.EARTH_RUNE.get()))
-                .save(recipeOutput);
-                ;
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.EARTH_SHIELD)
-                .pattern("ECE")
-                .pattern("EEE")
-                .pattern(" E ")
-                .define('E', ModItems.EARTH_RUNE.get())
-                .define('C', ModItems.ARCADIUM_CONDUIT.get())
-                .unlockedBy("has_earth_rune", has(ModItems.EARTH_RUNE.get()))
-                .save(recipeOutput);
-        ;
-        //endregion
-
-        //region EARTH ARMOR
+        //region EARTH EQUIPMENT
         smithing(
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
@@ -156,6 +134,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 "has_earth_rune",
                 ModItems.EARTH_RUNE.get(),
                 "earth_boots_smithing"
+        );
+
+        smithing(
+                recipeOutput,
+                Ingredient.of(ModItems.EARTH_RUNE.get()),
+                Ingredient.of(Items.DIAMOND_SWORD),
+                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
+                RecipeCategory.COMBAT,
+                ModItems.EARTH_SWORD.get(),
+                "has_earth_rune",
+                ModItems.EARTH_RUNE.get(),
+                "earth_sword_smithing"
+        );
+
+        smithing(
+                recipeOutput,
+                Ingredient.of(ModItems.EARTH_RUNE.get()),
+                Ingredient.of(Items.SHIELD),
+                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
+                RecipeCategory.COMBAT,
+                ModItems.EARTH_SHIELD.get(),
+                "has_earth_rune",
+                ModItems.EARTH_RUNE.get(),
+                "earth_shield_smithing"
         );
 
         //endregion

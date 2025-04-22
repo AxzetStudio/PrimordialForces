@@ -20,6 +20,8 @@ public class ModItems {
     private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_chestplate");
     private static final ResourceLocation EMPTY_SLOT_LEGGINGS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_leggings");
     private static final ResourceLocation EMPTY_SLOT_BOOTS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_boots");
+    private static final ResourceLocation EMPTY_SLOT_SHIELD = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_shield");
+    private static final ResourceLocation EMPTY_SLOT_SWORD = ResourceLocation.withDefaultNamespace("item/empty_slot_sword");
     private static final ResourceLocation EMPTY_ARCADIUM_CORE_SLOT = ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "item/empty_slot_arcadium_core");
 
     //region BLACK OPAL
@@ -52,7 +54,7 @@ public class ModItems {
                     Component.translatable("item.primordialforces.earth_rune.upgrade"),
                     Component.translatable("item.primordialforces.rune.base_slot"),
                     Component.translatable("item.primordialforces.rune.additional_slot"),
-                    List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS),
+                    List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS, EMPTY_SLOT_SWORD, EMPTY_SLOT_SHIELD),
                     List.of(EMPTY_ARCADIUM_CORE_SLOT)
             )
     );
