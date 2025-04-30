@@ -10,7 +10,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -33,7 +32,7 @@ public class MossGolemEntity extends Animal implements GeoEntity {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes()
+        return Animal.createMobAttributes()
                 .add(Attributes.FOLLOW_RANGE, 5.0)
                 .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.ATTACK_DAMAGE, 6.0f)
@@ -66,7 +65,7 @@ public class MossGolemEntity extends Animal implements GeoEntity {
             }
         });
         this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 0.9, 32));
-        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 1, 10));
+        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 1, 200));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 4.0f));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
