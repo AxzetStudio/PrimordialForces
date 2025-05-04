@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "primordialforces:block/arcadium_infuser",
+      "y": 90
+    },
+    "facing=north": {
       "model": "primordialforces:block/arcadium_infuser"
+    },
+    "facing=south": {
+      "model": "primordialforces:block/arcadium_infuser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "primordialforces:block/arcadium_infuser",
+      "y": 270
     }
   }
 }
