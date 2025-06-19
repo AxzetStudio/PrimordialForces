@@ -7,6 +7,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
+import studio.axzet.primordialforces.entity.custom.EntBruteEntity;
 import studio.axzet.primordialforces.entity.custom.EntWarriorEntity;
 import studio.axzet.primordialforces.entity.custom.EntlingEntity;
 import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
@@ -27,6 +28,10 @@ public class ModEntities {
     public static final Supplier<EntityType<EntWarriorEntity>> ENT_WARRIOR = ENTITY_TYPES.register("ent_warrior",
             () -> EntityType.Builder.of(EntWarriorEntity::new, MobCategory.MONSTER).sized(1,1).build("ent_warrior")
     );
+
+    public static final Supplier<EntityType<EntBruteEntity>> ENT_BRUTE = ENTITY_TYPES.register("ent_brute",
+            () -> EntityType.Builder.of(EntBruteEntity::new, MobCategory.MISC).sized(1.5f, 3.0f).build("ent_brute")
+            );
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
