@@ -59,13 +59,13 @@ public class EntWarriorEntity extends Animal implements GeoEntity {
                 .add(Attributes.ATTACK_DAMAGE, 6.0f)
                 .add(Attributes.ATTACK_SPEED, 0.5f)
                 .add(Attributes.ARMOR, 3.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.3f)
+                .add(Attributes.MOVEMENT_SPEED, 0.25f)
                 ;
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new EntWarriorAttackGoal(this, 1.2, false));
+        this.goalSelector.addGoal(1, new EntWarriorAttackGoal(this, 1, false));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.8));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0f));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
@@ -90,22 +90,20 @@ public class EntWarriorEntity extends Animal implements GeoEntity {
             setAttackTickSynced(attackTick);
             
             // Debug del servidor
-            if (attackTick % 20 == 0) {
+            /*if (attackTick % 20 == 0) {
                 System.out.println("EntWarrior SERVIDOR - Enviando datos: isAttacking=true, tick=" + attackTick);
-            }
+            }*/
 
             // Primer ataque en el segundo 1 (tick 20)
             if(attackTick == 20 && !firstHitDealt && attackTarget != null) {
                 performAttack(attackTarget);
                 firstHitDealt = true;
-                System.out.println("EntWarrior - Primer ataque ejecutado en tick " + attackTick);
             }
 
             // Segundo ataque en el segundo 2 (tick 40)
             if (attackTick == 40 && !secondHitDealt && attackTarget != null) {
                 performAttack(attackTarget);
                 secondHitDealt = true;
-                System.out.println("EntWarrior - Segundo ataque ejecutado en tick " + attackTick);
             }
 
             // Terminar ataque después de 3.2 segundos (64 ticks)
@@ -130,9 +128,9 @@ public class EntWarriorEntity extends Animal implements GeoEntity {
 
             this.getNavigation().stop();
 
-            System.out.println("EntWarrior iniciando ataque contra: " + target.getName().getString());
-            System.out.println("EntWarrior - Estado de animación: isAttacking=" + isAttacking);
-            System.out.println("EntWarrior SERVIDOR - Iniciando sincronización: isAttacking=true, tick=0");
+            //System.out.println("EntWarrior iniciando ataque contra: " + target.getName().getString());
+            //System.out.println("EntWarrior - Estado de animación: isAttacking=" + isAttacking);
+            //System.out.println("EntWarrior SERVIDOR - Iniciando sincronización: isAttacking=true, tick=0");
         }
     }
 
@@ -143,8 +141,8 @@ public class EntWarriorEntity extends Animal implements GeoEntity {
 
             this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.PLAYER_ATTACK_STRONG, this.getSoundSource(), 1.0f, 1.0f);
 
-            System.out.println("EntWarrior golpeando por " + damage + " de daño a " + target.getName().getString() + 
-                             " (distancia: " + String.format("%.2f", Math.sqrt(this.distanceToSqr(target))) + " bloques)");
+            /*System.out.println("EntWarrior golpeando por " + damage + " de daño a " + target.getName().getString() +
+                             " (distancia: " + String.format("%.2f", Math.sqrt(this.distanceToSqr(target))) + " bloques)");*/
         } else {
             System.out.println("EntWarrior no pudo atacar - Target: " + (target != null ? target.getName().getString() : "null") + 
                              ", Distancia: " + (target != null ? String.format("%.2f", Math.sqrt(this.distanceToSqr(target))) : "N/A") + " bloques");
@@ -162,8 +160,8 @@ public class EntWarriorEntity extends Animal implements GeoEntity {
         setAttackingSynced(false);
         setAttackTickSynced(0);
 
-        System.out.println("EntWarrior terminando ataque");
-        System.out.println("EntWarrior SERVIDOR - Finalizando sincronización: isAttacking=false, tick=0");
+        //System.out.println("EntWarrior terminando ataque");
+        //System.out.println("EntWarrior SERVIDOR - Finalizando sincronización: isAttacking=false, tick=0");
     }
 
     public boolean isAttacking() {
@@ -182,16 +180,16 @@ public class EntWarriorEntity extends Animal implements GeoEntity {
 
     private PlayState predicate(AnimationState<EntWarriorEntity> state) {
         // Debug siempre para ver si se ejecuta el controlador
-        System.out.println("EntWarrior - Controlador ejecutándose");
+        //System.out.println("EntWarrior - Controlador ejecutándose");
         
         // Usar datos sincronizados del servidor
         boolean isAttackingSynced = isAttackingSynced();
         int attackTickSynced = getAttackTickSynced();
         
-        System.out.println("EntWarrior - Datos sincronizados - isAttacking: " + isAttackingSynced + ", tick: " + attackTickSynced);
+        //System.out.println("EntWarrior - Datos sincronizados - isAttacking: " + isAttackingSynced + ", tick: " + attackTickSynced);
         
         if (isAttackingSynced) {
-            System.out.println("EntWarrior - Reproduciendo animación de ataque en tick " + attackTickSynced);
+           // System.out.println("EntWarrior - Reproduciendo animación de ataque en tick " + attackTickSynced);
             return state.setAndContinue(ATTACK_ANIMATION);
         }
         
@@ -323,12 +321,12 @@ public class EntWarriorEntity extends Animal implements GeoEntity {
             }
 
             // Debug info
-            if (this.attackTime % 20 == 0) {
+            /*if (this.attackTime % 20 == 0) {
                 System.out.println("EntWarrior - Distancia: " + Math.sqrt(distanceToTargetSqr) + 
                                  ", Viendo: " + hasLineOfSight + 
                                  ", Atacando: " + this.warrior.isAttacking() + 
                                  ", Puede atacar: " + this.warrior.canAttack());
-            }
+            }*/
         }
     }
 
