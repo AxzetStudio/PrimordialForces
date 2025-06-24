@@ -151,11 +151,11 @@ public class EntBruteEntity extends Animal implements GeoEntity {
 
     public void performAreaAttack() {
         System.out.println("EntBrute - Realizando ataque en área");
-        double radius = 3.0;
+        double radius = 5.0;
         int playersHit = 0;
         this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(radius))
                 .forEach(player -> {
-                    if (player != null && this.distanceToSqr(player) <= 9.0) { // Radio de 3 bloques
+                    if (player != null && this.distanceToSqr(player) <= 15.0) { // Radio de 5 bloques
                         float damage = (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE);
                         player.hurt(this.damageSources().mobAttack(this), damage);
                         System.out.println("EntBrute - Golpeando a " + player.getName().getString() + " por " + damage + " de daño");

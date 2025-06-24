@@ -13,7 +13,7 @@ public class EntBruteAttackGoal extends Goal {
     private final double speedModifier;
     private final boolean followingTargetEvenIfNotSeen;
     private int seeTime;
-    private final int attackTimeStart = 60;
+    private final int attackTimeStart = 20;
     private long lastCanUseCheck;
     private static final long COOLDOWN_BETWEEN_CAN_USE_CHECKS = 20L;
 
