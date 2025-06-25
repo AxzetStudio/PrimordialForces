@@ -80,6 +80,7 @@ public class EntBruteEntity extends Animal implements GeoEntity {
         super.tick();
         
         // Debug: verificar si tiene target
+        /*
         if (this.tickCount % 60 == 0) { // Cada 3 segundos
             LivingEntity target = this.getTarget();
             if (target != null) {
@@ -90,6 +91,7 @@ public class EntBruteEntity extends Animal implements GeoEntity {
                 System.out.println("EntBrute - Sin target, isAttacking: " + isAttacking + ", attackTick: " + attackTick);
             }
         }
+         */
         
         // Reducir cooldown de ataque
         if (attackCooldown > 0) {
@@ -109,7 +111,7 @@ public class EntBruteEntity extends Animal implements GeoEntity {
 
             // Realizar ataque en área en el tick 60 (3 segundos)
             if (attackTick == 60 && !attackDealt) {
-                System.out.println("EntBrute - Ejecutando ataque en área en tick " + attackTick);
+                //System.out.println("EntBrute - Ejecutando ataque en área en tick " + attackTick);
                 performAreaAttack();
                 attackDealt = true;
             }
@@ -130,7 +132,7 @@ public class EntBruteEntity extends Animal implements GeoEntity {
 
     public void startAttack(LivingEntity target) {
         if (!isAttacking && attackCooldown <= 0) {
-            System.out.println("EntBrute - Iniciando ataque real contra: " + target.getName().getString());
+            //System.out.println("EntBrute - Iniciando ataque real contra: " + target.getName().getString());
             this.isAttacking = true;
             this.attackTarget = target;
             this.attackTick = 0;
@@ -144,13 +146,13 @@ public class EntBruteEntity extends Animal implements GeoEntity {
             // Detener completamente el movimiento
             this.getNavigation().stop();
             this.setDeltaMovement(0, this.getDeltaMovement().y, 0); // Detener movimiento horizontal
-        } else {
+        } /*else {
             System.out.println("EntBrute - No puede iniciar ataque - isAttacking: " + isAttacking + ", cooldown: " + attackCooldown);
-        }
+        }*/
     }
 
     public void performAreaAttack() {
-        System.out.println("EntBrute - Realizando ataque en área");
+        //System.out.println("EntBrute - Realizando ataque en área");
         double radius = 5.0;
         int playersHit = 0;
         this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(radius))
@@ -158,14 +160,14 @@ public class EntBruteEntity extends Animal implements GeoEntity {
                     if (player != null && this.distanceToSqr(player) <= 15.0) { // Radio de 5 bloques
                         float damage = (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE);
                         player.hurt(this.damageSources().mobAttack(this), damage);
-                        System.out.println("EntBrute - Golpeando a " + player.getName().getString() + " por " + damage + " de daño");
+                        //System.out.println("EntBrute - Golpeando a " + player.getName().getString() + " por " + damage + " de daño");
                     }
                 });
-        System.out.println("EntBrute - Ataque en área completado");
+        //System.out.println("EntBrute - Ataque en área completado");
     }
 
     private void endAttack() {
-        System.out.println("EntBrute - Terminando ataque - attackTick: " + attackTick);
+        //System.out.println("EntBrute - Terminando ataque - attackTick: " + attackTick);
         this.isAttacking = false;
         this.attackTarget = null;
         this.attackTick = 0;

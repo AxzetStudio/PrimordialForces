@@ -87,6 +87,7 @@ public class EntBruteAttackGoal extends Goal {
         double distanceToTargetSqr = this.brute.distanceToSqr(target.getX(), target.getY(), target.getZ());
         boolean hasLineOfSight = this.brute.getSensing().hasLineOfSight(target);
 
+        /*
         if (this.brute.tickCount % 40 == 0) {
             System.out.println("EntBrute Goal - Target: " + target.getName().getString() + 
                              ", Distancia: " + String.format("%.2f", Math.sqrt(distanceToTargetSqr)) +
@@ -95,7 +96,7 @@ public class EntBruteAttackGoal extends Goal {
                              ", attackTime: " + attackTime +
                              ", canAttack: " + this.brute.canAttack());
         }
-
+         */
         if (hasLineOfSight != seeTime > 0) {
             this.seeTime = 0;
         }
@@ -115,7 +116,7 @@ public class EntBruteAttackGoal extends Goal {
         }
 
         if (attackTime >= this.attackTimeStart && this.brute.canAttack() && !this.brute.isAttacking()) {
-            System.out.println("EntBrute Goal - Iniciando ataque contra: " + target.getName().getString());
+            //System.out.println("EntBrute Goal - Iniciando ataque contra: " + target.getName().getString());
             this.brute.startAttack(target);
             this.attackTime = 0;
         }
