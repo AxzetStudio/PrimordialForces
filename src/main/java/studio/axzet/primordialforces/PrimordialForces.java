@@ -1,6 +1,8 @@
 package studio.axzet.primordialforces;
 
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -115,6 +117,9 @@ public class PrimordialForces
             EntityRenderers.register(ModEntities.ENT_WARRIOR.get(), EntWarriorRenderer::new);
             EntityRenderers.register(ModEntities.ENT_BRUTE.get(), EntBruteRenderer::new);
             ModPortals.createPortals();
+            event.enqueueWork(() -> {
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.ARCADIUM_ALTAR.get(), RenderType.translucent());
+            });
         }
 
         @SubscribeEvent
