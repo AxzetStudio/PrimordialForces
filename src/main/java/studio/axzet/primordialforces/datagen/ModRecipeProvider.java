@@ -27,7 +27,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-        List<ItemLike> BLACK_OPAL_SMELTABLES = List.of(ModItems.RAW_BLACK_OPAL);
         List<ItemLike> ARCADIUM_SMELTABLES = List.of(ModItems.RAW_ARCADIUM);
 
         //region ARCADIUM RECIPES
@@ -175,13 +174,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('V', ModItems.VOID_SHARD.get())
                 .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
         //endregion
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BLACK_OPAL_HELMET)
-                .pattern("BBB")
-                .pattern("B B")
-                .pattern("   ")
-                .define('B', ModItems.BLACK_OPAL.get())
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
     }
 
     protected  static void smithing(RecipeOutput pRecipeOutput, Ingredient template, Ingredient base, Ingredient addition, RecipeCategory pCategory, Item result, String unlocks, ItemLike unlocksItem, String recipeName) {
