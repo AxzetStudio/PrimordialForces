@@ -90,11 +90,8 @@ public class PrimordialForces
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.BLACK_OPAL);
-            event.accept(ModItems.RAW_BLACK_OPAL);
             event.accept(ModItems.ARCADIUM);
             event.accept(ModItems.RAW_ARCADIUM);
-            event.accept(ModItems.VOID_SHARD);
         }
     }
 

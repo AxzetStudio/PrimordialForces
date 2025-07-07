@@ -22,20 +22,14 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.ARCADIUM_BLOCK.get())
                 .add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get())
-                .add(ModBlocks.BLACK_OPAL_BLOCK.get())
-                .add(ModBlocks.BLACK_OPAL_ORE.get())
                 .add(ModBlocks.ARCADIUM_PORTAL_FRAME.get())
         ;
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get());
 
-        this.tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.BLACK_OPAL_ORE.get());
-
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.ARCADIUM_BLOCK.get())
-                .add(ModBlocks.BLACK_OPAL_BLOCK.get())
                 .add(ModBlocks.ARCADIUM_PORTAL_FRAME.get())
         ;
     }

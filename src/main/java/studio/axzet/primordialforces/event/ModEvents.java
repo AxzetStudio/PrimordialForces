@@ -9,6 +9,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import studio.axzet.primordialforces.PrimordialForces;
+import studio.axzet.primordialforces.entity.custom.EntBruteEntity;
 import studio.axzet.primordialforces.entity.custom.EntWarriorEntity;
 import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
 import studio.axzet.primordialforces.utils.ElementalEssenceType;
@@ -19,7 +20,7 @@ import java.util.function.Predicate;
 @EventBusSubscriber(modid = PrimordialForces.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class ModEvents {
 
-    private static final float ESSENCE_DROP_CHANCE = 0.3f;
+    private static final float ESSENCE_DROP_CHANCE = 0.2f;
 
     private static final Map<Predicate<LivingEntity>, ElementalEssenceType> ELIGIBLE_ENTITIES = Map.of(
             ModEvents::isEarthEligibleEntity, ElementalEssenceType.EARTH,
@@ -44,9 +45,7 @@ public class ModEvents {
     }
 
     private static boolean isVoidEligibleEntity(Object entity) {
-        return entity instanceof Witch
-                || entity instanceof Stray
-                || entity instanceof Zoglin
+        return entity instanceof EnderMan
                 ;
     }
 
@@ -55,6 +54,7 @@ public class ModEvents {
                 || entity instanceof Bogged
                 || entity instanceof MossGolemEntity
                 || entity instanceof EntWarriorEntity
+                || entity instanceof EntBruteEntity
                 ;
     }
 

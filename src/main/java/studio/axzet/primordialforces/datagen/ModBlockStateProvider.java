@@ -16,10 +16,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        //region BLACK OPAL
-        blockWithItem(ModBlocks.BLACK_OPAL_BLOCK);
-        blockWithItem(ModBlocks.BLACK_OPAL_ORE);
-        //endregion
         //region ARCADIUM
         blockWithItem(ModBlocks.ARCADIUM_BLOCK);
         blockWithItem(ModBlocks.ARCADIUM_DEEPSLATE_ORE);

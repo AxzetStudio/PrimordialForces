@@ -24,10 +24,6 @@ public class ModItems {
     private static final ResourceLocation EMPTY_SLOT_SWORD = ResourceLocation.withDefaultNamespace("item/empty_slot_sword");
     private static final ResourceLocation EMPTY_ARCADIUM_CORE_SLOT = ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "item/empty_slot_arcadium_core");
 
-    //region BLACK OPAL
-    public static final DeferredItem<Item> BLACK_OPAL = ITEMS.registerSimpleItem("black_opal");
-    public static final DeferredItem<Item> RAW_BLACK_OPAL = ITEMS.registerItem("raw_black_opal", Item::new, new Item.Properties());
-    //endregion
     //region ARCADIUM
     public static final DeferredItem<Item> ARCADIUM = ITEMS.registerSimpleItem("arcadium");
     public static final DeferredItem<Item> RAW_ARCADIUM = ITEMS.registerSimpleItem("raw_arcadium");
@@ -103,25 +99,6 @@ public class ModItems {
             () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
     );
     //endregion
-    //region BLACK OPAL ARMOR
-    public static final DeferredItem<Item> BLACK_OPAL_HELMET = ITEMS.register("black_opal_helmet",
-            () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
-            );
-
-    public static final DeferredItem<Item> BLACK_OPAL_CHESTPLATE = ITEMS.register("black_opal_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(16)))
-    );
-
-    public static final DeferredItem<Item> BLACK_OPAL_LEGGINGS = ITEMS.register("black_opal_leggings",
-            () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(16)))
-    );
-
-    public static final DeferredItem<Item> BLACK_OPAL_BOOTS = ITEMS.register("black_opal_boots",
-            () -> new ArmorItem(ModArmorMaterials.BLACK_OPAL, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
-    );
-    //endregion
-
-
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

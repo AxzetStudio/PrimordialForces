@@ -20,19 +20,6 @@ public class ModArmorMaterials {
 
     public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, PrimordialForces.MOD_ID);
 
-    public static final Holder<ArmorMaterial> BLACK_OPAL =
-            ARMOR_MATERIALS.register("black_opal", () -> new ArmorMaterial(
-                    Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-                        map.put(ArmorItem.Type.BOOTS, 2);
-                        map.put(ArmorItem.Type.LEGGINGS, 4);
-                        map.put(ArmorItem.Type.CHESTPLATE, 6);
-                        map.put(ArmorItem.Type.HELMET, 2);
-                        map.put(ArmorItem.Type.BODY, 4);
-                    }), 20, SoundEvents.ARMOR_EQUIP_GOLD, () -> Ingredient.of(ModItems.BLACK_OPAL.get()),
-                    List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "black_opal"))),
-                    0,0
-            ));
-
     public static final Holder<ArmorMaterial> VOID_ARCADIUM =
             ARMOR_MATERIALS.register("void_arcadium", () -> new ArmorMaterial(
                     Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {

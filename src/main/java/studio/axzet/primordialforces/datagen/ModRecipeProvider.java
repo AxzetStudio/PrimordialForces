@@ -30,22 +30,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         List<ItemLike> BLACK_OPAL_SMELTABLES = List.of(ModItems.RAW_BLACK_OPAL);
         List<ItemLike> ARCADIUM_SMELTABLES = List.of(ModItems.RAW_ARCADIUM);
 
-        //region BLACK OPAL RECIPES
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.BLACK_OPAL_BLOCK.get())
-                .pattern("BBB")
-                .pattern("BBB")
-                .pattern("BBB")
-                .define('B', ModItems.BLACK_OPAL.get())
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_OPAL, 9)
-                .requires(ModBlocks.BLACK_OPAL_BLOCK.get())
-                .unlockedBy("has_black_opal", has(ModItems.BLACK_OPAL.get())).save(recipeOutput);
-
-        oreSmelting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 200, "black_opal");
-        oreBlasting(recipeOutput, BLACK_OPAL_SMELTABLES, RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 0.25f, 100, "black_opal");
-        //endregion
-
         //region ARCADIUM RECIPES
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ARCADIUM_CONDUIT.get())
                 .pattern("III")

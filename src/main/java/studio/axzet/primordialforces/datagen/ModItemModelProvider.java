@@ -15,10 +15,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        // Black Opal
-        basicItem(ModItems.RAW_BLACK_OPAL.get());
-        basicItem(ModItems.BLACK_OPAL.get());
-
         // Arcadium
         basicItem(ModItems.RAW_ARCADIUM.get());
         basicItem(ModItems.ARCADIUM.get());
@@ -50,11 +46,5 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.EARTH_CHESTPLATE.get());
         basicItem(ModItems.EARTH_LEGGINGS.get());
         basicItem(ModItems.EARTH_BOOTS.get());
-
-        //Black Opal Armor
-        basicItem(ModItems.BLACK_OPAL_HELMET.get());
-        basicItem(ModItems.BLACK_OPAL_CHESTPLATE.get());
-        basicItem(ModItems.BLACK_OPAL_LEGGINGS.get());
-        basicItem(ModItems.BLACK_OPAL_BOOTS.get());
     }
 }

@@ -17,15 +17,6 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PrimordialForces.MOD_ID);
 
-    //region BLACK OPAL
-    public static final DeferredBlock<Block> BLACK_OPAL_ORE = registerBlock("black_opal_ore",
-            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
-    );
-
-    public static final DeferredBlock<Block> BLACK_OPAL_BLOCK = registerBlock("black_opal_block",
-            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
-    );
-    //endregion
     //region ARCADIUM
     public static final DeferredBlock<Block> ARCADIUM_DEEPSLATE_ORE = registerBlock("arcadium_deepslate_ore",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
@@ -45,11 +36,11 @@ public class ModBlocks {
     );
     //endregion
 
-    // Altar
+    //region Altar
     public static final DeferredBlock<Block> ARCADIUM_ALTAR = registerBlock("arcadium_altar",
             () -> new ArcadiumAltarBlock(BlockBehaviour.Properties.of().noOcclusion())
             );
-    //
+    //endregion
 
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
