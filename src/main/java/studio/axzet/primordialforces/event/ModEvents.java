@@ -12,6 +12,7 @@ import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.entity.custom.EntBruteEntity;
 import studio.axzet.primordialforces.entity.custom.EntWarriorEntity;
 import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
+import studio.axzet.primordialforces.entity.custom.WoodGuardianEntity;
 import studio.axzet.primordialforces.utils.ElementalEssenceType;
 
 import java.util.Map;
@@ -55,6 +56,7 @@ public class ModEvents {
                 || entity instanceof MossGolemEntity
                 || entity instanceof EntWarriorEntity
                 || entity instanceof EntBruteEntity
+                || entity instanceof WoodGuardianEntity
                 ;
     }
 

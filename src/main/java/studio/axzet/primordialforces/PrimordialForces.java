@@ -24,10 +24,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import studio.axzet.primordialforces.block.ModBlocks;
 import studio.axzet.primordialforces.block.entity.ModBlockEntities;
 import studio.axzet.primordialforces.entity.ModEntities;
-import studio.axzet.primordialforces.entity.client.EntBruteRenderer;
-import studio.axzet.primordialforces.entity.client.EntWarriorRenderer;
-import studio.axzet.primordialforces.entity.client.EntlingRenderer;
-import studio.axzet.primordialforces.entity.client.MossGolemRenderer;
+import studio.axzet.primordialforces.entity.client.*;
 import studio.axzet.primordialforces.item.ModArmorMaterials;
 import studio.axzet.primordialforces.item.ModCreativeModeTabs;
 import studio.axzet.primordialforces.item.ModItems;
@@ -106,6 +103,7 @@ public class PrimordialForces
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntities.WOOD_GUARDIAN.get(), WoodGuardianRenderer::new);
             EntityRenderers.register(ModEntities.MOSS_GOLEM.get(), MossGolemRenderer::new);
             EntityRenderers.register(ModEntities.ENTLING.get(), EntlingRenderer::new);
             EntityRenderers.register(ModEntities.ENT_WARRIOR.get(), EntWarriorRenderer::new);

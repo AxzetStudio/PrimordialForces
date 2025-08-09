@@ -9,16 +9,14 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.entity.ModEntities;
-import studio.axzet.primordialforces.entity.custom.EntBruteEntity;
-import studio.axzet.primordialforces.entity.custom.EntWarriorEntity;
-import studio.axzet.primordialforces.entity.custom.EntlingEntity;
-import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
+import studio.axzet.primordialforces.entity.custom.*;
 
 @EventBusSubscriber(modid = PrimordialForces.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
+        event.put(ModEntities.WOOD_GUARDIAN.get(), WoodGuardianEntity.createAttributes().build());
         event.put(ModEntities.MOSS_GOLEM.get(), MossGolemEntity.createAttributes().build());
         event.put(ModEntities.ENTLING.get(), EntlingEntity.createAttributes().build());
         event.put(ModEntities.ENT_WARRIOR.get(), EntWarriorEntity.createAttributes().build());

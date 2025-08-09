@@ -1,0 +1,104 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.woodguardian.idle": {
+			"loop": true,
+			"animation_length": 4,
+			"bones": {
+				"Guardian": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, -4, 0],
+							"easing": "easeInOutQuad"
+						},
+						"4.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutQuad"
+						}
+					}
+				},
+				"LeftOrb": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, -180]
+						},
+						"4.0": {
+							"vector": [0, 0, -360]
+						}
+					}
+				},
+				"RightOrb": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, 180]
+						},
+						"4.0": {
+							"vector": [0, 0, 360]
+						}
+					}
+				}
+			}
+		},
+		"animation.woodguardian.walk": {
+			"loop": true,
+			"animation_length": 4,
+			"bones": {
+				"Guardian": {
+					"rotation": {
+						"vector": [15, 0, 0]
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, -5, 0]
+						},
+						"4.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"LeftOrb": {
+					"rotation": {
+						"0.0": {
+							"vector": [-20, 0, 0]
+						},
+						"2.0": {
+							"vector": [20, 0, -180]
+						},
+						"4.0": {
+							"vector": [-20, 0, -360]
+						}
+					}
+				},
+				"RightOrb": {
+					"rotation": {
+						"0.0": {
+							"vector": [-20, 0, 0]
+						},
+						"2.0": {
+							"vector": [20, 0, 180]
+						},
+						"4.0": {
+							"vector": [-20, 0, 360]
+						}
+					}
+				}
+			}
+		},
+		"animation.woodguardian.attack": {
+			"loop": true
+		}
+	},
+	"geckolib_format_version": 2
+}

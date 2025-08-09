@@ -7,15 +7,16 @@ import net.minecraft.world.entity.MobCategory;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
-import studio.axzet.primordialforces.entity.custom.EntBruteEntity;
-import studio.axzet.primordialforces.entity.custom.EntWarriorEntity;
-import studio.axzet.primordialforces.entity.custom.EntlingEntity;
-import studio.axzet.primordialforces.entity.custom.MossGolemEntity;
+import studio.axzet.primordialforces.entity.custom.*;
 
 import java.util.function.Supplier;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, PrimordialForces.MOD_ID);
+
+    public static final Supplier<EntityType<WoodGuardianEntity>> WOOD_GUARDIAN = ENTITY_TYPES.register("wood_guardian",
+            () -> EntityType.Builder.of(WoodGuardianEntity::new, MobCategory.CREATURE).sized(0.7f, 2.5f).build("wood_guardian")
+    );
 
     public static final Supplier<EntityType<MossGolemEntity>> MOSS_GOLEM = ENTITY_TYPES.register("moss_golem",
             () -> EntityType.Builder.of(MossGolemEntity::new, MobCategory.MONSTER).sized(0.7f, 1.5f).build("moss_golem")
