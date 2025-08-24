@@ -8,7 +8,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
-import studio.axzet.primordialforces.block.custom.ArcadiumAltarBlock;
 import studio.axzet.primordialforces.block.custom.ArcadiumInfuserBlock;
 import studio.axzet.primordialforces.item.ModItems;
 
@@ -34,12 +33,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ARCADIUM_INFUSER = registerBlock("arcadium_infuser",
             () -> new ArcadiumInfuserBlock(BlockBehaviour.Properties.of().noOcclusion())
     );
-    //endregion
-
-    //region Altar
-    public static final DeferredBlock<Block> ARCADIUM_ALTAR = registerBlock("arcadium_altar",
-            () -> new ArcadiumAltarBlock(BlockBehaviour.Properties.of().noOcclusion())
-            );
     //endregion
 
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "primordialforces:block/black_opal_ore"
-  }
-}

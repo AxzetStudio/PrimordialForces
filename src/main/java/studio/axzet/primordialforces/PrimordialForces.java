@@ -108,9 +108,6 @@ public class PrimordialForces
             EntityRenderers.register(ModEntities.ENTLING.get(), EntlingRenderer::new);
             EntityRenderers.register(ModEntities.ENT_WARRIOR.get(), EntWarriorRenderer::new);
             EntityRenderers.register(ModEntities.ENT_BRUTE.get(), EntBruteRenderer::new);
-            event.enqueueWork(() -> {
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.ARCADIUM_ALTAR.get(), RenderType.translucent());
-            });
         }
 
         @SubscribeEvent
