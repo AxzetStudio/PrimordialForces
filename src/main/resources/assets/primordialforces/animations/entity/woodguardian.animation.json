@@ -93,6 +93,239 @@
 					}
 				}
 			}
+		},
+		"animation.woodguardian.earthsmash": {
+			"animation_length": 3,
+			"bones": {
+				"Guardian": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [-5, 0, 0]
+						},
+						"1.25": {
+							"vector": [40, 0, 0],
+							"easing": "easeOutBack"
+						},
+						"2.25": {
+							"vector": [40, 0, 0],
+							"easing": "linear"
+						},
+						"3.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.25": {
+							"vector": [0, -7, 10],
+							"easing": "easeOutBack"
+						},
+						"2.25": {
+							"vector": [0, -7, 10]
+						},
+						"3.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"LeftArm": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [-150, 0, 0],
+							"easing": "linear"
+						},
+						"0.75": {
+							"vector": [-150, 0, 0],
+							"easing": "linear"
+						},
+						"1.5": {
+							"vector": [-70, 0, 0],
+							"easing": "easeOutBack"
+						},
+						"2.25": {
+							"vector": [-70, 0, 0],
+							"easing": "linear"
+						},
+						"3.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"RightArm": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [-150, 0, 0]
+						},
+						"0.75": {
+							"vector": [-150, 0, 0]
+						},
+						"1.5": {
+							"vector": [-70, 0, 0],
+							"easing": "easeOutBack"
+						},
+						"2.25": {
+							"vector": [-70, 0, 0]
+						},
+						"3.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"LeftOrb": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.5": {
+							"vector": [45, 180, 0]
+						},
+						"3.0": {
+							"vector": [0, 360, 0]
+						}
+					}
+				},
+				"RightOrb": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.5": {
+							"vector": [45, -180, 0]
+						},
+						"3.0": {
+							"vector": [0, -360, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.woodguardian.poison": {
+			"animation_length": 3,
+			"bones": {
+				"RightArm": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [-130, 25, 0]
+						},
+						"1.5": {
+							"vector": [-130, 25, 0]
+						},
+						"2.5": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"LeftArm": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [-130, -25, 0]
+						},
+						"1.5": {
+							"vector": [-130, -25, 0]
+						},
+						"2.5": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"LeftOrb": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [90, -90, 0]
+						},
+						"2.5": {
+							"vector": [90, -90, 0]
+						},
+						"3.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [5, -30, 0],
+							"easing": "easeInOutCubic"
+						},
+						"2.5": {
+							"vector": [5, -30, 0]
+						},
+						"3.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"RightOrb": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [90, 90, 0]
+						},
+						"2.5": {
+							"vector": [90, 90, 0]
+						},
+						"3.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [-5, -30, 0],
+							"easing": "easeInOutCubic"
+						},
+						"2.5": {
+							"vector": [-5, -30, 0]
+						},
+						"3.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"Orbs": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						},
+						"1.5": {
+							"vector": [0, 180, 0],
+							"easing": "linear"
+						},
+						"2.5": {
+							"vector": [0, 360, 0]
+						}
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

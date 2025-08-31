@@ -70,19 +70,24 @@
 					]
 				},
 				{
-					"name": "LeftOrb",
+					"name": "Orbs",
 					"parent": "Guardian",
-					"pivot": [16, 45, 2],
-					"cubes": [
-						{"origin": [13, 42, -1], "size": [6, 6, 6], "uv": [8, 6]}
-					]
+					"pivot": [0, 0, 0]
 				},
 				{
 					"name": "RightOrb",
-					"parent": "Guardian",
+					"parent": "Orbs",
 					"pivot": [-15, 45, 2],
 					"cubes": [
 						{"origin": [-18, 42, -1], "size": [6, 6, 6], "uv": [8, 6]}
+					]
+				},
+				{
+					"name": "LeftOrb",
+					"parent": "Orbs",
+					"pivot": [16, 45, 2],
+					"cubes": [
+						{"origin": [13, 42, -1], "size": [6, 6, 6], "uv": [8, 6]}
 					]
 				}
 			]

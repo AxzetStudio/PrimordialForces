@@ -23,6 +23,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
 
     private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("animation.woodguardian.idle");
     private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("animation.woodguardian.walk");
+    private static final RawAnimation SMASH_ANIMATION = RawAnimation.begin().thenPlay("animation.woodguardian.earthsmash");
 
     public WoodGuardianEntity(EntityType<? extends AbstractGolem> entityType, Level level) {
         super(entityType, level);
