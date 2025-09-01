@@ -115,8 +115,8 @@ public class PoisonCloudEntity extends Entity {
 
     private void spawnPoisonParticles(ServerLevel level) {
         float radius = this.getRadius();
-        int particleCount = (int)(radius * 10);
-
+        int particleCount = (int)(radius * 8); // Menos partículas para mejor rendimiento
+        
         for (int i = 0; i < particleCount; i++) {
             double angle = this.random.nextDouble() * 2.0 * Math.PI;
             double distance = this.random.nextDouble() * radius;
@@ -124,26 +124,45 @@ public class PoisonCloudEntity extends Entity {
             double particleZ = this.getZ() + Math.sin(angle) * distance;
             double particleY = this.getY() + this.random.nextDouble() * 1.5;
 
-             level.sendParticles(ParticleTypes.WITCH,
+            // Partículas verdes (happy villager son estrellas verdes)
+            level.sendParticles(ParticleTypes.HAPPY_VILLAGER,
                     particleX, particleY, particleZ,
                     1,
-                    0.2, 0.1, 0.2,
+                    0.1, 0.1, 0.1,
                     0.02);
-
-            if (i % 3 == 0) {
+            
+            // Partículas de esporas (rosadas/verdes naturales)
+            if (i % 2 == 0) {
                 level.sendParticles(ParticleTypes.SPORE_BLOSSOM_AIR,
-                        particleX, particleY + 0.5, particleZ,
+                        particleX, particleY + 0.3, particleZ,
                         1,
-                        0.1, 0.05, 0.1,
+                        0.15, 0.08, 0.15,
                         0.01);
             }
+            
+            // Partículas de hojas cayendo
+            if (i % 4 == 0) {
+                level.sendParticles(ParticleTypes.FALLING_SPORE_BLOSSOM,
+                        particleX, particleY + 1.0, particleZ,
+                        1,
+                        0.2, 0.1, 0.2,
+                        0.05);
+            }
         }
-
-        level.sendParticles(ParticleTypes.WITCH,
+        
+        // Partículas centrales más densas con efecto de compostaje (verde)
+        level.sendParticles(ParticleTypes.COMPOSTER,
                 this.getX(), this.getY() + 0.5, this.getZ(),
-                5,
+                8,
                 radius * 0.3, 0.2, radius * 0.3,
                 0.05);
+        
+        // Añadir algunas partículas de humo verde suave
+        level.sendParticles(ParticleTypes.ITEM_SLIME,
+                this.getX(), this.getY() + 0.2, this.getZ(),
+                3,
+                radius * 0.4, 0.1, radius * 0.4,
+                0.01);
     }
 
     private void damageEntitiesInArea() {
@@ -152,18 +171,21 @@ public class PoisonCloudEntity extends Entity {
                     this.getBoundingBox().inflate(this.getRadius()));
 
             for (LivingEntity entity : entities) {
-                if (entity == this.owner) continue;
+                if (entity == this.owner) continue; // Don't damage the owner
 
                 double distance = this.distanceTo(entity);
                 if (distance <= this.getRadius()) {
+                    // Apply poison effect
                     entity.addEffect(new MobEffectInstance(MobEffects.POISON, 60, 1)); // 3 seconds poison level 2
 
+                    // Apply damage
                     float damage = 2.0F; // Base damage
                     entity.hurt(this.damageSources().magic(), damage);
 
-                    if (this.random.nextInt(20) == 0) {
+                    // Cambiar sonido por algo más natural (opcional)
+                    if (this.random.nextInt(40) == 0) { // Menos frecuente
                         this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
-                                SoundEvents.WITCH_THROW, this.getSoundSource(), 0.5F, 1.0F);
+                                SoundEvents.GRASS_BREAK, this.getSoundSource(), 0.3F, 0.8F);
                     }
                 }
             }
