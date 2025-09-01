@@ -38,9 +38,6 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    // Add this constant for anger duration
-    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-
     private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("animation.woodguardian.idle");
     private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("animation.woodguardian.walk");
     private static final RawAnimation SMASH_ANIMATION = RawAnimation.begin().thenPlay("animation.woodguardian.earthsmash");
@@ -57,8 +54,9 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     private boolean hitDealt = false;
     private int attackCooldown = 0;
 
-    // Anger variables for NeutralMob
+    // Anger variables
     private UUID persistentAngerTarget;
+    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 
     public WoodGuardianEntity(EntityType<? extends AbstractGolem> entityType, Level level) {
         super(entityType, level);
@@ -92,7 +90,6 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 
-        // Target selection goals for neutral mob behavior
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isAngryAt));
         this.targetSelector.addGoal(3, new ResetUniversalAngerTargetGoal<>(this, false));
@@ -169,25 +166,22 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     private void spawnAttackParticles() {
         if (this.level() instanceof ServerLevel serverLevel) {
             double radius = 5.0;
-            int particleCount = 80; // Más partículas para mejor efecto
-            
-            // Partículas de tierra en círculo
+            int particleCount = 80;
+
             for (int i = 0; i < particleCount; i++) {
                 double angle = (2.0 * Math.PI * i) / particleCount;
                 double particleX = this.getX() + Math.cos(angle) * radius;
                 double particleZ = this.getZ() + Math.sin(angle) * radius;
                 double particleY = this.getY() + 0.1;
-                
-                // Partículas de tierra que se rompe
+
                 serverLevel.sendParticles(
                     new BlockParticleOption(ParticleTypes.BLOCK, Blocks.DIRT.defaultBlockState()),
                     particleX, particleY, particleZ,
-                    5, // cantidad por posición
-                    0.3, 0.1, 0.3, // spread X, Y, Z
-                    0.2 // velocidad hacia arriba
+                    5,
+                    0.3, 0.1, 0.3,
+                    0.2
                 );
-                
-                // Mezclar con césped para variedad
+
                 if (i % 3 == 0) {
                     serverLevel.sendParticles(
                         new BlockParticleOption(ParticleTypes.BLOCK, Blocks.GRASS_BLOCK.defaultBlockState()),
@@ -198,26 +192,23 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
                     );
                 }
             }
-            
-            // Partículas adicionales alrededor del área para mayor densidad
+
             for (int j = 0; j < 40; j++) {
                 double randomAngle = this.random.nextDouble() * 2 * Math.PI;
                 double randomRadius = this.random.nextDouble() * radius;
                 double particleX = this.getX() + Math.cos(randomAngle) * randomRadius;
                 double particleZ = this.getZ() + Math.sin(randomAngle) * randomRadius;
                 double particleY = this.getY() + 0.1;
-                
-                // Partículas de tierra dispersas
+
                 serverLevel.sendParticles(
                     new BlockParticleOption(ParticleTypes.BLOCK, Blocks.COARSE_DIRT.defaultBlockState()),
                     particleX, particleY, particleZ,
                     2,
                     0.5, 0.3, 0.5,
-                    0.25 // velocidad más alta para efecto de "explosión"
+                    0.25
                 );
             }
             
-            // Efecto central más intenso
             serverLevel.sendParticles(
                 new BlockParticleOption(ParticleTypes.BLOCK, Blocks.ROOTED_DIRT.defaultBlockState()),
                 this.getX(), this.getY(), this.getZ(),
@@ -226,12 +217,12 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
                 0.3
             );
             
-            // Pequeño humo de polvo para ambiente
             serverLevel.sendParticles(ParticleTypes.POOF,
                 this.getX(), this.getY() + 0.5, this.getZ(),
                 8,
                 2.0, 0.5, 2.0,
-                0.05);
+                0.05
+            );
         }
     }
 
