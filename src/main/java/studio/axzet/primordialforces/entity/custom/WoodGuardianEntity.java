@@ -57,6 +57,9 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     private int attackCooldown = 0;
     private int attackType = 0; // 0 = earthsmash, 1 = poison
 
+    // Earth Smash
+    private final double earthSmashRadius = 7.0;
+
     // Anger variables for NeutralMob
     private UUID persistentAngerTarget;
 
@@ -173,7 +176,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
                     this.attackTarget.getZ());
             
             poisonCloud.setOwner(this);
-            poisonCloud.setRadius(4.0F); // 4 block radius
+            poisonCloud.setRadius(5.0F); // 4 block radius
             poisonCloud.setDuration(200); // 10 seconds duration
             poisonCloud.setWaitTime(0); // No wait time
             
@@ -186,13 +189,13 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     }
 
     public void performAreaAttack() {
-        double radius = 5.0;
+        double radius = earthSmashRadius;
 
         spawnAttackParticles();
 
         this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(radius))
                 .forEach(player -> {
-                    if (player != null && this.distanceToSqr(player) <= 25.0) {
+                    if (player != null && this.distanceToSqr(player) <= (radius * radius)) {
                         float damage = (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE);
                         player.hurt(this.damageSources().mobAttack(this), damage);
                         
@@ -205,7 +208,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     
     private void spawnAttackParticles() {
         if (this.level() instanceof ServerLevel serverLevel) {
-            double radius = 5.0;
+            double radius = earthSmashRadius;
             int particleCount = 80;
 
             for (int i = 0; i < particleCount; i++) {

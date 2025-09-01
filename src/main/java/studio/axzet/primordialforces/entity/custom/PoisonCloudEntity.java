@@ -7,13 +7,11 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import studio.axzet.primordialforces.entity.ModEntities;
 
@@ -26,7 +24,6 @@ public class PoisonCloudEntity extends Entity {
 
     private LivingEntity owner;
     private int life;
-    private boolean hasSpawnedParticles = false;
     private int damageInterval = 20; // Damage every second
     private int damageTimer = 0;
 
@@ -71,7 +68,7 @@ public class PoisonCloudEntity extends Entity {
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        builder.define(DATA_RADIUS, 3.0F);
+        builder.define(DATA_RADIUS, 5.0F);
         builder.define(DATA_DURATION, 200); // 10 seconds
         builder.define(DATA_WAIT_TIME, 0);
     }
@@ -115,7 +112,7 @@ public class PoisonCloudEntity extends Entity {
 
     private void spawnPoisonParticles(ServerLevel level) {
         float radius = this.getRadius();
-        int particleCount = (int)(radius * 8); // Menos partículas para mejor rendimiento
+        int particleCount = (int)(radius * 8);
         
         for (int i = 0; i < particleCount; i++) {
             double angle = this.random.nextDouble() * 2.0 * Math.PI;
@@ -124,14 +121,12 @@ public class PoisonCloudEntity extends Entity {
             double particleZ = this.getZ() + Math.sin(angle) * distance;
             double particleY = this.getY() + this.random.nextDouble() * 1.5;
 
-            // Partículas verdes (happy villager son estrellas verdes)
             level.sendParticles(ParticleTypes.HAPPY_VILLAGER,
                     particleX, particleY, particleZ,
                     1,
                     0.1, 0.1, 0.1,
                     0.02);
             
-            // Partículas de esporas (rosadas/verdes naturales)
             if (i % 2 == 0) {
                 level.sendParticles(ParticleTypes.SPORE_BLOSSOM_AIR,
                         particleX, particleY + 0.3, particleZ,
@@ -140,7 +135,6 @@ public class PoisonCloudEntity extends Entity {
                         0.01);
             }
             
-            // Partículas de hojas cayendo
             if (i % 4 == 0) {
                 level.sendParticles(ParticleTypes.FALLING_SPORE_BLOSSOM,
                         particleX, particleY + 1.0, particleZ,
@@ -150,14 +144,12 @@ public class PoisonCloudEntity extends Entity {
             }
         }
         
-        // Partículas centrales más densas con efecto de compostaje (verde)
         level.sendParticles(ParticleTypes.COMPOSTER,
                 this.getX(), this.getY() + 0.5, this.getZ(),
                 8,
                 radius * 0.3, 0.2, radius * 0.3,
                 0.05);
         
-        // Añadir algunas partículas de humo verde suave
         level.sendParticles(ParticleTypes.ITEM_SLIME,
                 this.getX(), this.getY() + 0.2, this.getZ(),
                 3,
@@ -176,14 +168,13 @@ public class PoisonCloudEntity extends Entity {
                 double distance = this.distanceTo(entity);
                 if (distance <= this.getRadius()) {
                     // Apply poison effect
-                    entity.addEffect(new MobEffectInstance(MobEffects.POISON, 60, 1)); // 3 seconds poison level 2
+                    entity.addEffect(new MobEffectInstance(MobEffects.POISON, 60, 2)); // 3 seconds poison level 2
 
                     // Apply damage
                     float damage = 2.0F; // Base damage
                     entity.hurt(this.damageSources().magic(), damage);
 
-                    // Cambiar sonido por algo más natural (opcional)
-                    if (this.random.nextInt(40) == 0) { // Menos frecuente
+                    if (this.random.nextInt(40) == 0) {
                         this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
                                 SoundEvents.GRASS_BREAK, this.getSoundSource(), 0.3F, 0.8F);
                     }
