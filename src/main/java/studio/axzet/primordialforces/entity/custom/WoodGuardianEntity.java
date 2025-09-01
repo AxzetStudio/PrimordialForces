@@ -60,9 +60,11 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     // Earth Smash
     private final double earthSmashRadius = 7.0;
 
+    // Poison Cloud
+    private final float poisonCloudRadius = 7.0f;
+
     // Anger variables for NeutralMob
     private UUID persistentAngerTarget;
-
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 
     public WoodGuardianEntity(EntityType<? extends AbstractGolem> entityType, Level level) {
@@ -169,14 +171,14 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     }
 
     private void spawnPoisonCloud() {
-        if (!this.level().isClientSide && this.attackTarget != null) {
+        if (!this.level().isClientSide) {
             PoisonCloudEntity poisonCloud = new PoisonCloudEntity(this.level(), 
-                    this.attackTarget.getX(), 
-                    this.attackTarget.getY(), 
-                    this.attackTarget.getZ());
+                    this.getX(),
+                    this.getY(),
+                    this.getZ());
             
             poisonCloud.setOwner(this);
-            poisonCloud.setRadius(5.0F); // 4 block radius
+            poisonCloud.setRadius(poisonCloudRadius);
             poisonCloud.setDuration(200); // 10 seconds duration
             poisonCloud.setWaitTime(0); // No wait time
             
@@ -184,7 +186,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
             
             // Play sound
             this.level().playSound(null, this.getX(), this.getY(), this.getZ(), 
-                                 SoundEvents.WITCH_CELEBRATE, this.getSoundSource(), 1.0f, 0.8f);
+                                 SoundEvents.GHAST_SCREAM, this.getSoundSource(), 1.0f, 0.8f);
         }
     }
 
