@@ -4,7 +4,7 @@
     "item": "primordialforces:arcadium_core"
   },
   "base": {
-    "item": "minecraft:diamond_leggings"
+    "item": "minecraft:netherite_leggings"
   },
   "result": {
     "count": 1,

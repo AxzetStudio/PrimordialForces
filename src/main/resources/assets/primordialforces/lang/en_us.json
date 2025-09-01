@@ -20,9 +20,9 @@
   "item.primordialforces.black_opal_leggings": "Black Opal Leggings",
   "item.primordialforces.black_opal_boots": "Black Opal Boots",
 
-  "item.primordialforces.rune.applies_to" : "Diamond Equipment",
+  "item.primordialforces.rune.applies_to" : "Netherite Equipment",
   "item.primordialforces.rune.ingredients": "Arcadium Core",
-  "item.primordialforces.rune.base_slot": "Diamond Armor",
+  "item.primordialforces.rune.base_slot": "Netherite Armor",
   "item.primordialforces.rune.additional_slot": "Arcadium Core",
 
   "item.primordialforces.earth_rune.upgrade":  "Earth Arcadium Upgrade"

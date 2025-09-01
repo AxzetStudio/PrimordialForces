@@ -74,7 +74,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithing(
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.DIAMOND_HELMET),
+                Ingredient.of(Items.NETHERITE_HELMET),
                 Ingredient.of(ModItems.ARCADIUM_CORE.get()),
                 RecipeCategory.COMBAT,
                 ModItems.EARTH_HELMET.get(),
@@ -86,7 +86,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithing(
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.DIAMOND_CHESTPLATE),
+                Ingredient.of(Items.NETHERITE_CHESTPLATE),
                 Ingredient.of(ModItems.ARCADIUM_CORE.get()),
                 RecipeCategory.COMBAT,
                 ModItems.EARTH_CHESTPLATE.get(),
@@ -98,7 +98,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithing(
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.DIAMOND_LEGGINGS),
+                Ingredient.of(Items.NETHERITE_LEGGINGS),
                 Ingredient.of(ModItems.ARCADIUM_CORE.get()),
                 RecipeCategory.COMBAT,
                 ModItems.EARTH_LEGGINGS.get(),
@@ -110,7 +110,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithing(
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.DIAMOND_BOOTS),
+                Ingredient.of(Items.NETHERITE_BOOTS),
                 Ingredient.of(ModItems.ARCADIUM_CORE.get()),
                 RecipeCategory.COMBAT,
                 ModItems.EARTH_BOOTS.get(),

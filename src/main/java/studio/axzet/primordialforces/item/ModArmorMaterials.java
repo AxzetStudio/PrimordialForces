@@ -23,27 +23,27 @@ public class ModArmorMaterials {
     public static final Holder<ArmorMaterial> VOID_ARCADIUM =
             ARMOR_MATERIALS.register("void_arcadium", () -> new ArmorMaterial(
                     Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-                        map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.LEGGINGS, 6);
-                        map.put(ArmorItem.Type.CHESTPLATE, 8);
-                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BOOTS, 4);
+                        map.put(ArmorItem.Type.LEGGINGS, 8);
+                        map.put(ArmorItem.Type.CHESTPLATE, 10);
+                        map.put(ArmorItem.Type.HELMET, 4);
                         map.put(ArmorItem.Type.BODY, 11);
-                    }), 20, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(ModItems.VOID_SHARD.get()),
+                    }), 20, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(ModItems.VOID_SHARD.get()),
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "void_arcadium"))),
-                    2, 4
+                    4, 0.1f
             ));
 
     public static final Holder<ArmorMaterial> EARTH_ARCADIUM =
             ARMOR_MATERIALS.register("earth_arcadium", () -> new ArmorMaterial(
                     Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-                        map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.LEGGINGS, 6);
-                        map.put(ArmorItem.Type.CHESTPLATE, 8);
-                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BOOTS, 4);
+                        map.put(ArmorItem.Type.LEGGINGS, 8);
+                        map.put(ArmorItem.Type.CHESTPLATE, 10);
+                        map.put(ArmorItem.Type.HELMET, 4);
                         map.put(ArmorItem.Type.BODY, 11);
-                    }), 20, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(ModItems.EARTH_RUNE.get()),
+                    }), 20, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(ModItems.EARTH_RUNE.get()),
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "earth_arcadium"))),
-                    2, 4
+                    4, 1.0f
             ));
 
     public static void register(IEventBus eventBus) {
