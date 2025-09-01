@@ -8,7 +8,6 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.item.custom.EarthArmorItem;
-import studio.axzet.primordialforces.item.custom.EarthHelmetArmorItem;
 
 import java.util.List;
 
@@ -66,7 +65,7 @@ public class ModItems {
     //endregion
     //region EARTH ARMOR
     public static final DeferredItem<Item> EARTH_HELMET = ITEMS.register("earth_helmet",
-            () -> new EarthHelmetArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
+            () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
     );
 
     public static final DeferredItem<Item> EARTH_CHESTPLATE = ITEMS.register("earth_chestplate",
