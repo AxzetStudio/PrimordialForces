@@ -106,10 +106,6 @@ public class PrimordialForces
         {
             EntityRenderers.register(ModEntities.WOOD_GUARDIAN.get(), WoodGuardianRenderer::new);
             EntityRenderers.register(ModEntities.POISON_CLOUD.get(), NoopRenderer::new);
-            EntityRenderers.register(ModEntities.MOSS_GOLEM.get(), MossGolemRenderer::new);
-            EntityRenderers.register(ModEntities.ENTLING.get(), EntlingRenderer::new);
-            EntityRenderers.register(ModEntities.ENT_WARRIOR.get(), EntWarriorRenderer::new);
-            EntityRenderers.register(ModEntities.ENT_BRUTE.get(), EntBruteRenderer::new);
         }
 
         @SubscribeEvent

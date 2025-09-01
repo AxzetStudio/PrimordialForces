@@ -9,7 +9,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.item.custom.EarthArmorItem;
 import studio.axzet.primordialforces.item.custom.EarthHelmetArmorItem;
-import studio.axzet.primordialforces.item.custom.VoidmancerArmorItem;
 
 import java.util.List;
 
@@ -57,30 +56,13 @@ public class ModItems {
     //endregion
 
     //region WEAPONS
-    public static final DeferredItem<Item> EARTH_SWORD = ITEMS.register("earth_sword",
+    /*public static final DeferredItem<Item> EARTH_SWORD = ITEMS.register("earth_sword",
             () -> new SwordItem(ModToolTiers.PRIMORDIAL_TIER, new Item.Properties().attributes(SwordItem.createAttributes(ModToolTiers.PRIMORDIAL_TIER, 3, -2.4f)).stacksTo(1))
             );
 
     public static final DeferredItem<Item> EARTH_SHIELD = ITEMS.register("earth_shield",
             () -> new ShieldItem(new Item.Properties().durability(500))
-            );
-    //endregion
-    //region VOID ARMOR
-    public static final DeferredItem<Item> VOIDMANCER_HELMET = ITEMS.register("voidmancer_helmet",
-            () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
-            );
-
-    public static final DeferredItem<Item> VOIDMANCER_CHESTPLATE = ITEMS.register("voidmancer_chestplate",
-            () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(16)))
-    );
-
-    public static final DeferredItem<Item> VOIDMANCER_LEGGINGS = ITEMS.register("voidmancer_leggings",
-            () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(16)))
-    );
-
-    public static final DeferredItem<Item> VOIDMANCER_BOOTS = ITEMS.register("voidmancer_boots",
-            () -> new VoidmancerArmorItem(ModArmorMaterials.VOID_ARCADIUM, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
-    );
+            );*/
     //endregion
     //region EARTH ARMOR
     public static final DeferredItem<Item> EARTH_HELMET = ITEMS.register("earth_helmet",

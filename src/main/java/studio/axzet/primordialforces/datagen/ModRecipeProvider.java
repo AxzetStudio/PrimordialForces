@@ -119,7 +119,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 "earth_boots_smithing"
         );
 
-        smithing(
+        /*smithing(
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
                 Ingredient.of(Items.DIAMOND_SWORD),
@@ -141,38 +141,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 "has_earth_rune",
                 ModItems.EARTH_RUNE.get(),
                 "earth_shield_smithing"
-        );
+        );*/
 
-        //endregion
-
-        //region VOID ARMOR
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_HELMET)
-                .pattern("VVV")
-                .pattern("V V")
-                .pattern("   ")
-                .define('V', ModItems.VOID_SHARD.get())
-                .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_CHESTPLATE)
-                .pattern("V V")
-                .pattern("VVV")
-                .pattern("VVV")
-                .define('V', ModItems.VOID_SHARD.get())
-                .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_LEGGINGS)
-                .pattern("VVV")
-                .pattern("V V")
-                .pattern("V V")
-                .define('V', ModItems.VOID_SHARD.get())
-                .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VOIDMANCER_BOOTS)
-                .pattern("   ")
-                .pattern("V V")
-                .pattern("V V")
-                .define('V', ModItems.VOID_SHARD.get())
-                .unlockedBy("has_void_shard", has(ModItems.VOID_SHARD.get())).save(recipeOutput);
         //endregion
     }
 
