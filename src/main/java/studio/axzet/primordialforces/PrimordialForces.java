@@ -3,6 +3,7 @@ package studio.axzet.primordialforces;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
@@ -104,6 +105,7 @@ public class PrimordialForces
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             EntityRenderers.register(ModEntities.WOOD_GUARDIAN.get(), WoodGuardianRenderer::new);
+            EntityRenderers.register(ModEntities.POISON_CLOUD.get(), NoopRenderer::new);
             EntityRenderers.register(ModEntities.MOSS_GOLEM.get(), MossGolemRenderer::new);
             EntityRenderers.register(ModEntities.ENTLING.get(), EntlingRenderer::new);
             EntityRenderers.register(ModEntities.ENT_WARRIOR.get(), EntWarriorRenderer::new);

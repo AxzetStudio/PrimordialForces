@@ -41,11 +41,13 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("animation.woodguardian.idle");
     private static final RawAnimation WALK_ANIMATION = RawAnimation.begin().thenLoop("animation.woodguardian.walk");
     private static final RawAnimation SMASH_ANIMATION = RawAnimation.begin().thenPlay("animation.woodguardian.earthsmash");
+    private static final RawAnimation POISON_ANIMATION = RawAnimation.begin().thenPlay("animation.woodguardian.poison");
 
     // Data synchronization
     private static final EntityDataAccessor<Boolean> DATA_IS_ATTACKING = SynchedEntityData.defineId(WoodGuardianEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> DATA_ATTACK_TICK = SynchedEntityData.defineId(WoodGuardianEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> DATA_REMAINING_ANGER_TIME = SynchedEntityData.defineId(WoodGuardianEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> DATA_ATTACK_TYPE = SynchedEntityData.defineId(WoodGuardianEntity.class, EntityDataSerializers.INT); // 0 = earthsmash, 1 = poison
 
     // Attack variables
     private int attackTick = 0;
@@ -53,9 +55,11 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     private LivingEntity attackTarget = null;
     private boolean hitDealt = false;
     private int attackCooldown = 0;
+    private int attackType = 0; // 0 = earthsmash, 1 = poison
 
-    // Anger variables
+    // Anger variables for NeutralMob
     private UUID persistentAngerTarget;
+
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 
     public WoodGuardianEntity(EntityType<? extends AbstractGolem> entityType, Level level) {
@@ -69,6 +73,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
         builder.define(DATA_IS_ATTACKING, false);
         builder.define(DATA_ATTACK_TICK, 0);
         builder.define(DATA_REMAINING_ANGER_TIME, 0);
+        builder.define(DATA_ATTACK_TYPE, 0);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -111,15 +116,26 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
             setAttackingSynced(true);
             setAttackTickSynced(attackTick);
 
-            // Deal damage at 1 second (20 ticks)
-            if (attackTick == 20 && !hitDealt && attackTarget != null) {
-                performAreaAttack();
-                hitDealt = true;
-            }
-
-            // End attack after 3 seconds (60 ticks)
-            if (attackTick >= 60) {
-                endAttack();
+            if (attackType == 0) { // Earthsmash attack
+                // Deal damage at 1 second (20 ticks)
+                if (attackTick == 20 && !hitDealt && attackTarget != null) {
+                    performAreaAttack();
+                    hitDealt = true;
+                }
+                // End attack after 3 seconds (60 ticks)
+                if (attackTick >= 60) {
+                    endAttack();
+                }
+            } else if (attackType == 1) { // Poison attack
+                // Spawn poison cloud at 2.5 seconds (50 ticks)
+                if (attackTick == 50 && !hitDealt && attackTarget != null) {
+                    spawnPoisonCloud();
+                    hitDealt = true;
+                }
+                // End attack after 3 seconds (60 ticks)
+                if (attackTick >= 60) {
+                    endAttack();
+                }
             }
         }
 
@@ -135,13 +151,37 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
             this.attackTarget = target;
             this.attackTick = 0;
             this.hitDealt = false;
-            this.attackCooldown = 100; // 5 seconds cooldown
+            this.attackCooldown = 140; // 7 seconds cooldown
 
+            // Randomly choose attack type
+            this.attackType = this.random.nextInt(2); // 0 or 1
+            
             // Sync immediately
             setAttackingSynced(true);
             setAttackTickSynced(0);
+            setAttackTypeSynced(this.attackType);
 
             this.getNavigation().stop();
+        }
+    }
+
+    private void spawnPoisonCloud() {
+        if (!this.level().isClientSide && this.attackTarget != null) {
+            PoisonCloudEntity poisonCloud = new PoisonCloudEntity(this.level(), 
+                    this.attackTarget.getX(), 
+                    this.attackTarget.getY(), 
+                    this.attackTarget.getZ());
+            
+            poisonCloud.setOwner(this);
+            poisonCloud.setRadius(4.0F); // 4 block radius
+            poisonCloud.setDuration(200); // 10 seconds duration
+            poisonCloud.setWaitTime(0); // No wait time
+            
+            this.level().addFreshEntity(poisonCloud);
+            
+            // Play sound
+            this.level().playSound(null, this.getX(), this.getY(), this.getZ(), 
+                                 SoundEvents.WITCH_CELEBRATE, this.getSoundSource(), 1.0f, 0.8f);
         }
     }
 
@@ -152,7 +192,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
 
         this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().inflate(radius))
                 .forEach(player -> {
-                    if (player != null && this.distanceToSqr(player) <= 25.0) { // 5 block radius squared
+                    if (player != null && this.distanceToSqr(player) <= 25.0) {
                         float damage = (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE);
                         player.hurt(this.damageSources().mobAttack(this), damage);
                         
@@ -295,6 +335,14 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
         this.readPersistentAngerSaveData(this.level(), compound);
     }
 
+    public int getAttackTypeSynced() {
+        return this.entityData.get(DATA_ATTACK_TYPE);
+    }
+
+    private void setAttackTypeSynced(int type) {
+        this.entityData.set(DATA_ATTACK_TYPE, type);
+    }
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "woodguardian_controller", 5, this::predicate));
@@ -302,9 +350,14 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
 
     private PlayState predicate(AnimationState<WoodGuardianEntity> state) {
         boolean isAttackingSynced = isAttackingSynced();
+        int attackTypeSynced = getAttackTypeSynced();
         
         if (isAttackingSynced) {
-            return state.setAndContinue(SMASH_ANIMATION);
+            if (attackTypeSynced == 0) {
+                return state.setAndContinue(SMASH_ANIMATION);
+            } else {
+                return state.setAndContinue(POISON_ANIMATION);
+            }
         }
         
         if (state.isMoving()) {

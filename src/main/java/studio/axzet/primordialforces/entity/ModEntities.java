@@ -18,6 +18,10 @@ public class ModEntities {
             () -> EntityType.Builder.of(WoodGuardianEntity::new, MobCategory.CREATURE).sized(0.7f, 2.5f).build("wood_guardian")
     );
 
+    public static final Supplier<EntityType<PoisonCloudEntity>> POISON_CLOUD = ENTITY_TYPES.register("poison_cloud",
+            () -> EntityType.Builder.<PoisonCloudEntity>of(PoisonCloudEntity::new, MobCategory.MISC).sized(1, 0.5f).fireImmune().build("poison_cloud")
+            );
+
     public static final Supplier<EntityType<MossGolemEntity>> MOSS_GOLEM = ENTITY_TYPES.register("moss_golem",
             () -> EntityType.Builder.of(MossGolemEntity::new, MobCategory.MONSTER).sized(0.7f, 1.5f).build("moss_golem")
     );
