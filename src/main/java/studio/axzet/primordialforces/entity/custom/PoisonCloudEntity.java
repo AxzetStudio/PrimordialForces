@@ -116,8 +116,7 @@ public class PoisonCloudEntity extends Entity {
         float radius = this.getRadius();
         int particleCount = (int)(radius * 8);
         
-        // Crear el color verde para las partículas DUST
-        Vector3f greenColor = new Vector3f(0.0f, 0.8f, 0.2f); // Verde brillante
+        Vector3f greenColor = new Vector3f(0.0f, 0.8f, 0.2f);
         DustParticleOptions dustOptions = new DustParticleOptions(greenColor, 1.0f);
         
         for (int i = 0; i < particleCount; i++) {
