@@ -15,6 +15,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import org.joml.Vector3f;
+import studio.axzet.primordialforces.damagesources.ModDamageSources;
 import studio.axzet.primordialforces.entity.ModEntities;
 
 import java.util.List;
@@ -177,7 +178,7 @@ public class PoisonCloudEntity extends Entity {
 
                     // Apply damage
                     float damage = 2.0F; // Base damage
-                    entity.hurt(this.damageSources().magic(), damage);
+                    entity.hurt(ModDamageSources.poisonCloud(this.level(), this.owner != null? this.owner : this), damage);
 
                     if (this.random.nextInt(40) == 0) {
                         this.level().playSound(null, this.getX(), this.getY(), this.getZ(),

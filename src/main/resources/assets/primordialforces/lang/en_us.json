@@ -25,5 +25,8 @@
   "item.primordialforces.rune.base_slot": "Netherite Armor",
   "item.primordialforces.rune.additional_slot": "Arcadium Core",
 
-  "item.primordialforces.earth_rune.upgrade":  "Earth Arcadium Upgrade"
+  "item.primordialforces.earth_rune.upgrade":  "Earth Arcadium Upgrade",
+
+  "death.attack.poison_cloud": "%1$s died by forces of nature",
+  "death.attack.poison_cloud.player": "%1$s died by forces of nature while fighting %2$s"
 }

@@ -186,7 +186,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
             
             // Play sound
             this.level().playSound(null, this.getX(), this.getY(), this.getZ(), 
-                                 SoundEvents.GRASS_FALL, this.getSoundSource(), 1.0f, 0.8f);
+                                 SoundEvents.GRASS_HIT, this.getSoundSource(), 1.0f, 0.8f);
         }
     }
 
