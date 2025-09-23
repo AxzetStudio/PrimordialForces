@@ -1,6 +1,7 @@
 package studio.axzet.primordialforces.entity.custom;
 
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
+import org.joml.Vector3f;
 import studio.axzet.primordialforces.entity.ModEntities;
 
 import java.util.List;
@@ -114,6 +116,10 @@ public class PoisonCloudEntity extends Entity {
         float radius = this.getRadius();
         int particleCount = (int)(radius * 8);
         
+        // Crear el color verde para las partículas DUST
+        Vector3f greenColor = new Vector3f(0.0f, 0.8f, 0.2f); // Verde brillante
+        DustParticleOptions dustOptions = new DustParticleOptions(greenColor, 1.0f);
+        
         for (int i = 0; i < particleCount; i++) {
             double angle = this.random.nextDouble() * 2.0 * Math.PI;
             double distance = this.random.nextDouble() * radius;
@@ -121,7 +127,7 @@ public class PoisonCloudEntity extends Entity {
             double particleZ = this.getZ() + Math.sin(angle) * distance;
             double particleY = this.getY() + this.random.nextDouble() * 1.5;
 
-            level.sendParticles(ParticleTypes.HAPPY_VILLAGER,
+            level.sendParticles(dustOptions,
                     particleX, particleY, particleZ,
                     1,
                     0.1, 0.1, 0.1,
