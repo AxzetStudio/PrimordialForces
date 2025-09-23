@@ -156,7 +156,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
             this.attackTarget = target;
             this.attackTick = 0;
             this.hitDealt = false;
-            this.attackCooldown = 140; // 7 seconds cooldown
+            this.attackCooldown = 100; // 5 seconds cooldown
 
             // Randomly choose attack type
             this.attackType = this.random.nextInt(2); // 0 or 1
