@@ -58,10 +58,10 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     private int attackType = 0; // 0 = earthsmash, 1 = poison
 
     // Earth Smash
-    private final double earthSmashRadius = 7.0;
+    private final double earthSmashRadius = 9.0;
 
     // Poison Cloud
-    private final float poisonCloudRadius = 7.0f;
+    private final float poisonCloudRadius = 9.0f;
 
     // Anger variables for NeutralMob
     private UUID persistentAngerTarget;

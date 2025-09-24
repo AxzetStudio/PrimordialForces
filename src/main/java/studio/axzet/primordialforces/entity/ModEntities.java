@@ -15,7 +15,7 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, PrimordialForces.MOD_ID);
 
     public static final Supplier<EntityType<WoodGuardianEntity>> WOOD_GUARDIAN = ENTITY_TYPES.register("wood_guardian",
-            () -> EntityType.Builder.of(WoodGuardianEntity::new, MobCategory.CREATURE).sized(0.7f, 2.5f).build("wood_guardian")
+            () -> EntityType.Builder.of(WoodGuardianEntity::new, MobCategory.CREATURE).sized(1.5f, 4.5f) .build("wood_guardian")
     );
 
     public static final Supplier<EntityType<PoisonCloudEntity>> POISON_CLOUD = ENTITY_TYPES.register("poison_cloud",

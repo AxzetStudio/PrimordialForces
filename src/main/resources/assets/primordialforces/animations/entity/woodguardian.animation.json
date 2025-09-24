@@ -265,11 +265,8 @@
 							"vector": [0, 0, 0]
 						},
 						"0.5": {
-							"vector": [5, -30, 0],
+							"vector": [5, -80, 0],
 							"easing": "easeInOutCubic"
-						},
-						"2.5": {
-							"vector": [5, -30, 0]
 						},
 						"3.0": {
 							"vector": [0, 0, 0]
@@ -296,11 +293,8 @@
 							"vector": [0, 0, 0]
 						},
 						"0.5": {
-							"vector": [-5, -30, 0],
+							"vector": [-5, -80, 0],
 							"easing": "easeInOutCubic"
-						},
-						"2.5": {
-							"vector": [-5, -30, 0]
 						},
 						"3.0": {
 							"vector": [0, 0, 0]
@@ -326,6 +320,10 @@
 					}
 				}
 			}
+		},
+		"animation.woodguardian.spawn": {
+			"loop": true,
+			"start_delay": 1
 		}
 	},
 	"geckolib_format_version": 2
