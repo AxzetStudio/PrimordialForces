@@ -2,6 +2,7 @@ package studio.axzet.primordialforces;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -23,6 +24,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import studio.axzet.primordialforces.block.ModBlocks;
+import studio.axzet.primordialforces.block.client.ArcadiumInfuserBlockEntityRenderer;
 import studio.axzet.primordialforces.block.entity.ModBlockEntities;
 import studio.axzet.primordialforces.entity.ModEntities;
 import studio.axzet.primordialforces.entity.client.*;
@@ -104,6 +106,7 @@ public class PrimordialForces
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            BlockEntityRenderers.register(ModBlockEntities.ARCADIUM_INFUSER_BE.get(), ArcadiumInfuserBlockEntityRenderer::new);
             EntityRenderers.register(ModEntities.WOOD_GUARDIAN.get(), WoodGuardianRenderer::new);
             EntityRenderers.register(ModEntities.POISON_CLOUD.get(), NoopRenderer::new);
         }

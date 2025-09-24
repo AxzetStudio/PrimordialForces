@@ -24,7 +24,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import studio.axzet.primordialforces.item.ModItems;
+import software.bernie.geckolib.animatable.GeoBlockEntity;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.util.GeckoLibUtil;
 import studio.axzet.primordialforces.recipe.ArcadiumInfuserRecipe;
 import studio.axzet.primordialforces.recipe.ArcadiumInfuserRecipeInput;
 import studio.axzet.primordialforces.recipe.ModRecipes;
@@ -34,7 +37,11 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvider {
+public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvider, GeoBlockEntity {
+
+    protected static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("animation.arcadium_infuser.idle");
+
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ArcadiumInfuserBlockEntity.class);
 
@@ -246,5 +253,19 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         return saveWithoutMetadata(registries);
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "arcadium_infuser_controller", 5, this::predicate));
+    }
+
+    private PlayState predicate(AnimationState<ArcadiumInfuserBlockEntity> state) {
+        return state.setAndContinue(IDLE_ANIMATION);
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
     }
 }
