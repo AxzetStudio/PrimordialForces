@@ -172,7 +172,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
 
     private void spawnPoisonCloud() {
         if (!this.level().isClientSide) {
-            PoisonCloudEntity poisonCloud = new PoisonCloudEntity(this.level(), 
+            ThornsFieldEntity poisonCloud = new ThornsFieldEntity(this.level(),
                     this.getX(),
                     this.getY(),
                     this.getZ());

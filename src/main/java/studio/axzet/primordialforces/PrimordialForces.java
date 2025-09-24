@@ -109,6 +109,7 @@ public class PrimordialForces
             BlockEntityRenderers.register(ModBlockEntities.ARCADIUM_INFUSER_BE.get(), ArcadiumInfuserBlockEntityRenderer::new);
             EntityRenderers.register(ModEntities.WOOD_GUARDIAN.get(), WoodGuardianRenderer::new);
             EntityRenderers.register(ModEntities.POISON_CLOUD.get(), NoopRenderer::new);
+            EntityRenderers.register(ModEntities.THORNS_FIELD.get(), NoopRenderer::new);
         }
 
         @SubscribeEvent

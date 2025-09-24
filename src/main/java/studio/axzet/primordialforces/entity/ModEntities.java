@@ -22,6 +22,10 @@ public class ModEntities {
             () -> EntityType.Builder.<PoisonCloudEntity>of(PoisonCloudEntity::new, MobCategory.MISC).sized(1, 0.5f).fireImmune().build("poison_cloud")
             );
 
+    public static final Supplier<EntityType<ThornsFieldEntity>> THORNS_FIELD = ENTITY_TYPES.register("thorns_field",
+            () -> EntityType.Builder.<ThornsFieldEntity>of(ThornsFieldEntity::new, MobCategory.AMBIENT).sized(1, 0.5f).fireImmune().build("thorns_field")
+    );
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
