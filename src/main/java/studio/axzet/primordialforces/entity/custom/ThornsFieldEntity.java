@@ -1,5 +1,6 @@
 package studio.axzet.primordialforces.entity.custom;
 
+import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import org.joml.Vector3f;
 import studio.axzet.primordialforces.damagesources.ModDamageSources;
 import studio.axzet.primordialforces.entity.ModEntities;
@@ -115,52 +117,73 @@ public class ThornsFieldEntity extends Entity {
 
     private void spawnPoisonParticles(ServerLevel level) {
         float radius = this.getRadius();
-        int particleCount = (int)(radius * 8);
+        int particleCount = (int)(radius * 6);
 
-        Vector3f brownColor = new Vector3f(128.0f, 161.0f, 68.0f);
-        DustParticleOptions dustOptions = new DustParticleOptions(brownColor, 1.0f);
+        // Colores para las espinas (marrón y verde oscuro)
+        Vector3f brownColor = new Vector3f(0.4f, 0.2f, 0.1f); // Marrón para las raíces
+        Vector3f darkGreenColor = new Vector3f(0.2f, 0.4f, 0.1f); // Verde oscuro para las espinas
+        
+        DustParticleOptions brownDust = new DustParticleOptions(brownColor, 1.2f);
+        DustParticleOptions greenDust = new DustParticleOptions(darkGreenColor, 0.8f);
 
         for (int i = 0; i < particleCount; i++) {
             double angle = this.random.nextDouble() * 2.0 * Math.PI;
             double distance = this.random.nextDouble() * radius;
             double particleX = this.getX() + Math.cos(angle) * distance;
             double particleZ = this.getZ() + Math.sin(angle) * distance;
-            double particleY = this.getY() + this.random.nextDouble() * 1.5;
+            double particleY = this.getY();
 
-            level.sendParticles(dustOptions,
-                    particleX, particleY, particleZ,
-                    1,
-                    0.1, 0.1, 0.1,
-                    0.02);
-
-            if (i % 2 == 0) {
-                level.sendParticles(ParticleTypes.SPORE_BLOSSOM_AIR,
-                        particleX, particleY + 0.3, particleZ,
-                        1,
-                        0.15, 0.08, 0.15,
+            // Crear "raíces" que salen del suelo
+            for (int j = 0; j < 3; j++) {
+                double heightOffset = j * 0.3;
+                level.sendParticles(brownDust,
+                        particleX, particleY + heightOffset, particleZ,
+                        2,
+                        0.05, 0.05, 0.05,
                         0.01);
             }
 
-            if (i % 4 == 0) {
-                level.sendParticles(ParticleTypes.FALLING_SPORE_BLOSSOM,
-                        particleX, particleY + 1.0, particleZ,
+            // Espinas verdes en las puntas
+            if (i % 2 == 0) {
+                level.sendParticles(greenDust,
+                        particleX, particleY + 0.8 + this.random.nextDouble() * 0.4, particleZ,
                         1,
-                        0.2, 0.1, 0.2,
+                        0.1, 0.1, 0.1,
+                        0.02);
+            }
+
+            // Partículas de tierra y hierba para el efecto base
+            if (i % 3 == 0) {
+                level.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, Blocks.ROOTED_DIRT.defaultBlockState()),
+                        particleX, particleY + 0.1, particleZ,
+                        3,
+                        0.2, 0.05, 0.2,
+                        0.1);
+            }
+
+            // Efectos de hojas cayendo ocasionalmente
+            if (i % 5 == 0) {
+                level.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, Blocks.DARK_OAK_LEAVES.defaultBlockState()),
+                        particleX, particleY + 1.2, particleZ,
+                        1,
+                        0.3, 0.1, 0.3,
                         0.05);
             }
         }
 
-        level.sendParticles(ParticleTypes.COMPOSTER,
-                this.getX(), this.getY() + 0.5, this.getZ(),
-                8,
-                radius * 0.3, 0.2, radius * 0.3,
-                0.05);
+        // Efecto central de raíces emergiendo
+        level.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, Blocks.MANGROVE_ROOTS.defaultBlockState()),
+                this.getX(), this.getY(), this.getZ(),
+                12,
+                radius * 0.4, 0.3, radius * 0.4,
+                0.15);
 
-        level.sendParticles(ParticleTypes.ITEM_SLIME,
+        // Partículas de polvo marrón para simular tierra removida
+        level.sendParticles(new DustParticleOptions(new Vector3f(0.6f, 0.4f, 0.2f), 1.5f),
                 this.getX(), this.getY() + 0.2, this.getZ(),
-                3,
-                radius * 0.4, 0.1, radius * 0.4,
-                0.01);
+                8,
+                radius * 0.3, 0.1, radius * 0.3,
+                0.02);
     }
 
     private void damageEntitiesInArea() {
