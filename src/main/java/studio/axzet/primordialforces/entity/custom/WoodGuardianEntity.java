@@ -22,7 +22,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
@@ -68,6 +67,7 @@ public class WoodGuardianEntity extends Monster implements GeoEntity {
     public WoodGuardianEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         this.setPathfindingMalus(PathType.WATER, -1.0F);
+        this.setPersistenceRequired();
     }
 
     @Override
@@ -82,20 +82,21 @@ public class WoodGuardianEntity extends Monster implements GeoEntity {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMobAttributes()
                 .add(Attributes.FOLLOW_RANGE, 16.0)
-                .add(Attributes.MAX_HEALTH, 50)
-                .add(Attributes.ATTACK_DAMAGE, 10.0f)
+                .add(Attributes.MAX_HEALTH, 450)
+                .add(Attributes.ATTACK_DAMAGE, 20.0f)
                 .add(Attributes.ATTACK_SPEED, 0.5f)
-                .add(Attributes.ARMOR, 3.0f)
+                .add(Attributes.ARMOR, 20.0f)
                 .add(Attributes.MOVEMENT_SPEED, 0.25f)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 2.0f)
                 ;
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new WoodGuardianAttackGoal(this, 1.0f, false));
-        this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 0.9f, 32.0f));
+        this.goalSelector.addGoal(1, new WoodGuardianAttackGoal(this, 1.5f, false));
+        this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 1.0f, 64.0f));
         this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.8));
-        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 32.0f));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
@@ -299,6 +300,11 @@ public class WoodGuardianEntity extends Monster implements GeoEntity {
 
     private void setAttackTypeSynced(int type) {
         this.entityData.set(DATA_ATTACK_TYPE, type);
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return false;
     }
 
     @Override
