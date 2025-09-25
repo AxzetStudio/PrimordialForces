@@ -7,18 +7,16 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.NeutralMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
-import net.minecraft.world.entity.animal.AbstractGolem;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -34,7 +32,7 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.UUID;
 
-public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, GeoEntity {
+public class WoodGuardianEntity extends Monster implements GeoEntity {
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
@@ -67,7 +65,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     private UUID persistentAngerTarget;
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 
-    public WoodGuardianEntity(EntityType<? extends AbstractGolem> entityType, Level level) {
+    public WoodGuardianEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         this.setPathfindingMalus(PathType.WATER, -1.0F);
     }
@@ -82,7 +80,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes()
+        return Monster.createMobAttributes()
                 .add(Attributes.FOLLOW_RANGE, 16.0)
                 .add(Attributes.MAX_HEALTH, 50)
                 .add(Attributes.ATTACK_DAMAGE, 10.0f)
@@ -100,9 +98,7 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isAngryAt));
-        this.targetSelector.addGoal(3, new ResetUniversalAngerTargetGoal<>(this, false));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     @Override
@@ -142,11 +138,6 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
                     endAttack();
                 }
             }
-        }
-
-        // Update anger if not on client side
-        if (!this.level().isClientSide) {
-            this.updatePersistentAnger((net.minecraft.server.level.ServerLevel)this.level(), true);
         }
     }
 
@@ -300,44 +291,6 @@ public class WoodGuardianEntity extends AbstractGolem implements NeutralMob, Geo
 
     private void setAttackTickSynced(int tick) {
         this.entityData.set(DATA_ATTACK_TICK, tick);
-    }
-
-    // NeutralMob implementation
-    @Override
-    public int getRemainingPersistentAngerTime() {
-        return this.entityData.get(DATA_REMAINING_ANGER_TIME);
-    }
-
-    @Override
-    public void setRemainingPersistentAngerTime(int angerTime) {
-        this.entityData.set(DATA_REMAINING_ANGER_TIME, angerTime);
-    }
-
-    @Override
-    public @Nullable UUID getPersistentAngerTarget() {
-        return this.persistentAngerTarget;
-    }
-
-    @Override
-    public void setPersistentAngerTarget(@Nullable UUID target) {
-        this.persistentAngerTarget = target;
-    }
-
-    @Override
-    public void startPersistentAngerTimer() {
-        this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.random));
-    }
-
-    @Override
-    public void addAdditionalSaveData(CompoundTag compound) {
-        super.addAdditionalSaveData(compound);
-        this.addPersistentAngerSaveData(compound);
-    }
-
-    @Override
-    public void readAdditionalSaveData(CompoundTag compound) {
-        super.readAdditionalSaveData(compound);
-        this.readPersistentAngerSaveData(this.level(), compound);
     }
 
     public int getAttackTypeSynced() {
