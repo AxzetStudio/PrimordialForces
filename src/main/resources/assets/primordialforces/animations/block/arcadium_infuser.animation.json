@@ -60,6 +60,76 @@
 					}
 				}
 			}
+		},
+		"animation.arcadium_infuser.infusing": {
+			"loop": true,
+			"animation_length": 3,
+			"bones": {
+				"crystal_north": {
+					"position": {
+						"0.0": {
+							"vector": [0, -2, 0]
+						},
+						"1.5": {
+							"vector": [0, 4, 0],
+							"easing": "linear"
+						},
+						"3.0": {
+							"vector": [0, -2, 0],
+							"easing": "linear"
+						}
+					}
+				},
+				"crystal_south": {
+					"position": {
+						"0.0": {
+							"vector": [0, -2, 0]
+						},
+						"1.5": {
+							"vector": [0, 4, 0]
+						},
+						"3.0": {
+							"vector": [0, -2, 0]
+						}
+					}
+				},
+				"crystal_east": {
+					"position": {
+						"0.0": {
+							"vector": [0, 4, 0]
+						},
+						"1.5": {
+							"vector": [0, -2, 0]
+						},
+						"3.0": {
+							"vector": [0, 4, 0]
+						}
+					}
+				},
+				"crystal_west": {
+					"position": {
+						"0.0": {
+							"vector": [0, 4, 0]
+						},
+						"1.5": {
+							"vector": [0, -2, 0]
+						},
+						"3.0": {
+							"vector": [0, 4, 0]
+						}
+					}
+				},
+				"crystals": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"3.0": {
+							"vector": [0, 360, 0]
+						}
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

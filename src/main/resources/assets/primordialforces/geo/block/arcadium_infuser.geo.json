@@ -140,7 +140,7 @@
 				{
 					"name": "crystals",
 					"parent": "group",
-					"pivot": [2, -9, -7]
+					"pivot": [0, 0, 0]
 				},
 				{
 					"name": "crystal_north",

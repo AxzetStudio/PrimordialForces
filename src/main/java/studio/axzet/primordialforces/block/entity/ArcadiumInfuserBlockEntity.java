@@ -33,13 +33,15 @@ import studio.axzet.primordialforces.recipe.ArcadiumInfuserRecipeInput;
 import studio.axzet.primordialforces.recipe.ModRecipes;
 import studio.axzet.primordialforces.screen.custom.ArcadiumInfuserMenu;
 
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvider, GeoBlockEntity {
 
     protected static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("animation.arcadium_infuser.idle");
+    protected static final RawAnimation INFUSING_ANIMATION = RawAnimation.begin().thenLoop("animation.arcadium_infuser.infusing");
+
+    AnimationController<ArcadiumInfuserBlockEntity> animationController = new AnimationController<>(this, "arcadium_infuser_controller", 5, this::predicate);
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -69,6 +71,8 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     private int progress = 0;
     private int maxProgress = 72;
     private final int DEFAULT_MAX_PROGRESS = 72;
+
+    private boolean isInfusing = false;
 
     public ArcadiumInfuserBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.ARCADIUM_INFUSER_BE.get(), pos, blockState);
@@ -114,6 +118,7 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
         tag.put("inventory", itemStackHandler.serializeNBT(registries));
         tag.putInt("arcadium_infuser.progress", progress);
         tag.putInt("arcadium_infuser.max_progress", maxProgress);
+        tag.putBoolean("arcadium_infuser.is_infusing", isInfusing);
         super.saveAdditional(tag, registries);
     }
 
@@ -123,6 +128,7 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
         itemStackHandler.deserializeNBT(registries, tag.getCompound("inventory"));
         progress = tag.getInt("arcadium_infuser.progress");
         maxProgress = tag.getInt("arcadium_infuser.max_progress");
+        isInfusing = tag.getBoolean("arcadium_infuser.is_infusing");
     }
 
     public void drops() {
@@ -136,16 +142,25 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
+        boolean wasInfusing = isInfusing;
+        
         if(hasRecipe() && isOutputSlotEmptyOrReceivable()) {
+            isInfusing = true;
             increaseCraftingProgress();
             setChanged(level, pos, state);
 
             if (hasCraftingFinished()) {
                 craftItem();
                 resetProgress();
+                isInfusing = false;
             }
         } else {
+            isInfusing = false;
           resetProgress();
+        }
+
+        if (wasInfusing != isInfusing && !level.isClientSide) {
+            level.sendBlockUpdated(pos, state, state, 3);
         }
     }
 
@@ -257,10 +272,14 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "arcadium_infuser_controller", 5, this::predicate));
+        controllers.add(animationController);
     }
 
     private PlayState predicate(AnimationState<ArcadiumInfuserBlockEntity> state) {
+        if (isInfusing) {
+            return state.setAndContinue(INFUSING_ANIMATION);
+        }
+
         return state.setAndContinue(IDLE_ANIMATION);
     }
 
