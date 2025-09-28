@@ -69,8 +69,8 @@ public class ArcadiumInfuserBlockEntity extends BlockEntity implements MenuProvi
 
     private final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 72;
-    private final int DEFAULT_MAX_PROGRESS = 72;
+    private int maxProgress = 144;
+    private final int DEFAULT_MAX_PROGRESS = 144;
 
     private boolean isInfusing = false;
 
