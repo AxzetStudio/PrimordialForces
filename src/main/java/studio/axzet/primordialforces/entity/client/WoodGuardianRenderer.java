@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.entity.custom.WoodGuardianEntity;
 
@@ -13,6 +14,7 @@ public class WoodGuardianRenderer extends GeoEntityRenderer<WoodGuardianEntity> 
 
     public WoodGuardianRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new DefaultedEntityGeoModel<>(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "woodguardian")));
+        this.addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override
