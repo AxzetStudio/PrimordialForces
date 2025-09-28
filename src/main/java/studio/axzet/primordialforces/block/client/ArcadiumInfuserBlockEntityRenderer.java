@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.DefaultedBlockGeoModel;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 import studio.axzet.primordialforces.PrimordialForces;
 import studio.axzet.primordialforces.block.entity.ArcadiumInfuserBlockEntity;
 
@@ -13,6 +14,7 @@ public class ArcadiumInfuserBlockEntityRenderer extends GeoBlockRenderer<Arcadiu
 
     public ArcadiumInfuserBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         super(new DefaultedBlockGeoModel<>(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "arcadium_infuser")));
+        this.addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override
