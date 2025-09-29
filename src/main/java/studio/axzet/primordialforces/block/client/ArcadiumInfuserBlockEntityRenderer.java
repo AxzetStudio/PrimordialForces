@@ -14,6 +14,7 @@ public class ArcadiumInfuserBlockEntityRenderer extends GeoBlockRenderer<Arcadiu
 
     public ArcadiumInfuserBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         super(new DefaultedBlockGeoModel<>(ResourceLocation.fromNamespaceAndPath(PrimordialForces.MOD_ID, "arcadium_infuser")));
+        this.addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override
