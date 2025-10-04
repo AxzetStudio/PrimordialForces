@@ -1,19 +1,3 @@
-// 1.21.1	2025-10-03T18:55:05.1144867	Recipes
-8312b85469257a1764f2a6a497057f3b51bda685 data/efs/advancement/recipes/combat/earth_boots_smithing.json
-abd2b967420e68bfc19c3c09f4ddb548b4c0ddaf data/efs/advancement/recipes/combat/earth_chestplate_smithing.json
-cc6b1d17b5e9b0806d12db651db2b1c6dc5c59b4 data/efs/advancement/recipes/combat/earth_helmet_smithing.json
-824629ed3d516cbeae7a0264dc79b2c6bb806f93 data/efs/advancement/recipes/combat/earth_leggings_smithing.json
-0671c9772d512fe6d2eee24ef1ff139ff5006221 data/efs/advancement/recipes/misc/arcadium_conduit.json
-86f691df8801073390aece771c7525668ec3290f data/efs/advancement/recipes/misc/arcadium_core.json
-417d3f311bf532574aaeff3c31804f95b203978d data/efs/advancement/recipes/misc/arcadium_from_blasting_raw_arcadium.json
-1d30a4aa59ce763ab0cc8e357cd7e2fd9321fb64 data/efs/advancement/recipes/misc/arcadium_infuser.json
-ec4abd912492cade0248a71847fa81558ebee576 data/efs/advancement/recipes/misc/arcadium_portal_frame.json
-155732f10ce079cf948e04faeba16d3e8a6e6887 data/efs/recipe/arcadium_conduit.json
-196b26a7237f3099cc8433778390fdf4634a2a85 data/efs/recipe/arcadium_core.json
-4232148695c1a24f2d1741e1456a7b91525ae26b data/efs/recipe/arcadium_from_blasting_raw_arcadium.json
-588f3fcef01c6ca319b8a091eacaa9aeb8743060 data/efs/recipe/arcadium_infuser.json
-e1e21ac6a2d9d4bfc72334a4716935e892aa8dc6 data/efs/recipe/arcadium_portal_frame.json
-0caa5e429fbfba04327320badae355d9698fc059 data/efs/recipe/earth_boots_smithing.json
-09780d1f835355c9f8321a826905c9972df5aff9 data/efs/recipe/earth_chestplate_smithing.json
-349563e5de72b479095bae1b92a8d97921fa94d6 data/efs/recipe/earth_helmet_smithing.json
-aeea94b2805e512a04864e8abcd39b305f301251 data/efs/recipe/earth_leggings_smithing.json
+// 1.21.1	2025-10-04T04:25:36.259279	Recipes
+1e94fd156c7602dfcedb4bbbe5ed800c12a3f6dc data/efs/advancement/recipes/misc/obsidian_shard.json
+244b70c2623ec226f3d33bae1eef5e3e262667e3 data/efs/recipe/obsidian_shard.json

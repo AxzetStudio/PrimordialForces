@@ -14,30 +14,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        // Arcadium
-        basicItem(ModItems.RAW_ARCADIUM.get());
-        basicItem(ModItems.ARCADIUM.get());
-        basicItem(ModItems.ARCADIUM_CONDUIT.get());
-        basicItem(ModItems.ARCADIUM_CORE.get());
-
-        // ESSENCES
-        basicItem(ModItems.VOID_ESSENCE.get());
-        basicItem(ModItems.EARTH_ESSENCE.get());
-        basicItem(ModItems.FIRE_ESSENCE.get());
-        basicItem(ModItems.WATER_ESSENCE.get());
-        basicItem(ModItems.AIR_ESSENCE.get());
-
-        // SHARDS
-        basicItem(ModItems.VOID_SHARD.get());
-        basicItem(ModItems.EARTH_SHARD.get());
-
-        // RUNES
-        basicItem(ModItems.EARTH_RUNE.get());
-
-        // Earth Armor
-        basicItem(ModItems.EARTH_HELMET.get());
-        basicItem(ModItems.EARTH_CHESTPLATE.get());
-        basicItem(ModItems.EARTH_LEGGINGS.get());
-        basicItem(ModItems.EARTH_BOOTS.get());
+        basicItem(ModItems.OBSIDIAN_SHARD.get());
     }
 }

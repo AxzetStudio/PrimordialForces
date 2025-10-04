@@ -1,5 +1,2 @@
-// 1.21.1	2025-10-03T18:55:05.113061	Loot Tables
-220c4fcbbe258956fa0beab07ae19110c95f3e3e data/efs/loot_table/blocks/arcadium_block.json
-fbaf32008d623a0be8f465897059c4325fba289d data/efs/loot_table/blocks/arcadium_deepslate_ore.json
+// 1.21.1	2025-10-04T04:25:36.259279	Loot Tables
 db2b00d1eda451ac8c81f9ac63ebee3bcf409df7 data/efs/loot_table/blocks/arcadium_infuser.json
-7e53959c6d0c7cad2bfafee57f49bab057cea97d data/efs/loot_table/blocks/arcadium_portal_frame.json

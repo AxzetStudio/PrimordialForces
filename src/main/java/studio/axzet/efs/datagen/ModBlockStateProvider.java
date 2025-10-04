@@ -17,9 +17,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         //region ARCADIUM
-        blockWithItem(ModBlocks.ARCADIUM_BLOCK);
-        blockWithItem(ModBlocks.ARCADIUM_DEEPSLATE_ORE);
-        blockWithItem(ModBlocks.ARCADIUM_PORTAL_FRAME);
+        //blockWithItem(ModBlocks.ARCADIUM_DEEPSLATE_ORE);
         //endregion
     }
 

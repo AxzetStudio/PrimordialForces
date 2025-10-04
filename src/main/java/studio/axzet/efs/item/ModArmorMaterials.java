@@ -20,7 +20,7 @@ public class ModArmorMaterials {
 
     public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, EchoesOfTheFifthSun.MOD_ID);
 
-    public static final Holder<ArmorMaterial> VOID_ARCADIUM =
+    /*public static final Holder<ArmorMaterial> VOID_ARCADIUM =
             ARMOR_MATERIALS.register("void_arcadium", () -> new ArmorMaterial(
                     Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
                         map.put(ArmorItem.Type.BOOTS, 4);
@@ -44,7 +44,7 @@ public class ModArmorMaterials {
                     }), 20, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(ModItems.EARTH_RUNE.get()),
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(EchoesOfTheFifthSun.MOD_ID, "earth_arcadium"))),
                     4, 1.0f
-            ));
+            ));*/
 
     public static void register(IEventBus eventBus) {
         ARMOR_MATERIALS.register(eventBus);

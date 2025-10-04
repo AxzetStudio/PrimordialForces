@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "efs:block/arcadium_deepslate_ore"
-  }
-}

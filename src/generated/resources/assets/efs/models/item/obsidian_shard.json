@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "efs:item/fire_essence"
+    "layer0": "efs:item/obsidian_shard"
   }
 }

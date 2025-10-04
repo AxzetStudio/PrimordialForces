@@ -1,10 +1,1 @@
-// 1.21.1	2025-10-03T18:55:05.1154938	Block States: efs
-ec774a9f1317af7e3e65baeb10c5c5a331ccb9d3 assets/efs/blockstates/arcadium_block.json
-00f73d77ae4a03ca3bebd5f8bfdac1a5aa84776b assets/efs/blockstates/arcadium_deepslate_ore.json
-2dd0db7201872a37951bb9ee7ad96ac3b8b265ba assets/efs/blockstates/arcadium_portal_frame.json
-307919090ad547ed8521f2222c8367665697fbfa assets/efs/models/block/arcadium_block.json
-8bbd23a4259f6eea66a84cb70531ed04b3465c61 assets/efs/models/block/arcadium_deepslate_ore.json
-f66f2fbca3912ddc8db2b49981e56a2227189574 assets/efs/models/block/arcadium_portal_frame.json
-4cf8442b6c2fce23ce9a66afb560deaef7306c06 assets/efs/models/item/arcadium_block.json
-6c69189979ab2ee7a0af89869f2692115f495ec1 assets/efs/models/item/arcadium_deepslate_ore.json
-e485d61bd1e139c855970e1fe300e790628cf319 assets/efs/models/item/arcadium_portal_frame.json
+// 1.21.1	2025-10-04T04:25:36.2602789	Block States: efs

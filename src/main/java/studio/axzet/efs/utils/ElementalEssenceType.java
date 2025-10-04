@@ -7,11 +7,11 @@ import studio.axzet.efs.item.ModItems;
 import java.util.function.Supplier;
 
 public enum ElementalEssenceType {
-    EARTH(ModItems.EARTH_ESSENCE),
-    FIRE(ModItems.FIRE_ESSENCE),
-    WATER(ModItems.WATER_ESSENCE),
-    AIR(ModItems.AIR_ESSENCE),
-    VOID(ModItems.VOID_ESSENCE);
+    //EARTH(ModItems.EARTH_ESSENCE),
+    //FIRE(ModItems.FIRE_ESSENCE),
+    //WATER(ModItems.WATER_ESSENCE),
+    //AIR(ModItems.AIR_ESSENCE),
+    VOID(ModItems.OBSIDIAN_SHARD);
 
     private final Supplier<? extends Item> itemSupplier;
 

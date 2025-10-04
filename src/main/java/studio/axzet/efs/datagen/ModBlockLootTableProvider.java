@@ -19,13 +19,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         //region ARCADIUM BLOCKS
-        dropSelf(ModBlocks.ARCADIUM_BLOCK.get());
+        //dropSelf(ModBlocks.ARCADIUM_BLOCK.get());
         dropSelf(ModBlocks.ARCADIUM_INFUSER.get());
-        dropSelf(ModBlocks.ARCADIUM_PORTAL_FRAME.get());
 
-        this.add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get(),
+        /*this.add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get(),
                 block -> createOreDrop(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get(), ModItems.RAW_ARCADIUM.get())
-        );
+        );*/
         //endregion
     }
 

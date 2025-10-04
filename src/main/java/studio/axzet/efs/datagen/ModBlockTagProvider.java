@@ -20,17 +20,15 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.ARCADIUM_BLOCK.get())
-                .add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get())
-                .add(ModBlocks.ARCADIUM_PORTAL_FRAME.get())
+                //.add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get())
         ;
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get());
+                //.add(ModBlocks.ARCADIUM_DEEPSLATE_ORE.get())
+        ;
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(ModBlocks.ARCADIUM_BLOCK.get())
-                .add(ModBlocks.ARCADIUM_PORTAL_FRAME.get())
+                //.add(ModBlocks.ARCADIUM_BLOCK.get())
         ;
     }
 }

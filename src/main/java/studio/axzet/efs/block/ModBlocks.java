@@ -17,17 +17,9 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(EchoesOfTheFifthSun.MOD_ID);
 
     //region ARCADIUM
-    public static final DeferredBlock<Block> ARCADIUM_DEEPSLATE_ORE = registerBlock("arcadium_deepslate_ore",
+    /*public static final DeferredBlock<Block> ARCADIUM_DEEPSLATE_ORE = registerBlock("arcadium_deepslate_ore",
             () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
-    );
-
-    public static final DeferredBlock<Block> ARCADIUM_BLOCK = registerBlock("arcadium_block",
-            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
-    );
-
-    public static final DeferredBlock<Block> ARCADIUM_PORTAL_FRAME = registerBlock("arcadium_portal_frame",
-            () -> new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops())
-    );
+    );*/
 
     // INFUSER
     public static final DeferredBlock<Block> ARCADIUM_INFUSER = registerBlock("arcadium_infuser",

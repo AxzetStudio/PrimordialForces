@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-03T18:55:05.1144867	Registries
+// 1.21.1	2025-10-04T04:38:56.217921	Registries
 67364c9353b8adf4b6660bba70a99547441f8cdf data/efs/neoforge/biome_modifier/add_arcadium_ore.json
-5a09b400bec4364e99cdee9dda09454580f4082b data/efs/worldgen/configured_feature/overworld_arcadium_ore.json
+febca353a2ed9d9fe6b86acbdc9c2582bad8cf8c data/efs/worldgen/configured_feature/overworld_arcadium_ore.json
 83ed76e49a897b119687cf810653f6755f7f70c2 data/efs/worldgen/placed_feature/arcadium_ore_placed.json

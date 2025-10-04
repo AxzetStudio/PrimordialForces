@@ -5,6 +5,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -20,7 +21,7 @@ public class ModConfiguredFeatures  {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
-        register(context, OVERWORLD_ARCADIUM_ORE_KEY, Feature.ORE, new OreConfiguration(deepslateReplaceables, ModBlocks.ARCADIUM_DEEPSLATE_ORE.get().defaultBlockState(), 4));
+        register(context, OVERWORLD_ARCADIUM_ORE_KEY, Feature.ORE, new OreConfiguration(deepslateReplaceables, Blocks.DEEPSLATE_COAL_ORE.defaultBlockState(), 4));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

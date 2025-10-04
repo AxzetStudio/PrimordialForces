@@ -21,11 +21,11 @@ public class ModEvents {
     private static final float ESSENCE_DROP_CHANCE = 0.2f;
 
     private static final Map<Predicate<LivingEntity>, ElementalEssenceType> ELIGIBLE_ENTITIES = Map.of(
-            ModEvents::isEarthEligibleEntity, ElementalEssenceType.EARTH,
-            ModEvents::isFireEligibleEntity, ElementalEssenceType.FIRE,
-            ModEvents::isWaterEligibleEntity, ElementalEssenceType.WATER,
-            ModEvents::isAirEligibleEntity, ElementalEssenceType.AIR,
-            ModEvents::isVoidEligibleEntity, ElementalEssenceType.VOID
+            //ModEvents::isEarthEligibleEntity, ElementalEssenceType.EARTH,
+            //ModEvents::isFireEligibleEntity, ElementalEssenceType.FIRE,
+            //ModEvents::isWaterEligibleEntity, ElementalEssenceType.WATER,
+            //ModEvents::isAirEligibleEntity, ElementalEssenceType.AIR,
+            //ModEvents::isVoidEligibleEntity, ElementalEssenceType.VOID
     );
 
     @SubscribeEvent

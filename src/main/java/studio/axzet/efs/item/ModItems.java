@@ -22,25 +22,10 @@ public class ModItems {
     private static final ResourceLocation EMPTY_SLOT_SWORD = ResourceLocation.withDefaultNamespace("item/empty_slot_sword");
     private static final ResourceLocation EMPTY_ARCADIUM_CORE_SLOT = ResourceLocation.fromNamespaceAndPath(EchoesOfTheFifthSun.MOD_ID, "item/empty_slot_arcadium_core");
 
-    //region ARCADIUM
-    public static final DeferredItem<Item> ARCADIUM = ITEMS.registerSimpleItem("arcadium");
-    public static final DeferredItem<Item> RAW_ARCADIUM = ITEMS.registerSimpleItem("raw_arcadium");
-    public static final DeferredItem<Item> ARCADIUM_CONDUIT = ITEMS.registerSimpleItem("arcadium_conduit");
-    public static final DeferredItem<Item> ARCADIUM_CORE = ITEMS.registerSimpleItem("arcadium_core");
-    //endregion
-    //region ESSENCES
-    public static final DeferredItem<Item> VOID_ESSENCE = ITEMS.registerSimpleItem("void_essence");
-    public static final DeferredItem<Item> EARTH_ESSENCE = ITEMS.registerSimpleItem("earth_essence");
-    public static final DeferredItem<Item> FIRE_ESSENCE = ITEMS.registerSimpleItem("fire_essence");
-    public static final DeferredItem<Item> WATER_ESSENCE = ITEMS.registerSimpleItem("water_essence");
-    public static final DeferredItem<Item> AIR_ESSENCE = ITEMS.registerSimpleItem("air_essence");
-    //endregion
-    //region SHARDS
-    public static final DeferredItem<Item> VOID_SHARD = ITEMS.registerSimpleItem("void_shard");
-    public static final DeferredItem<Item> EARTH_SHARD = ITEMS.registerSimpleItem("earth_shard");
-    //endregion
+    public static final DeferredItem<Item> OBSIDIAN_SHARD = ITEMS.registerSimpleItem("obsidian_shard");
+
     //region RUNES
-    public static final DeferredItem<SmithingTemplateItem> EARTH_RUNE = ITEMS.register(
+    /*public static final DeferredItem<SmithingTemplateItem> EARTH_RUNE = ITEMS.register(
             "earth_rune",
             () -> new SmithingTemplateItem(
                     Component.translatable("item.primordialforces.rune.applies_to"),
@@ -51,7 +36,7 @@ public class ModItems {
                     List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS, EMPTY_SLOT_SWORD, EMPTY_SLOT_SHIELD),
                     List.of(EMPTY_ARCADIUM_CORE_SLOT)
             )
-    );
+    );*/
     //endregion
 
     //region WEAPONS
@@ -64,21 +49,9 @@ public class ModItems {
             );*/
     //endregion
     //region EARTH ARMOR
-    public static final DeferredItem<Item> EARTH_HELMET = ITEMS.register("earth_helmet",
+    /*public static final DeferredItem<Item> EARTH_HELMET = ITEMS.register("earth_helmet",
             () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(16)))
-    );
-
-    public static final DeferredItem<Item> EARTH_CHESTPLATE = ITEMS.register("earth_chestplate",
-            () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(16)))
-    );
-
-    public static final DeferredItem<Item> EARTH_LEGGINGS = ITEMS.register("earth_leggings",
-            () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(16)))
-    );
-
-    public static final DeferredItem<Item> EARTH_BOOTS = ITEMS.register("earth_boots",
-            () -> new EarthArmorItem(ModArmorMaterials.EARTH_ARCADIUM, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(16)))
-    );
+    );*/
     //endregion
 
     public static void register(IEventBus eventBus) {

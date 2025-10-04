@@ -27,51 +27,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-        List<ItemLike> ARCADIUM_SMELTABLES = List.of(ModItems.RAW_ARCADIUM);
+        //List<ItemLike> ARCADIUM_SMELTABLES = List.of(ModItems.RAW_ARCADIUM);
 
-        //region ARCADIUM RECIPES
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ARCADIUM_CONDUIT.get())
-                .pattern("III")
-                .pattern("GAG")
-                .pattern("III")
-                .define('I', Items.IRON_INGOT)
-                .define('G', Items.GLASS)
-                .define('A', ModItems.ARCADIUM.get())
-                .unlockedBy("has_arcadium", has(ModItems.ARCADIUM.get())).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.OBSIDIAN_SHARD.get())
+                .pattern("  O")
+                .pattern(" O ")
+                .pattern("O  ")
+                .define('O', Items.OBSIDIAN)
+                .unlockedBy("has_obsidian", has(Items.OBSIDIAN)).save(recipeOutput);
                 ;
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ARCADIUM_CORE.get())
-                .pattern("ACA")
-                .pattern("CPC")
-                .pattern("ACA")
-                .define('A', ModItems.ARCADIUM.get())
-                .define('C', ModItems.ARCADIUM_CONDUIT.get())
-                .define('P', Items.AMETHYST_SHARD)
-                .unlockedBy("has_arcadium_conduit", has(ModItems.ARCADIUM_CONDUIT.get())).save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ARCADIUM_PORTAL_FRAME.get())
-                .pattern("CAC")
-                .pattern("ABA")
-                .pattern("CAC")
-                .define('C', ModItems.ARCADIUM_CONDUIT.get())
-                .define('A', ModItems.ARCADIUM.get())
-                .define('B', ModBlocks.ARCADIUM_BLOCK)
-                .unlockedBy("has_arcadium_conduit", has(ModItems.ARCADIUM_CONDUIT.get())).save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.ARCADIUM_INFUSER.get())
-                .pattern("CAC")
-                .pattern("AXA")
-                .pattern("CAC")
-                .define('C', ModItems.ARCADIUM_CONDUIT.get())
-                .define('A', ModItems.ARCADIUM.get())
-                .define('X', ModItems.ARCADIUM_CORE.get())
-                .unlockedBy("has_arcadium_core", has(ModItems.ARCADIUM_CORE.get())).save(recipeOutput);
-
-        oreBlasting(recipeOutput, ARCADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ARCADIUM.get(), 0.35f, 100, "arcadium");
+        //oreBlasting(recipeOutput, ARCADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ARCADIUM.get(), 0.35f, 100, "arcadium");
         //endregion
 
         //region EARTH EQUIPMENT
-        smithing(
+        /*smithing(
                 recipeOutput,
                 Ingredient.of(ModItems.EARTH_RUNE.get()),
                 Ingredient.of(Items.NETHERITE_HELMET),
@@ -81,68 +53,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 "has_earth_rune",
                 ModItems.EARTH_RUNE.get(),
                 "earth_helmet_smithing"
-        );
-
-        smithing(
-                recipeOutput,
-                Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.NETHERITE_CHESTPLATE),
-                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
-                RecipeCategory.COMBAT,
-                ModItems.EARTH_CHESTPLATE.get(),
-                "has_earth_rune",
-                ModItems.EARTH_RUNE.get(),
-                "earth_chestplate_smithing"
-        );
-
-        smithing(
-                recipeOutput,
-                Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.NETHERITE_LEGGINGS),
-                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
-                RecipeCategory.COMBAT,
-                ModItems.EARTH_LEGGINGS.get(),
-                "has_earth_rune",
-                ModItems.EARTH_RUNE.get(),
-                "earth_leggings_smithing"
-        );
-
-        smithing(
-                recipeOutput,
-                Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.NETHERITE_BOOTS),
-                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
-                RecipeCategory.COMBAT,
-                ModItems.EARTH_BOOTS.get(),
-                "has_earth_rune",
-                ModItems.EARTH_RUNE.get(),
-                "earth_boots_smithing"
-        );
-
-        /*smithing(
-                recipeOutput,
-                Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.DIAMOND_SWORD),
-                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
-                RecipeCategory.COMBAT,
-                ModItems.EARTH_SWORD.get(),
-                "has_earth_rune",
-                ModItems.EARTH_RUNE.get(),
-                "earth_sword_smithing"
-        );
-
-        smithing(
-                recipeOutput,
-                Ingredient.of(ModItems.EARTH_RUNE.get()),
-                Ingredient.of(Items.SHIELD),
-                Ingredient.of(ModItems.ARCADIUM_CORE.get()),
-                RecipeCategory.COMBAT,
-                ModItems.EARTH_SHIELD.get(),
-                "has_earth_rune",
-                ModItems.EARTH_RUNE.get(),
-                "earth_shield_smithing"
         );*/
-
         //endregion
     }
 
