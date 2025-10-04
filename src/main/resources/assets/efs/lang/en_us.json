@@ -1,0 +1,22 @@
+{
+  "item.efs.arcadium": "Arcadium",
+  "item.efs.raw_arcadium": "Raw Arcadium",
+  "item.efs.arcadium_conduit": "Arcadium Conduit",
+  "item.efs.arcadium_core": "Arcadium Core",
+
+  "item.efs.void_essence": "Void Essence",
+
+  "item.efs.void_shard": "Void Shard",
+
+  "block.efs.arcadium_deepslate_ore": "Arcadium Deepslate Ore",
+
+  "item.efs.rune.applies_to" : "Netherite Equipment",
+  "item.efs.rune.ingredients": "Arcadium Core",
+  "item.efs.rune.base_slot": "Netherite Armor",
+  "item.efs.rune.additional_slot": "Arcadium Core",
+
+  "item.efs.earth_rune.upgrade":  "Earth Arcadium Upgrade",
+
+  "death.attack.poison_cloud": "%1$s died by forces of nature",
+  "death.attack.poison_cloud.player": "%1$s died by forces of nature while fighting %2$s"
+}

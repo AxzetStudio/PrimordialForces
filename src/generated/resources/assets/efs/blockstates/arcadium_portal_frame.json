@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "efs:block/arcadium_portal_frame"
+    }
+  }
+}

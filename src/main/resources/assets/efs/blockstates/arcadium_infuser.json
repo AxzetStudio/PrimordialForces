@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "efs:block/arcadium_infuser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "efs:block/arcadium_infuser"
+    },
+    "facing=south": {
+      "model": "efs:block/arcadium_infuser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "efs:block/arcadium_infuser",
+      "y": 270
+    }
+  }
+}

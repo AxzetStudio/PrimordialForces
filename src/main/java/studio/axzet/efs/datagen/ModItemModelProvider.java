@@ -1,0 +1,43 @@
+package studio.axzet.efs.datagen;
+
+import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import studio.axzet.efs.EchoesOfTheFifthSun;
+import studio.axzet.efs.item.ModItems;
+
+public class ModItemModelProvider extends ItemModelProvider {
+
+    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+        super(output, EchoesOfTheFifthSun.MOD_ID, existingFileHelper);
+    }
+
+    @Override
+    protected void registerModels() {
+        // Arcadium
+        basicItem(ModItems.RAW_ARCADIUM.get());
+        basicItem(ModItems.ARCADIUM.get());
+        basicItem(ModItems.ARCADIUM_CONDUIT.get());
+        basicItem(ModItems.ARCADIUM_CORE.get());
+
+        // ESSENCES
+        basicItem(ModItems.VOID_ESSENCE.get());
+        basicItem(ModItems.EARTH_ESSENCE.get());
+        basicItem(ModItems.FIRE_ESSENCE.get());
+        basicItem(ModItems.WATER_ESSENCE.get());
+        basicItem(ModItems.AIR_ESSENCE.get());
+
+        // SHARDS
+        basicItem(ModItems.VOID_SHARD.get());
+        basicItem(ModItems.EARTH_SHARD.get());
+
+        // RUNES
+        basicItem(ModItems.EARTH_RUNE.get());
+
+        // Earth Armor
+        basicItem(ModItems.EARTH_HELMET.get());
+        basicItem(ModItems.EARTH_CHESTPLATE.get());
+        basicItem(ModItems.EARTH_LEGGINGS.get());
+        basicItem(ModItems.EARTH_BOOTS.get());
+    }
+}

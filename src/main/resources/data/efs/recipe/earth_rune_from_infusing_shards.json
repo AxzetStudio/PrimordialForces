@@ -1,0 +1,12 @@
+{
+  "type": "efs:arcadium_infusing",
+  "core": {
+    "item": "efs:arcadium_core"
+  },
+  "infuser": {
+    "item": "efs:earth_shard"
+  },
+  "result": {
+    "id": "efs:earth_rune"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "efs:arcadium_infusing",
+  "core": {
+    "item": "efs:earth_essence"
+  },
+  "infuser": {
+    "item": "minecraft:grass_block"
+  },
+  "result": {
+    "id": "efs:earth_shard"
+  }
+}

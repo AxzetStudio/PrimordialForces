@@ -1,4 +1,0 @@
-// 1.21.1	2025-08-24T16:53:14.7915958	Tags for minecraft:block mod id primordialforces
-24988f335cd0745aeb562cc1e9d400556adce63f data/minecraft/tags/block/mineable/pickaxe.json
-48b8aac9704499c7884b05c8e3e0cd177f768dce data/minecraft/tags/block/needs_diamond_tool.json
-e159df2984d8938455ea536bb8036fe54f097a9d data/minecraft/tags/block/needs_stone_tool.json

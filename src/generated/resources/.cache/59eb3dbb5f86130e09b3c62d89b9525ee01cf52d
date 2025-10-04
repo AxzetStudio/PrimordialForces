@@ -1,5 +1,5 @@
-// 1.21.1	2025-08-24T16:53:14.7925999	Loot Tables
-01da2d0398a94ad20b19a97b4315091314b17687 data/primordialforces/loot_table/blocks/arcadium_block.json
-4f351096f67c881861e7f1cb94165a1449f9661e data/primordialforces/loot_table/blocks/arcadium_deepslate_ore.json
-e6fd017c550c07aadc49613e54558ca01efed9ee data/primordialforces/loot_table/blocks/arcadium_infuser.json
-e3b9903a11181ca09f8430fedbfbdac94ad578ac data/primordialforces/loot_table/blocks/arcadium_portal_frame.json
+// 1.21.1	2025-10-03T18:55:05.113061	Loot Tables
+220c4fcbbe258956fa0beab07ae19110c95f3e3e data/efs/loot_table/blocks/arcadium_block.json
+fbaf32008d623a0be8f465897059c4325fba289d data/efs/loot_table/blocks/arcadium_deepslate_ore.json
+db2b00d1eda451ac8c81f9ac63ebee3bcf409df7 data/efs/loot_table/blocks/arcadium_infuser.json
+7e53959c6d0c7cad2bfafee57f49bab057cea97d data/efs/loot_table/blocks/arcadium_portal_frame.json

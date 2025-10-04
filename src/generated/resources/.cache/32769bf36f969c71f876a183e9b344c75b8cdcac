@@ -1,0 +1,17 @@
+// 1.21.1	2025-10-03T18:55:05.113061	Item Models: efs
+bb5453c3f721f7f2af31d8879e92d35dd3f54068 assets/efs/models/item/air_essence.json
+6cdfc2a45efa74a1ce5ca4665263bdb2cbcd6d6b assets/efs/models/item/arcadium.json
+688bf8b27ae66c74f9b3714c803ae4708f15c766 assets/efs/models/item/arcadium_conduit.json
+f742978e29793f67b3b21a19d4078b63040ecd89 assets/efs/models/item/arcadium_core.json
+3bf2842c0e82970206a16762cf35add103495300 assets/efs/models/item/earth_boots.json
+51edb8e18886d23e518c82fb7f4381523f6c9582 assets/efs/models/item/earth_chestplate.json
+d9763cc23a82345d999146ca41ba3063110629bb assets/efs/models/item/earth_essence.json
+e0742d18a534fa999442d6925e0067de2160cfa3 assets/efs/models/item/earth_helmet.json
+2652f9e8921579b25c69521c373101bc9ef8e02d assets/efs/models/item/earth_leggings.json
+e6874ee720028e19dbba64afef1c74918167abb9 assets/efs/models/item/earth_rune.json
+a11ba3b81297b4a7b3b501c7c7e57059e6086cd9 assets/efs/models/item/earth_shard.json
+d0b0dfdfdec203b1dae7aa752c6851f68ce09fba assets/efs/models/item/fire_essence.json
+29a6cc09cc7862821a51c05193b04cd874a32779 assets/efs/models/item/raw_arcadium.json
+3133bc1a2624833acec5e363ad86548e15065d05 assets/efs/models/item/void_essence.json
+9f91af97c8d95f9eeed5ffab2597857add309c42 assets/efs/models/item/void_shard.json
+ac5bec5b5b035d21f250768f3b0b308a2a17eaf1 assets/efs/models/item/water_essence.json

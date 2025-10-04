@@ -1,0 +1,4 @@
+// 1.21.1	2025-10-03T18:55:05.1120608	Tags for minecraft:block mod id efs
+1ad9ec3f975dc7360489e01970b9d11de4a1947b data/minecraft/tags/block/mineable/pickaxe.json
+8ead8d8949d8df2e0b3ae671e57d282890f7f1b4 data/minecraft/tags/block/needs_diamond_tool.json
+ce1a864325c3b23f8ad42772c712674865e25084 data/minecraft/tags/block/needs_stone_tool.json

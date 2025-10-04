@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "efs:block/arcadium_deepslate_ore"
+    }
+  }
+}

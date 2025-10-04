@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "efs:arcadium_core"
+  },
+  "base": {
+    "item": "minecraft:netherite_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "efs:earth_boots"
+  },
+  "template": {
+    "item": "efs:earth_rune"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "efs:arcadium"
+    },
+    "C": {
+      "item": "efs:arcadium_conduit"
+    },
+    "X": {
+      "item": "efs:arcadium_core"
+    }
+  },
+  "pattern": [
+    "CAC",
+    "AXA",
+    "CAC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "efs:arcadium_infuser"
+  }
+}

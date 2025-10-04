@@ -1,7 +1,7 @@
 {
   "values": [
-    "primordialforces:arcadium_block",
-    "primordialforces:arcadium_deepslate_ore",
-    "primordialforces:arcadium_portal_frame"
+    "efs:arcadium_block",
+    "efs:arcadium_deepslate_ore",
+    "efs:arcadium_portal_frame"
   ]
 }
