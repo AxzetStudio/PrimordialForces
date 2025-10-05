@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": {
+      "tag": "minecraft:planks"
+    },
+    "O": {
+      "item": "efs:obsidian_shard"
+    },
+    "P": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " OM",
+    "OMO",
+    "PO "
+  ],
+  "result": {
+    "count": 1,
+    "id": "efs:macuahuitl"
+  }
+}

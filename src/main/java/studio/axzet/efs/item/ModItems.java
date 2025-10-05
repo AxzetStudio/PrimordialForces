@@ -24,6 +24,12 @@ public class ModItems {
 
     public static final DeferredItem<Item> OBSIDIAN_SHARD = ITEMS.registerSimpleItem("obsidian_shard");
 
+    //region Weapons
+    public static final DeferredItem<Item> MACUAHUITL = ITEMS.register("macuahuitl",
+            () -> new SwordItem(Tiers.WOOD, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.WOOD, 3, -2.4f)))
+    );
+    //endregion
+
     //region RUNES
     /*public static final DeferredItem<SmithingTemplateItem> EARTH_RUNE = ITEMS.register(
             "earth_rune",

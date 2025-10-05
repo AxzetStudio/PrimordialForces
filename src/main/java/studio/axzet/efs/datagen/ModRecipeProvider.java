@@ -5,10 +5,13 @@ import net.minecraft.data.PackOutput;
 
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
@@ -37,8 +40,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_obsidian", has(Items.OBSIDIAN)).save(recipeOutput);
                 ;
 
-
-
+                ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.MACUAHUITL.get())
+                        .pattern(" OM")
+                        .pattern("OMO")
+                        .pattern("PO ")
+                        .define('O', ModItems.OBSIDIAN_SHARD.get())
+                        .define('M', ItemTags.PLANKS)
+                        .define('P', Items.STICK)
+                        .unlockedBy("has_obsidian_shard", has(ModItems.OBSIDIAN_SHARD.get())).save(recipeOutput);
+                        ;
         //oreBlasting(recipeOutput, ARCADIUM_SMELTABLES, RecipeCategory.MISC, ModItems.ARCADIUM.get(), 0.35f, 100, "arcadium");
         //endregion
 
