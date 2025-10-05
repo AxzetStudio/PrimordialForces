@@ -5,11 +5,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.monster.breeze.Breeze;
+import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import studio.axzet.efs.EchoesOfTheFifthSun;
 import studio.axzet.efs.entity.custom.WoodGuardianEntity;
+import studio.axzet.efs.item.ModItems;
 import studio.axzet.efs.utils.ElementalEssenceType;
 
 import java.util.Map;
@@ -18,66 +21,26 @@ import java.util.function.Predicate;
 @EventBusSubscriber(modid = EchoesOfTheFifthSun.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class ModEvents {
 
-    private static final float ESSENCE_DROP_CHANCE = 0.2f;
-
-    private static final Map<Predicate<LivingEntity>, ElementalEssenceType> ELIGIBLE_ENTITIES = Map.of(
-            //ModEvents::isEarthEligibleEntity, ElementalEssenceType.EARTH,
-            //ModEvents::isFireEligibleEntity, ElementalEssenceType.FIRE,
-            //ModEvents::isWaterEligibleEntity, ElementalEssenceType.WATER,
-            //ModEvents::isAirEligibleEntity, ElementalEssenceType.AIR,
-            //ModEvents::isVoidEligibleEntity, ElementalEssenceType.VOID
-    );
+    private static final float VILLAGER_HEART_DROP_CHANCE = 0.4f;
 
     @SubscribeEvent
     public static void onLivingDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntity();
         RandomSource random = entity.level().random;
 
-        if (random.nextFloat() >= ESSENCE_DROP_CHANCE) return;
+        if (random.nextFloat() >= VILLAGER_HEART_DROP_CHANCE) return;
 
-        ELIGIBLE_ENTITIES.forEach((predicate, essenceType) -> {
-            if (predicate.test(entity)) {
-                addElementalEssenceDrop(event, essenceType);
-            }
-        });
-    }
+        if (entity instanceof Villager) {
+            ItemStack heartStack = new ItemStack(ModItems.HEART.get());
+            ItemEntity heartDrop = new ItemEntity(
+                    entity.level(),
+                    entity.getX(),
+                    entity.getY(),
+                    entity.getZ(),
+                    heartStack
+            );
 
-    private static boolean isVoidEligibleEntity(Object entity) {
-        return entity instanceof EnderMan
-                ;
-    }
-
-    private static boolean isEarthEligibleEntity(Object entity) {
-        return entity instanceof Husk
-                || entity instanceof Bogged
-                || entity instanceof WoodGuardianEntity
-                ;
-    }
-
-    private static boolean isFireEligibleEntity(Object entity) {
-        return entity instanceof Blaze
-                || entity instanceof MagmaCube
-                ;
-    }
-
-    private static boolean isWaterEligibleEntity(Object entity) {
-        return entity instanceof Guardian
-                ;
-    }
-
-    private static boolean isAirEligibleEntity(Object entity) {
-        return entity instanceof Breeze
-                ;
-    }
-
-    private static void addElementalEssenceDrop(LivingDropsEvent event, ElementalEssenceType element) {
-        ItemEntity drop = new ItemEntity(
-                event.getEntity().level(),
-                event.getEntity().getX(),
-                event.getEntity().getY(),
-                event.getEntity().getZ(),
-                element.createEssence()
-        );
-        event.getDrops().add(drop);
+            event.getDrops().add(heartDrop);
+        }
     }
 }
