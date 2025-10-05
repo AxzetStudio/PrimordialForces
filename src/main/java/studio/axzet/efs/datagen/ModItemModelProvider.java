@@ -15,6 +15,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         basicItem(ModItems.OBSIDIAN_SHARD.get());
+        basicItem(ModItems.HEART.get());
 
         handheldItem(ModItems.MACUAHUITL.get());
     }
