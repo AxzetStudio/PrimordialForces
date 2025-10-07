@@ -9,14 +9,17 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
+import software.bernie.geckolib.animation.*;
 
 public class Jaguar extends Animal implements GeoEntity {
 
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+
+    private static final RawAnimation IDLE_ANIMATION = RawAnimation.begin().thenLoop("idle");
 
     public Jaguar(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
@@ -43,7 +46,11 @@ public class Jaguar extends Animal implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "jaguar_controller", 5, this::predicate));
+    }
 
+    private PlayState predicate(AnimationState<Jaguar> state) {
+        return state.setAndContinue(IDLE_ANIMATION);
     }
 
     @Override
