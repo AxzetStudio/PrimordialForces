@@ -14,6 +14,7 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.WOOD_GUARDIAN.get(), WoodGuardianEntity.createAttributes().build());
+        event.put(ModEntities.JAGUAR.get(), Jaguar.createAttributes().build());
     }
 
     @SubscribeEvent

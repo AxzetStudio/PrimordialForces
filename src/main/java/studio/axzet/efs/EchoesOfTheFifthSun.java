@@ -104,6 +104,7 @@ public class EchoesOfTheFifthSun
             EntityRenderers.register(ModEntities.WOOD_GUARDIAN.get(), WoodGuardianRenderer::new);
             EntityRenderers.register(ModEntities.POISON_CLOUD.get(), NoopRenderer::new);
             EntityRenderers.register(ModEntities.THORNS_FIELD.get(), NoopRenderer::new);
+            EntityRenderers.register(ModEntities.JAGUAR.get(), JaguarRenderer::new);
         }
 
         @SubscribeEvent

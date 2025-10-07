@@ -26,6 +26,12 @@ public class ModEntities {
             () -> EntityType.Builder.<ThornsFieldEntity>of(ThornsFieldEntity::new, MobCategory.AMBIENT).sized(1, 0.5f).fireImmune().build("thorns_field")
     );
 
+    //region
+    public static final Supplier<EntityType<Jaguar>> JAGUAR = ENTITY_TYPES.register("jaguar",
+            () -> EntityType.Builder.of(Jaguar::new, MobCategory.CREATURE).sized(0.7f, 1f).build("jaguar")
+    );
+    //endregion
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
