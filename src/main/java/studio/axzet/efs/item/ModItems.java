@@ -25,6 +25,7 @@ public class ModItems {
     public static final DeferredItem<Item> OBSIDIAN_SHARD = ITEMS.registerSimpleItem("obsidian_shard");
 
     public static final DeferredItem<Item> HEART = ITEMS.registerSimpleItem("heart");
+    public static final DeferredItem<Item> AXOLOTL_TOTEM = ITEMS.registerSimpleItem("axolotl_totem");
 
     //region Weapons
     public static final DeferredItem<Item> MACUAHUITL = ITEMS.register("macuahuitl",
